@@ -5,7 +5,8 @@
 	"main": "index.js",
 	"types": "index.d.ts",
 	"scripts": {
-		"build": "cmake-js build"
+		"build": "cmake-js build",
+		"postinstall": "npm run build"
 	},
 	"repository": {
 		"type": "git",
