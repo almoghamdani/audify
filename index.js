@@ -1,3 +1,1 @@
-const audify = require("bindings")("audify");
-
-export default audify;
+exports = module.exports = require("bindings")("audify");
