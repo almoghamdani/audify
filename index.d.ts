@@ -1,23 +1,138 @@
-export namespace Audify {
-	namespace Opus {
-		/** Opus Coding Mode. */
-		enum Application {
-			/** Best for most VoIP/videoconference applications where listening quality and intelligibility matter most. */
-			OPUS_APPLICATION_VOIP = 2048,
+/// <reference types="node" />
 
-			/** Best for broadcast/high-fidelity application where the decoded audio should be as close as possible to the input. */
-			OPUS_APPLICATION_AUDIO = 2049,
+/** Opus Coding Mode. */
+declare const enum OpusApplication {
+	/** Best for most VoIP/videoconference applications where listening quality and intelligibility matter most. */
+	OPUS_APPLICATION_VOIP = 2048,
 
-			/** Only use when lowest-achievable latency is what matters most. Voice-optimized modes cannot be used. */
-			OPUS_APPLICATION_RESTRICTED_LOWDELAY = 2051
-		}
-	}
+	/** Best for broadcast/high-fidelity application where the decoded audio should be as close as possible to the input. */
+	OPUS_APPLICATION_AUDIO = 2049,
+
+	/** Only use when lowest-achievable latency is what matters most. Voice-optimized modes cannot be used. */
+	OPUS_APPLICATION_RESTRICTED_LOWDELAY = 2051
+}
+
+/** Audio API specifier arguments. */
+declare const enum RtAudioApi {
+	/** Search for a working compiled API. */
+	UNSPECIFIED,
+
+	/** The Advanced Linux Sound Architecture API. */
+	LINUX_ALSA,
+
+	/** The Linux PulseAudio API. */
+	LINUX_PULSE,
+
+	/** The Linux Open Sound System API. */
+	LINUX_OSS,
+
+	/** The Jack Low-Latency Audio Server API. */
+	UNIX_JACK,
+
+	/** Macintosh OS-X Core Audio API. */
+	MACOSX_CORE,
+
+	/** The Microsoft WASAPI API. */
+	WINDOWS_WASAPI,
+
+	/** The Steinberg Audio Stream I/O API. */
+	WINDOWS_ASIO,
+
+	/** The Microsoft DirectSound API. */
+	WINDOWS_DS,
+
+	/** A compilable but non-functional API. */
+	RTAUDIO_DUMMY
+}
+
+/** The format of the PCM data. */
+declare const enum RtAudioFormat {
+	/** 8-bit signed integer. */
+	RTAUDIO_SINT8 = 0x1,
+
+	/** 16-bit signed integer. */
+	RTAUDIO_SINT16 = 0x2,
+
+	/** 24-bit signed integer. */
+	RTAUDIO_SINT24 = 0x4,
+
+	/** 32-bit signed integer. */
+	RTAUDIO_SINT32 = 0x8,
+
+	/** Normalized between plus/minus 1.0. */
+	RTAUDIO_FLOAT32 = 0x10,
+
+	/** Normalized between plus/minus 1.0. */
+	RTAUDIO_FLOAT64 = 0x20
+}
+
+/** Flags that change the default stream behavior */
+declare const enum RtAudioStreamFlags {
+	/** Use non-interleaved buffers (default = interleaved). */
+	RTAUDIO_NONINTERLEAVED = 0x1,
+
+	/** Attempt to set stream parameters for lowest possible latency. */
+	RTAUDIO_MINIMIZE_LATENCY = 0x2,
+
+	/** Attempt grab device and prevent use by others. */
+	RTAUDIO_HOG_DEVICE = 0x4,
+
+	/** Try to select realtime scheduling for callback thread. */
+	RTAUDIO_SCHEDULE_REALTIME = 0x8,
+
+	/** Use the "default" PCM device (ALSA only). */
+	RTAUDIO_ALSA_USE_DEFAULT = 0x10,
+
+	/** Do not automatically connect ports (JACK only). */
+	RTAUDIO_JACK_DONT_CONNECT = 0x20
+}
+
+/** The public device information structure for returning queried values. */
+declare interface RtAudioDeviceInfo {
+	/** Character string device identifier. */
+	name: string;
+
+	/** Maximum output channels supported by device. */
+	outputChannels: number;
+
+	/** Maximum input channels supported by device. */
+	inputChannels: number;
+
+	/** Maximum simultaneous input/output channels supported by device. */
+	duplexChannels: number;
+
+	/** Is the device the default output device */
+	isDefaultOutput: number;
+
+	/** Is the device the default input device */
+	isDefaultInput: number;
+
+	/** Supported sample rates (queried from list of standard rates). */
+	sampleRates: Array<number>;
+
+	/** Preferred sample rate, e.g. for WASAPI the system sample rate. */
+	preferredSampleRate: number;
+
+	/** Bit mask of supported data formats. */
+	nativeFormats: number;
+}
+
+/** The structure for specifying input or ouput stream parameters. */
+declare interface RtAudioStreamParameters {
+	/** Device index. */
+	deviceId?: number;
+
+	/** Number of channels. */
+	nChannels: number;
+
+	/** First channel index on device (default = 0). */
+	firstChannel?: number;
 }
 
 /**
  * A class that encodes PCM input signal from 16-bit signed integer or floating point input.
  */
-export class OpusEncoder {
+export declare class OpusEncoder {
 	/** The bitrate of the encode. */
 	public bitrate: number;
 
@@ -30,7 +145,7 @@ export class OpusEncoder {
 	constructor(
 		sampleRate: number,
 		channels: number,
-		application: Audify.Opus.Application
+		application: OpusApplication
 	);
 
 	/**
@@ -53,7 +168,7 @@ export class OpusEncoder {
 /**
  * A class that decodes Opus packet to 16-bit signed integer or floating point PCM.
  */
-export class OpusDecoder {
+export declare class OpusDecoder {
 	/**
 	 * Create an opus decoder.
 	 * @param sampleRate Sample rate to decode at (Hz). This must be one of 8000, 12000, 16000, 24000, or 48000.
@@ -76,4 +191,95 @@ export class OpusDecoder {
 	 * @return The output signal in floating point PCM.
 	 */
 	public decodeFloat(data: Buffer, frameSize: number): Buffer;
+}
+
+/** RtAudio provides a common API (Application Programming Interface)
+    for realtime audio input/output across Linux (native ALSA, Jack,
+    and OSS), Macintosh OS X (CoreAudio and Jack), and Windows
+    (DirectSound, ASIO and WASAPI) operating systems. */
+export declare class RtAudio {
+	/**
+	 * Create an RtAudio instance.
+	 * @param api The audio API to use. (Default will be automatically selected)
+	 */
+	constructor(api?: RtAudioApi);
+
+	/**
+	 * A public function for opening a stream with the specified parameters.
+	 * @param outputParameters Specifies output stream parameters to use when opening a stream. For input-only streams, this argument should be null.
+	 * @param inputParameters Specifies input stream parameters to use when opening a stream. For output-only streams, this argument should be null.
+	 * @param format An RtAudio.Format specifying the desired sample data format.
+	 * @param sampleRate The desired sample rate (sample frames per second).
+	 * @param frameSize The amount of samples per frame.
+	 * @param streamName A stream name (currently used only in Jack).
+	 * @param inputCallback A callback that is called when a new input signal is available. Should be null for output-only streams.
+	 * @param flags A bit-mask of stream flags (RtAudio.StreamFlags).
+	 */
+	openStream(
+		outputParameters: RtAudioStreamParameters | null,
+		inputParameters: RtAudioStreamParameters | null,
+		format: RtAudioFormat,
+		sampleRate: number,
+		frameSize: number,
+		streamName: string,
+		inputCallback: (inputData: Buffer) => void | null,
+		flags?: RtAudioStreamFlags
+	): void;
+
+	/**
+	 * A function that closes a stream and frees any associated stream memory.
+	 */
+	closeStream(): void;
+
+	/**
+	 * Returns true if a stream is open and false if not.
+	 */
+	isStreamOpen(): boolean;
+
+	/**
+	 * A function that starts a stream.
+	 */
+	start(): void;
+
+	/**
+	 * Stop a stream, allowing any samples remaining in the output queue to be played.
+	 */
+	stop(): void;
+
+	/**
+	 * Returns true if the stream is running and false if it is stopped or not open.
+	 */
+	isStreamRunning(): boolean;
+
+	/**
+	 * Queues a new output PCM data to be played using the stream.
+	 * @param pcm The raw PCM data. The length should be frame_size * no_of_output_channels * size_of_sample.
+	 */
+	write(pcm: Buffer): void;
+
+	/**
+	 * Returns the full display name of the current used API.
+	 */
+	getApi(): string;
+
+	/**
+	 * Returns the internal stream latency in sample frames.
+	 */
+	getStreamLatency(): number;
+
+	/**
+	 * Returns actual sample rate in use by the stream.
+	 */
+	getStreamSampleRate(): number;
+
+	/**
+	 * Returns the number of elapsed seconds since the stream was started.
+	 */
+	getStreamTime(): number;
+
+	/**
+	 * Set the stream time to a time in seconds greater than or equal to 0.0.
+	 * @param time The new stream time.
+	 */
+	setStreamTime(time: number): void;
 }
