@@ -89,3 +89,5 @@ class OpusDecoder {
 	 */
 	public encodeFloat(data: BufferSource, frameSize: number): BufferSource;
 }
+
+exports = { OpusEncoder, OpusDecoder };
