@@ -1,4 +1,4 @@
-namespace Audify {
+export namespace Audify {
 	/** Opus Coding Mode. */
 	enum OpusApplication {
 		/** Best for most VoIP/videoconference applications where listening quality and intelligibility matter most. */
@@ -10,41 +10,22 @@ namespace Audify {
 		/** Only use when lowest-achievable latency is what matters most. Voice-optimized modes cannot be used. */
 		OPUS_APPLICATION_RESTRICTED_LOWDELAY = 2051
 	}
-
-	/** Options for Opus Encoder. */
-	interface OpusEncoderOptions {
-		/** Sampling rate of input signal (Hz) This must be one of 8000, 12000, 16000, 24000, or 48000. */
-		readonly sampleRate: number;
-
-		/** Number of channels (1 or 2) in input signal. */
-		readonly channels: number;
-
-		/** Coding mode. */
-		readonly application: OpusApplication;
-	}
-
-	/** Options for Opus Decoder. */
-	interface OpusDecoderOptions {
-		/** Sample rate to decode at (Hz). This must be one of 8000, 12000, 16000, 24000, or 48000. */
-		readonly sampleRate: number;
-
-		/** Number of channels (1 or 2) to decode. */
-		readonly channels: number;
-	}
 }
 
 /**
  * A class that encodes PCM input signal from 16-bit signed integer or floating point input.
  */
-class OpusEncoder {
-	/* The bitrate of the encode */
+export class OpusEncoder {
+	/** The bitrate of the encode. */
 	public bitrate: number;
 
 	/**
 	 * Create an opus encoder.
-	 * @param opts The options for the opus encoder.
+	 * @param sampleRate Sampling rate of input signal (Hz) This must be one of 8000, 12000, 16000, 24000, or 48000.
+	 * @param channels Number of channels (1 or 2) in input signal.
+	 * @param application Coding mode.
 	 */
-	constructor(opts: Audify.OpusEncoderOptions);
+	constructor(sampleRate: number, channels: number, application: Audify.OpusApplication);
 
 	/**
 	 * Encodes an Opus frame from 16-bit signed integer input.
@@ -52,7 +33,7 @@ class OpusEncoder {
 	 * @param frameSize Number of samples per channel in the input signal. This must be an Opus frame size for the encoder's sampling rate.
 	 * @return The encoded Opus packet of the frame.
 	 */
-	public encode(pcm: BufferSource, frameSize: number): BufferSource;
+	public encode(pcm: Buffer, frameSize: number): Buffer;
 
 	/**
 	 * Encodes an Opus frame from floating point input.
@@ -60,18 +41,19 @@ class OpusEncoder {
 	 * @param frameSize Number of samples per channel in the input signal. This must be an Opus frame size for the encoder's sampling rate.
 	 * @return The encoded Opus packet of the frame.
 	 */
-	public encodeFloat(pcm: BufferSource, frameSize: number): BufferSource;
+	public encodeFloat(pcm: Buffer, frameSize: number): Buffer;
 }
 
 /**
  * A class that decodes Opus packet to 16-bit signed integer or floating point PCM.
  */
-class OpusDecoder {
+export class OpusDecoder {
 	/**
 	 * Create an opus decoder.
-	 * @param opts The options for the opus decoder.
+	 * @param sampleRate Sample rate to decode at (Hz). This must be one of 8000, 12000, 16000, 24000, or 48000.
+	 * @param channels Number of channels (1 or 2) to decode.
 	 */
-	constructor(opts: Audify.OpusDecoderOptions);
+	constructor(sampleRate: number, channels: number);
 
 	/**
 	 * Decodes an Opus packet to 16-bit signed integer PCM.
@@ -79,7 +61,7 @@ class OpusDecoder {
 	 * @param frameSize Number of samples per channel in the opus packet. This must be an Opus frame size for the encoder's sampling rate.
 	 * @return The output signal in 16-bit signed integer PCM.
 	 */
-	public decode(data: BufferSource, frameSize: number): BufferSource;
+	public decode(data: Buffer, frameSize: number): Buffer;
 
 	/**
 	 * Decodes an Opus packet to floating point PCM.
@@ -87,7 +69,5 @@ class OpusDecoder {
 	 * @param frameSize Number of samples per channel in the opus packet. This must be an Opus frame size for the encoder's sampling rate.
 	 * @return The output signal in floating point PCM.
 	 */
-	public encodeFloat(data: BufferSource, frameSize: number): BufferSource;
+	public decodeFloat(data: Buffer, frameSize: number): Buffer;
 }
-
-exports = { OpusEncoder, OpusDecoder };
