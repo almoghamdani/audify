@@ -1,3 +1,6 @@
 [submodule "vendor/opus"]
 	path = vendor/opus
 	url = https://github.com/xiph/opus
+[submodule "vendor/rtaudio"]
+	path = vendor/rtaudio
+	url = https://github.com/thestk/rtaudio
