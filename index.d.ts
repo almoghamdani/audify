@@ -1,14 +1,16 @@
 export namespace Audify {
-	/** Opus Coding Mode. */
-	enum OpusApplication {
-		/** Best for most VoIP/videoconference applications where listening quality and intelligibility matter most. */
-		OPUS_APPLICATION_VOIP = 2048,
+	namespace Opus {
+		/** Opus Coding Mode. */
+		enum Application {
+			/** Best for most VoIP/videoconference applications where listening quality and intelligibility matter most. */
+			OPUS_APPLICATION_VOIP = 2048,
 
-		/** Best for broadcast/high-fidelity application where the decoded audio should be as close as possible to the input. */
-		OPUS_APPLICATION_AUDIO = 2049,
+			/** Best for broadcast/high-fidelity application where the decoded audio should be as close as possible to the input. */
+			OPUS_APPLICATION_AUDIO = 2049,
 
-		/** Only use when lowest-achievable latency is what matters most. Voice-optimized modes cannot be used. */
-		OPUS_APPLICATION_RESTRICTED_LOWDELAY = 2051
+			/** Only use when lowest-achievable latency is what matters most. Voice-optimized modes cannot be used. */
+			OPUS_APPLICATION_RESTRICTED_LOWDELAY = 2051
+		}
 	}
 }
 
@@ -28,7 +30,7 @@ export class OpusEncoder {
 	constructor(
 		sampleRate: number,
 		channels: number,
-		application: Audify.OpusApplication
+		application: Audify.Opus.Application
 	);
 
 	/**
