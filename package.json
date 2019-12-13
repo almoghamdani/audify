@@ -20,5 +20,9 @@
 	"bugs": {
 		"url": "https://github.com/almogh52/audify/issues"
 	},
-	"homepage": "https://github.com/almogh52/audify#readme"
+	"homepage": "https://github.com/almogh52/audify#readme",
+	"dependencies": {
+		"cmake-js": "^6.0.0",
+		"node-addon-api": "^2.0.0"
+	}
 }
