@@ -3,6 +3,9 @@
 	"version": "1.0.0",
 	"description": "Play/Stream PCM audio data & Encode/Decode Opus to PCM audio data",
 	"main": "index.js",
+	"scripts": {
+		"build": "cmake-js build"
+	},
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/almogh52/audify.git"
