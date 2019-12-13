@@ -3,6 +3,7 @@
 	"version": "1.0.0",
 	"description": "Play/Stream PCM audio data & Encode/Decode Opus to PCM audio data",
 	"main": "index.js",
+	"types": "index.d.ts",
 	"scripts": {
 		"build": "cmake-js build"
 	},
@@ -28,5 +29,8 @@
 		"bindings": "^1.5.0",
 		"cmake-js": "^6.0.0",
 		"node-addon-api": "^2.0.0"
+	},
+	"devDependencies": {
+		"@types/node": "^12.12.17"
 	}
 }
