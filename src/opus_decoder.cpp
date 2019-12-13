@@ -6,8 +6,7 @@ Napi::Object OpusDecoderWrap::Init(Napi::Env env, Napi::Object exports)
 	Napi::Function ctor_func =
 		DefineClass(env, "OpusDecoder",
 					{InstanceMethod("decode", &OpusDecoderWrap::decode),
-					 InstanceMethod("decodeFloat", &OpusDecoderWrap::decodeFloat),
-					 InstanceAccessor("bitrate", &OpusDecoderWrap::getBitrate, &OpusDecoderWrap::setBitrate)});
+					 InstanceMethod("decodeFloat", &OpusDecoderWrap::decodeFloat)});
 
 	// Set the class's ctor function as a persistent object to keep it in memory
 	constructor = Napi::Persistent(ctor_func);
@@ -74,32 +73,6 @@ Napi::Value OpusDecoderWrap::decodeFloat(const Napi::CallbackInfo &info)
 
 	// Create Napi Buffer from output buffer
 	return Napi::Buffer<uint8_t>::Copy(info.Env(), (const uint8_t *)outBuf, samples * _channels * sizeof(float));
-}
-
-void OpusDecoderWrap::setBitrate(const Napi::CallbackInfo &info, const Napi::Value &value)
-{
-	unsigned int bitrate = value.As<Napi::Number>();
-
-	// Set decoder's bitrate
-	int error = opus_decoder_ctl(_opusDecoder, OPUS_SET_BITRATE(bitrate));
-	if (error != OPUS_OK)
-	{
-		throw Napi::Error::New(info.Env(), "Invalid bitrate!");
-	}
-}
-
-Napi::Value OpusDecoderWrap::getBitrate(const Napi::CallbackInfo &info)
-{
-	opus_int32 bitrate = 0;
-
-	// Set decoder's bitrate
-	int error = opus_decoder_ctl(_opusDecoder, OPUS_GET_BITRATE(&bitrate));
-	if (error != OPUS_OK)
-	{
-		throw Napi::Error::New(info.Env(), getErrorMsg(error));
-	}
-
-	return Napi::Number::New(info.Env(), bitrate);
 }
 
 std::string OpusDecoderWrap::getErrorMsg(int error)
