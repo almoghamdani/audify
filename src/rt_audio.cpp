@@ -85,7 +85,7 @@ Napi::Object RtAudioWrap::Init(Napi::Env env, Napi::Object exports)
 
 RtAudioWrap::RtAudioWrap(const Napi::CallbackInfo &info) : Napi::ObjectWrap<RtAudioWrap>(info), _frameSize(0), _inputChannels(0)
 {
-	RtAudio::Api api = info.Length() == 0 ? RtAudio::Api::UNSPECIFIED : (RtAudio::Api)(int)info[7].As<Napi::Number>();
+	RtAudio::Api api = info.Length() == 0 ? RtAudio::Api::UNSPECIFIED : (RtAudio::Api)(int)info[0].As<Napi::Number>();
 
 	try
 	{
