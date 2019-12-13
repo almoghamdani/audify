@@ -22,8 +22,18 @@ RtAudio::StreamParameters RtAudioConverter::ConvertStreamParameters(Napi::Object
 {
 	RtAudio::StreamParameters params;
 
+	// Set default device id
+	if (!obj.Has("deviceId")) {
+		obj.Set("deviceId", 0);
+	}
+
+	// Set default first channel
+	if (!obj.Has("firstChannel")) {
+		obj.Set("firstChannel", 0);
+	}
+
 	// Check for valid device id
-	if (!obj.Has("deviceId") || !obj.Get("deviceId").IsNumber())
+	if (!obj.Get("deviceId").IsNumber())
 	{
 		throw Napi::Error::New(obj.Env(), "The 'device id' stream parameter is missing or invalid!");
 	}
@@ -35,7 +45,7 @@ RtAudio::StreamParameters RtAudioConverter::ConvertStreamParameters(Napi::Object
 	}
 
 	// Check for valid first channel
-	if (!obj.Has("firstChannel") || !obj.Get("firstChannel").IsNumber())
+	if (!obj.Get("firstChannel").IsNumber())
 	{
 		throw Napi::Error::New(obj.Env(), "The 'first channel' stream parameter is missing or invalid!");
 	}
