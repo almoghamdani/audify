@@ -13,6 +13,11 @@ set(BUILD_TESTING OFF)
 add_subdirectory(vendor/opus opus)
 include_directories(vendor/opus/include)
 
+# Compile RtAudio
+set(RTAUDIO_BUILD_TESTING OFF)
+add_subdirectory(vendor/rtaudio rtaudio)
+include_directories(vendor/rtaudio)
+
 # Set C++17 standard
 set (CMAKE_CXX_STANDARD 17)
 
@@ -39,4 +44,4 @@ string(REPLACE "\"" "" NODE_ADDON_API_DIR ${NODE_ADDON_API_DIR})
 target_include_directories(${PROJECT_NAME} PRIVATE ${NODE_ADDON_API_DIR})
 
 # Compile the library
-target_link_libraries(${PROJECT_NAME} ${OPENSSL_LIBS} ${CMAKE_JS_LIB} opus)
+target_link_libraries(${PROJECT_NAME} ${OPENSSL_LIBS} ${CMAKE_JS_LIB} opus rtaudio)
