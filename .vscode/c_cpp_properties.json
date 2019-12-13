@@ -1,0 +1,40 @@
+{
+	"configurations": [
+		{
+			"name": "Win32",
+			"includePath": [
+				"${workspaceFolder}/node_modules/node-addon-api",
+				"${workspaceFolder}/vendor/opus/include",
+				"${workspaceFolder}/vendor/rtaudio",
+				"C:/Users/${env:username}/.node-gyp/**"
+			],
+			"cStandard": "c11",
+			"cppStandard": "c++17"
+		},
+		{
+			"name": "Mac",
+			"includePath": [
+				"${workspaceFolder}/node_modules/node-addon-api",
+				"${workspaceFolder}/vendor/opus/include",
+				"${workspaceFolder}/vendor/rtaudio",
+				"/usr/local/include/node",
+				"${env:HOME}/.node-gyp/**"
+			],
+			"cStandard": "c11",
+			"cppStandard": "c++17"
+		},
+		{
+			"name": "Linux",
+			"includePath": [
+				"${workspaceFolder}/node_modules/node-addon-api",
+				"${workspaceFolder}/vendor/opus/include",
+				"${workspaceFolder}/vendor/rtaudio",
+				"/usr/include/node",
+				"${env:HOME}/.node-gyp/**"
+			],
+			"cStandard": "c11",
+			"cppStandard": "c++17"
+		}
+	],
+	"version": 4
+}
