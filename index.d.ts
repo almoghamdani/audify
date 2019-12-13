@@ -25,7 +25,11 @@ export class OpusEncoder {
 	 * @param channels Number of channels (1 or 2) in input signal.
 	 * @param application Coding mode.
 	 */
-	constructor(sampleRate: number, channels: number, application: Audify.OpusApplication);
+	constructor(
+		sampleRate: number,
+		channels: number,
+		application: Audify.OpusApplication
+	);
 
 	/**
 	 * Encodes an Opus frame from 16-bit signed integer input.
