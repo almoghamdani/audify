@@ -1,0 +1,24 @@
+{
+	"name": "audify",
+	"version": "1.0.0",
+	"description": "Play/Stream PCM audio data & Encode/Decode Opus to PCM audio data",
+	"main": "index.js",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/almogh52/audify.git"
+	},
+	"keywords": [
+		"play",
+		"stream",
+		"pcm",
+		"encode",
+		"decode",
+		"opus"
+	],
+	"author": "Almog Hamdani",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/almogh52/audify/issues"
+	},
+	"homepage": "https://github.com/almogh52/audify#readme"
+}
