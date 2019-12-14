@@ -5,6 +5,7 @@
 	"main": "index.js",
 	"types": "index.d.ts",
 	"scripts": {
+		"docs": "typedoc --out docs . --ignoreCompilerErrors --includeDeclarations --exclude \"**/node_modules/**\" --mode file --theme node_modules/eledoc/bin/default/ --hideGenerator --name \"Audify.js\"",
 		"build": "cmake-js build",
 		"postinstall": "npm run build"
 	},
@@ -48,6 +49,8 @@
 		"node-addon-api": "^2.0.0"
 	},
 	"devDependencies": {
-		"@types/node": "^12.12.17"
+		"@types/node": "^12.12.17",
+		"eledoc": "^0.2.1",
+		"typedoc": "^0.15.4"
 	}
 }
