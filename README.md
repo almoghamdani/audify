@@ -54,7 +54,7 @@ rtAudio.start();
 ```
 
 ## Documentation
-Full documentation available [here](audify.github.io).
+Full documentation available [here](https://almogh52.github.io/audify/).
 
 ## Legal
 This project is licensed under the MIT license.
