@@ -6,7 +6,7 @@
 	"types": "index.d.ts",
 	"scripts": {
 		"docs": "typedoc --out docs . --ignoreCompilerErrors --includeDeclarations --exclude \"**/node_modules/**\" --mode file --theme node_modules/eledoc/bin/default/ --hideGenerator --name \"Audify.js\"",
-		"rebuild": "cmake-js build",
+		"rebuild": "cmake-js compile",
 		"install": "npm run rebuild",
 		"deploy": "np"
 	},
