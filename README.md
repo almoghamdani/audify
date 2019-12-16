@@ -6,6 +6,21 @@ Audify.js - Play/Stream/Record PCM audio data &amp; Encode/Decode Opus to PCM au
 * Decode Opus packets to 16-bit integer PCM or floating point PCM using C++ Opus library.
 * Complete API for realtime audio input/output across Linux (native ALSA, JACK, PulseAudio and OSS), Macintosh OS X (CoreAudio and JACK), and Windows (DirectSound, ASIO and WASAPI) operating systems using C++ RtAudio library.
 
+## Installation
+```
+npm install audify
+```
+
+#### Requirements
+* Node versions that support N-API 4 and up ([N-API Node Version Matrix](https://nodejs.org/docs/latest/api/n-api.html#n_api_n_api_version_matrix))
+* [CMake](http://www.cmake.org/download/)
+* A proper C/C++ compiler toolchain of the given platform
+    * **Windows**:
+        * [Visual C++ Build Tools](https://visualstudio.microsoft.com/visual-cpp-build-tools/) or a recent version of Visual C++ will do ([the free Community](https://www.visualstudio.com/products/visual-studio-community-vs) version works well)
+    * **Unix/Posix**:
+        * Clang or GCC
+        * Ninja or Make (Ninja will be picked if both present)
+
 ## Example
 #### Opus Encode & Decode
 ```javascript
