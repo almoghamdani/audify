@@ -34,11 +34,11 @@ const rtAudio = new RtAudio(/* Insert here specific API if needed */);
 
 // Open the input/output stream
 rtAudio.openStream(
-	{ deviceId: 0, // Output device id (Get all devices using `getDevices`)
+	{ deviceId: rtAudio.getDefaultOutputDevice(), // Output device id (Get all devices using `getDevices`)
 	  nChannels: 1, // Number of channels
 	  firstChannel: 0 // First channel index on device (default = 0).
 	},
-	{ deviceId: 0, // Input device id (Get all devices using `getDevices`)
+	{ deviceId: rtAudio.getDefaultInputDevice(), // Input device id (Get all devices using `getDevices`)
 	  nChannels: 1, // Number of channels
 	  firstChannel: 0 // First channel index on device (default = 0).
 	},
