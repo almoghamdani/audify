@@ -46,7 +46,7 @@ Napi::Value OpusDecoderWrap::decode(const Napi::CallbackInfo &info)
 	int samples = 0;
 
 	// Decode the given frame
-	samples = opus_decode(_opusDecoder, (const unsigned char *)buf.Data(), buf.Length(), outBuf, frameSize, 0);
+	samples = opus_decode(_opusDecoder, (const unsigned char *)buf.Data(), (opus_int32)buf.Length(), outBuf, frameSize, 0);
 	if (samples < 0)
 	{
 		throw Napi::Error::New(info.Env(), getErrorMsg(samples));
@@ -65,7 +65,7 @@ Napi::Value OpusDecoderWrap::decodeFloat(const Napi::CallbackInfo &info)
 	int samples = 0;
 
 	// Decode the given frame
-	samples = opus_decode_float(_opusDecoder, (const unsigned char *)buf.Data(), buf.Length(), outBuf, frameSize, 0);
+	samples = opus_decode_float(_opusDecoder, (const unsigned char *)buf.Data(), (opus_int32)buf.Length(), outBuf, frameSize, 0);
 	if (samples < 0)
 	{
 		throw Napi::Error::New(info.Env(), getErrorMsg(samples));
