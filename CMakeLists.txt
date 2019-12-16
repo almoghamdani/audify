@@ -1,10 +1,14 @@
 cmake_minimum_required(VERSION 3.1)
 project(audify)
 
-# Change runtime library to MD
 IF (WIN32)
+    # Change runtime library to MD
     set(CMAKE_CXX_FLAGS_RELEASE "/MD")
     set(CMAKE_CXX_FLAGS_DEBUG "/MDd")
+
+    # Ignore all C++17 deprecation warnings on windows and unsafe warnings
+    add_definitions(-D_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS)
+    add_definitions(-D_CRT_SECURE_NO_WARNINGS)
 ENDIF()
 
 # Compile Opus
