@@ -105,6 +105,7 @@
 		</div>
 		<div class="col-9 col-content">
 			<div class="tsd-panel">
+				<p><a href="https://badge.fury.io/js/audify"><img src="https://badge.fury.io/js/audify.svg" alt="npm version"></a></p>
 				<a href="#audifyjs" id="audifyjs" style="color: inherit; text-decoration: none;">
 					<h1>Audify.js</h1>
 				</a>
@@ -116,6 +117,29 @@
 					<li>Encode 16-bit integer PCM or floating point PCM to Opus packet using C++ Opus library.</li>
 					<li>Decode Opus packets to 16-bit integer PCM or floating point PCM using C++ Opus library.</li>
 					<li>Complete API for realtime audio input/output across Linux (native ALSA, JACK, PulseAudio and OSS), Macintosh OS X (CoreAudio and JACK), and Windows (DirectSound, ASIO and WASAPI) operating systems using C++ RtAudio library.</li>
+				</ul>
+				<a href="#installation" id="installation" style="color: inherit; text-decoration: none;">
+					<h2>Installation</h2>
+				</a>
+				<pre><code>npm <span class="hljs-keyword">install</span> audify</code></pre>
+				<a href="#requirements" id="requirements" style="color: inherit; text-decoration: none;">
+					<h4>Requirements</h4>
+				</a>
+				<ul>
+					<li>Node versions that support N-API 4 and up (<a href="https://nodejs.org/docs/latest/api/n-api.html#n_api_n_api_version_matrix">N-API Node Version Matrix</a>)</li>
+					<li><a href="http://www.cmake.org/download/">CMake</a></li>
+					<li>A proper C/C++ compiler toolchain of the given platform<ul>
+							<li><strong>Windows</strong>:<ul>
+									<li><a href="https://visualstudio.microsoft.com/visual-cpp-build-tools/">Visual C++ Build Tools</a> or a recent version of Visual C++ will do (<a href="https://www.visualstudio.com/products/visual-studio-community-vs">the free Community</a> version works well)</li>
+								</ul>
+							</li>
+							<li><strong>Unix/Posix</strong>:<ul>
+									<li>Clang or GCC</li>
+									<li>Ninja or Make (Ninja will be picked if both present)</li>
+								</ul>
+							</li>
+						</ul>
+					</li>
 				</ul>
 				<a href="#example" id="example" style="color: inherit; text-decoration: none;">
 					<h2>Example</h2>
@@ -147,11 +171,11 @@
 
 <span class="hljs-comment">// Open the input/output stream</span>
 rtAudio.openStream(
-    { <span class="hljs-attr">deviceId</span>: <span class="hljs-number">0</span>, <span class="hljs-comment">// Output device id (Get all devices using `getDevices`)</span>
+    { <span class="hljs-attr">deviceId</span>: rtAudio.getDefaultOutputDevice(), <span class="hljs-comment">// Output device id (Get all devices using `getDevices`)</span>
       <span class="hljs-attr">nChannels</span>: <span class="hljs-number">1</span>, <span class="hljs-comment">// Number of channels</span>
       <span class="hljs-attr">firstChannel</span>: <span class="hljs-number">0</span> <span class="hljs-comment">// First channel index on device (default = 0).</span>
     },
-    { <span class="hljs-attr">deviceId</span>: <span class="hljs-number">0</span>, <span class="hljs-comment">// Input device id (Get all devices using `getDevices`)</span>
+    { <span class="hljs-attr">deviceId</span>: rtAudio.getDefaultInputDevice(), <span class="hljs-comment">// Input device id (Get all devices using `getDevices`)</span>
       <span class="hljs-attr">nChannels</span>: <span class="hljs-number">1</span>, <span class="hljs-comment">// Number of channels</span>
       <span class="hljs-attr">firstChannel</span>: <span class="hljs-number">0</span> <span class="hljs-comment">// First channel index on device (default = 0).</span>
     },
