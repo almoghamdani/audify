@@ -7,6 +7,9 @@
 /out-tsc
 /build
 
+# Ignore vscode dir
+.vscode
+
 # Runtime data
 pids
 *.pid
