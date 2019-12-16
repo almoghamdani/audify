@@ -282,4 +282,19 @@ export declare class RtAudio {
 	 * @param time The new stream time.
 	 */
 	setStreamTime(time: number): void;
+
+	/**
+	 * Returns the list of available devices.
+	 */
+	getDevices(): Array<RtAudioDeviceInfo>;
+
+	/**
+	 * Returns the index of the default input device.
+	 */
+	getDefaultInputDevice(): number;
+
+	/**
+	 * Returns the index of the default output device.
+	 */
+	getDefaultOutputDevice(): number;
 }
