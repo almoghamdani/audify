@@ -72,7 +72,9 @@ Napi::Object RtAudioWrap::Init(Napi::Env env, Napi::Object exports)
 					 InstanceMethod("getStreamSampleRate", &RtAudioWrap::getStreamSampleRate),
 					 InstanceMethod("getStreamTime", &RtAudioWrap::getStreamTime),
 					 InstanceMethod("setStreamTime", &RtAudioWrap::setStreamTime),
-					 InstanceMethod("getDevices", &RtAudioWrap::getDevices)});
+					 InstanceMethod("getDevices", &RtAudioWrap::getDevices),
+					 InstanceMethod("getDefaultInputDevice", &RtAudioWrap::getDefaultInputDevice),
+					 InstanceMethod("getDefaultOutputDevice", &RtAudioWrap::getDefaultOutputDevice)});
 
 	// Set the class's ctor function as a persistent object to keep it in memory
 	constructor = Napi::Persistent(ctor_func);
@@ -135,6 +137,16 @@ Napi::Value RtAudioWrap::getDevices(const Napi::CallbackInfo &info)
 	}
 
 	return devicesArray;
+}
+
+Napi::Value RtAudioWrap::getDefaultInputDevice(const Napi::CallbackInfo &info)
+{
+	return Napi::Number::New(info.Env(), _rtAudio->getDefaultInputDevice());
+}
+
+Napi::Value RtAudioWrap::getDefaultOutputDevice(const Napi::CallbackInfo &info)
+{
+	return Napi::Number::New(info.Env(), _rtAudio->getDefaultOutputDevice());
 }
 
 void RtAudioWrap::openStream(const Napi::CallbackInfo &info)

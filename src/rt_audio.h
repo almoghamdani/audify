@@ -14,6 +14,8 @@ public:
 	~RtAudioWrap();
 
 	Napi::Value getDevices(const Napi::CallbackInfo &info);
+	Napi::Value getDefaultInputDevice(const Napi::CallbackInfo& info);
+	Napi::Value getDefaultOutputDevice(const Napi::CallbackInfo& info);
 
 	void openStream(const Napi::CallbackInfo &info);
 	void closeStream(const Napi::CallbackInfo &info);
