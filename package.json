@@ -11,8 +11,12 @@
 		"deploy": "np",
 		"predeploy": "npm run docs && git add . && git commit -m \"chore: regenerate docs\"",
 		"build-binaries": "npm run build-binaries-node && npm run build-binaries-electron",
-		"build-binaries-node": "prebuild --backend cmake-js --include-regex \"^.*\\.(node|dylib|dll|so)$\" -t 8.16.0 -t 10.16.0 -t 11.8.0 -t 12.0.0 -t 13.0.0 --strip --verbose",
-		"build-binaries-electron": "prebuild --backend cmake-js --include-regex \"^.*\\.(node|dylib|dll|so)$\" -r electron -t 5.0.0 -t 6.0.0 -t 7.0.0 --strip --verbose"
+		"build-binaries-node": "run-script-os",
+		"build-binaries-node:win32": "prebuild --backend cmake-js --include-regex \"^.*\\.(node|dylib|dll|so)$\" -t 8.16.0 -t 10.16.0 -t 11.8.0 -t 12.0.0 -t 13.0.0 --strip --verbose -u %GITHUB_TOKEN%",
+		"build-binaries-node:darwin:linux": "prebuild --backend cmake-js --include-regex \"^.*\\.(node|dylib|dll|so)$\" -t 8.16.0 -t 10.16.0 -t 11.8.0 -t 12.0.0 -t 13.0.0 --strip --verbose -u $GITHUB_TOKEN",
+		"build-binaries-electron": "run-script-os",
+		"build-binaries-electron:win32": "prebuild --backend cmake-js --include-regex \"^.*\\.(node|dylib|dll|so)$\" -r electron -t 5.0.0 -t 6.0.0 -t 7.0.0 --strip --verbose -u %GITHUB_TOKEN%",
+		"build-binaries-electron:darwin:linux": "prebuild --backend cmake-js --include-regex \"^.*\\.(node|dylib|dll|so)$\" -r electron -t 5.0.0 -t 6.0.0 -t 7.0.0 --strip --verbose -u $GITHUB_TOKEN"
 	},
 	"repository": {
 		"type": "git",
@@ -59,6 +63,7 @@
 		"eledoc": "^0.2.1",
 		"np": "^5.2.1",
 		"prebuild": "^9.1.1",
+		"run-script-os": "^1.0.7",
 		"typedoc": "^0.15.4"
 	}
 }
