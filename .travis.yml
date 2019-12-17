@@ -21,6 +21,9 @@ before_install:
 
   - if [ "$TRAVIS_OS_NAME" = "osx" ]; brew install jack ; fi
 
+  - if [ "$TRAVIS_OS_NAME" = "windows" ]; echo upload=%GITHUB_TOKEN% > %HOMEDRIVE%%HOMEPATH%\.prebuildrc ; fi
+  - if [ "$TRAVIS_OS_NAME" = "linux" ] || [ "$TRAVIS_OS_NAME" = "osx" ]; echo upload=$GITHUB_TOKEN > ~/.prebuildrc ; fi
+
 script:
   - cd src
   - npm run build-binaries
