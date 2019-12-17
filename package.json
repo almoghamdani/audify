@@ -10,7 +10,7 @@
 		"install": "prebuild-install || npm run rebuild",
 		"deploy": "np",
 		"predeploy": "npm run docs && git add . && git commit -m \"chore: regenerate docs\"",
-		"build-binaries": "prebuild --backend cmake-js --include-regex \"^.*\\.(node|dylib|dll|so)$\" -r napi --all --strip --verbose"
+		"build-binaries": "prebuild --backend cmake-js --include-regex \"^.*\\.(node|dylib|dll|so)$\" -t 8.16.0 -t 10.16.0 -t 11.8.0 -t 12.0.0 --all --strip --verbose"
 	},
 	"repository": {
 		"type": "git",
@@ -58,11 +58,5 @@
 		"np": "^5.2.1",
 		"prebuild": "^9.1.1",
 		"typedoc": "^0.15.4"
-	},
-	"binary": {
-		"napi_versions": [
-			4,
-			5
-		]
 	}
 }
