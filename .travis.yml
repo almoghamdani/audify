@@ -1,0 +1,21 @@
+language: node_js
+
+node_js:
+  - "lts"
+
+os:
+  - windows
+  - linux
+  - osx
+
+compiler:
+  - gcc
+  - clang
+
+script:
+  - cd src
+  - npm run build-binaries
+
+deploy:
+  on:
+    tags: on
