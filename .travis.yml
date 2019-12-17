@@ -12,10 +12,8 @@ compiler:
   - gcc
   - clang
 
+if: tag IS present
+
 script:
   - cd src
   - npm run build-binaries
-
-deploy:
-  on:
-    tags: on
