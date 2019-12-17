@@ -237,12 +237,12 @@ export declare class RtAudio {
 	isStreamOpen(): boolean;
 
 	/**
-	 * A function that starts a stream.
+	 * Start the stream.
 	 */
 	start(): void;
 
 	/**
-	 * Stop a stream, allowing any samples remaining in the output queue to be played.
+	 * Stop the stream.
 	 */
 	stop(): void;
 
