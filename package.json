@@ -7,9 +7,10 @@
 	"scripts": {
 		"docs": "typedoc --out docs . --ignoreCompilerErrors --includeDeclarations --exclude \"**/node_modules/**\" --mode file --theme node_modules/eledoc/bin/default/ --hideGenerator --name \"Audify.js\"",
 		"rebuild": "cmake-js compile",
-		"install": "npm run rebuild",
+		"install": "prebuild-install || npm run rebuild",
 		"deploy": "np",
-		"predeploy": "npm run docs && git add . && git commit -m \"chore: regenerate docs\""
+		"predeploy": "npm run docs && git add . && git commit -m \"chore: regenerate docs\"",
+		"build-binaries": "prebuild --backend cmake-js --include-regex \"^.*\\.(node|dylib|dll|so)$\" -r napi --all --strip --verbose"
 	},
 	"repository": {
 		"type": "git",
@@ -48,12 +49,20 @@
 	"dependencies": {
 		"bindings": "^1.5.0",
 		"cmake-js": "^6.0.0",
-		"node-addon-api": "^2.0.0"
+		"node-addon-api": "^2.0.0",
+		"prebuild-install": "^5.3.3"
 	},
 	"devDependencies": {
 		"@types/node": "^12.12.17",
 		"eledoc": "^0.2.1",
 		"np": "^5.2.1",
+		"prebuild": "^9.1.1",
 		"typedoc": "^0.15.4"
+	},
+	"binary": {
+		"napi_versions": [
+			4,
+			5
+		]
 	}
 }
