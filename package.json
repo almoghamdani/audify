@@ -8,7 +8,8 @@
 		"docs": "typedoc --out docs . --ignoreCompilerErrors --includeDeclarations --exclude \"**/node_modules/**\" --mode file --theme node_modules/eledoc/bin/default/ --hideGenerator --name \"Audify.js\"",
 		"rebuild": "cmake-js compile",
 		"install": "npm run rebuild",
-		"deploy": "np"
+		"deploy": "np",
+		"predeploy": "npm run docs && git add . && git commit -m \"chore: regenerate docs\""
 	},
 	"repository": {
 		"type": "git",
