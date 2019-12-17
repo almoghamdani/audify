@@ -10,7 +10,9 @@
 		"install": "prebuild-install || npm run rebuild",
 		"deploy": "np",
 		"predeploy": "npm run docs && git add . && git commit -m \"chore: regenerate docs\"",
-		"build-binaries": "prebuild --backend cmake-js --include-regex \"^.*\\.(node|dylib|dll|so)$\" -t 8.16.0 -t 10.16.0 -t 11.8.0 -t 12.0.0 --all --strip --verbose"
+		"build-binaries": "npm run build-binaries-node && npm run build-binaries-electron",
+		"build-binaries-node": "prebuild --backend cmake-js --include-regex \"^.*\\.(node|dylib|dll|so)$\" -t 8.16.0 -t 10.16.0 -t 11.8.0 -t 12.0.0 -t 13.0.0 --strip --verbose",
+		"build-binaries-electron": "prebuild --backend cmake-js --include-regex \"^.*\\.(node|dylib|dll|so)$\" -r electron -t 5.0.0 -t 6.0.0 -t 7.0.0 --strip --verbose"
 	},
 	"repository": {
 		"type": "git",
