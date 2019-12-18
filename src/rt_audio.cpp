@@ -67,6 +67,7 @@ Napi::Object RtAudioWrap::Init(Napi::Env env, Napi::Object exports)
 					 InstanceMethod("stop", &RtAudioWrap::stop),
 					 InstanceMethod("isStreamRunning", &RtAudioWrap::isStreamRunning),
 					 InstanceMethod("write", &RtAudioWrap::write),
+					 InstanceMethod("clearOutputQueue", &RtAudioWrap::clearOutputQueue),
 					 InstanceMethod("getApi", &RtAudioWrap::getApi),
 					 InstanceMethod("getStreamLatency", &RtAudioWrap::getStreamLatency),
 					 InstanceMethod("getStreamSampleRate", &RtAudioWrap::getStreamSampleRate),
@@ -269,6 +270,15 @@ void RtAudioWrap::write(const Napi::CallbackInfo &info)
 
 	// Unlock the output data queue mutex
 	lk.unlock();
+}
+
+void RtAudioWrap::clearOutputQueue(const Napi::CallbackInfo &info)
+{
+	std::lock_guard lk(_outputDataMutex);
+
+	// Clear the output queue
+	std::queue<std::shared_ptr<int8_t>> empty;
+	std::swap(_outputData, empty);
 }
 
 Napi::Value RtAudioWrap::getApi(const Napi::CallbackInfo &info)

@@ -26,6 +26,7 @@ public:
 	Napi::Value isStreamRunning(const Napi::CallbackInfo& info);
 
 	void write(const Napi::CallbackInfo& info);
+	void clearOutputQueue(const Napi::CallbackInfo& info);
 
 	Napi::Value getApi(const Napi::CallbackInfo& info);
 	Napi::Value getStreamLatency(const Napi::CallbackInfo& info);

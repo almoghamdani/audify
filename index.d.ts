@@ -258,6 +258,11 @@ export declare class RtAudio {
 	write(pcm: Buffer): void;
 
 	/**
+	 * Clears the output stream queue.
+	 */
+	clearOutputQueue(): void;
+
+	/**
 	 * Returns the full display name of the current used API.
 	 */
 	getApi(): string;
