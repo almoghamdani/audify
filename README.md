@@ -1,4 +1,5 @@
 [![npm version](https://badge.fury.io/js/audify.svg)](https://badge.fury.io/js/audify)
+[![Build Status](https://travis-ci.com/almogh52/audify.svg?branch=master)](https://travis-ci.com/almogh52/audify)
 
 # Audify.js
 Audify.js - Play/Stream/Record PCM audio data &amp; Encode/Decode Opus to PCM audio data
