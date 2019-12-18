@@ -22,7 +22,6 @@ deploy:
   provider: script
   skip_cleanup: true
   script:
-    - cd src
     - npm run build-binaries
   on:
     tags: on
