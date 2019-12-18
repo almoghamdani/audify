@@ -9,7 +9,6 @@ os:
   - osx
 
 compiler:
-  - gcc
   - clang
 
 install:
