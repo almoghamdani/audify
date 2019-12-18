@@ -19,8 +19,9 @@ script:
   - npm ci
 
 deploy:
-  on:
-    tags: on
+  provider: script
   script:
     - cd src
     - npm run build-binaries
+  on:
+    tags: on
