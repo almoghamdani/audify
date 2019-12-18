@@ -19,7 +19,7 @@ install:
   - if [ "$TRAVIS_OS_NAME" = "osx" ]; then brew install jack ; fi
 
 before_script:
-  - npm install --only=dev
+  - npm ci
 
 script:
   - cd src
