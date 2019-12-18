@@ -5,11 +5,11 @@
 	"main": "index.js",
 	"types": "index.d.ts",
 	"scripts": {
-		"docs": "typedoc --out docs . --ignoreCompilerErrors --includeDeclarations --exclude \"**/node_modules/**\" --mode file --theme node_modules/eledoc/bin/default/ --hideGenerator --name \"Audify.js\"",
+		"docs": "node scripts/generate_docs.js",
 		"rebuild": "cmake-js compile",
 		"install": "prebuild-install || npm run rebuild",
 		"deploy": "np",
-		"predeploy": "npm run docs && git add . && git commit -m \"chore: regenerate docs\"",
+		"predeploy": "npm run docs",
 		"build-binaries": "npm run build-binaries-node && npm run build-binaries-electron",
 		"build-binaries-node": "run-script-os",
 		"build-binaries-node:win32": "prebuild --backend cmake-js --include-regex \"^.*\\.(node|dylib|dll|so)$\" -t 8.16.0 -t 10.16.0 -t 11.8.0 -t 12.0.0 -t 13.0.0 --verbose -u %GITHUB_TOKEN%",
@@ -64,6 +64,7 @@
 		"np": "^5.2.1",
 		"prebuild": "^9.1.1",
 		"run-script-os": "^1.0.7",
+		"simple-git": "^1.129.0",
 		"typedoc": "^0.15.4"
 	}
 }
