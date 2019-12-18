@@ -12,15 +12,17 @@ compiler:
   - gcc
   - clang
 
-if: tag IS present
-
 install:
-  - if [ "$TRAVIS_OS_NAME" = "linux" ]; then sudo apt-get install libasound2 libpulse-dev libjack-dev ; fi
+  - if [ "$TRAVIS_OS_NAME" = "linux" ]; then sudo apt-get install libasound2 libasound2-dev libpulse-dev libjack-dev ; fi
   - if [ "$TRAVIS_OS_NAME" = "osx" ]; then brew install jack ; fi
-
-before_script:
-  - npm ci
 
 script:
   - cd src
-  - npm run build-binaries
+  - npm ci
+
+deploy:
+  on:
+    tags: on
+  script:
+    - cd src
+    - npm run build-binaries
