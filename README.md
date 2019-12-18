@@ -14,8 +14,12 @@ Audify.js - Play/Stream/Record PCM audio data &amp; Encode/Decode Opus to PCM au
 npm install audify
 ```
 
-#### Requirements
-* Node versions that support N-API 4 and up ([N-API Node Version Matrix](https://nodejs.org/docs/latest/api/n-api.html#n_api_n_api_version_matrix))
+***Most regular installs will support prebuilds that are built with each release.***
+***The prebuilds are for Node v8.16.0+, v10.16.0+, v11.8.0+, v12.0.0+, v13.0.0+ and Electron v5.0.0+, v6.0.0+, v7.0.0+.***
+
+#### Requirements for source build
+
+* Node or Electron versions that support N-API 4 and up ([N-API Node Version Matrix](https://nodejs.org/docs/latest/api/n-api.html#n_api_n_api_version_matrix))
 * [CMake](http://www.cmake.org/download/)
 * A proper C/C++ compiler toolchain of the given platform
     * **Windows**:
