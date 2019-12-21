@@ -30,6 +30,9 @@ int rt_callback(void *outputBuffer, void *inputBuffer, unsigned int nFrames, dou
 
 			// Remove the first element
 			wrap->_outputData.pop();
+		} else {
+			// Clear the output buffer
+			memset(outputBuffer, 0, wrap->_frameSize * wrap->_outputChannels * wrap->_sampleSize);
 		}
 
 		// Unlock the output data queue mutex
