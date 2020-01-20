@@ -11,6 +11,9 @@ IF (WIN32)
     add_definitions(-D_CRT_SECURE_NO_WARNINGS)
 ENDIF()
 
+# Disable RPATH
+SET(CMAKE_EXE_LINKER_FLAGS "-Wl,--enable-new-dtags")
+
 # Compile Opus
 set(BUILD_SHARED_LIBS ON)
 set(BUILD_TESTING OFF)
