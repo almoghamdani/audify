@@ -32,6 +32,15 @@ int rt_callback(void *outputBuffer, void *inputBuffer, unsigned int nFrames, dou
 
 			// Remove the first element
 			wrap->_outputData.pop();
+
+			// If the frame output threadsafe-function isn't null
+			if (wrap->_frameOutputTsfn != nullptr)
+			{
+				// Call the frame output callback
+				wrap->_frameOutputTsfn.NonBlockingCall([](Napi::Env, Napi::Function callback) {
+					callback.Call({});
+				});
+			}
 		}
 		else
 		{
@@ -46,12 +55,12 @@ int rt_callback(void *outputBuffer, void *inputBuffer, unsigned int nFrames, dou
 	// If the input channel live
 	if (wrap->_inputChannels)
 	{
-		// Copy the input data
-		memcpy(inputData.get(), inputBuffer, wrap->_frameSize * wrap->_inputChannels * wrap->_sampleSize);
-
-		// If the TSFN isn't null
+		// If the input threadsafe-function isn't null
 		if (wrap->_inputTsfn != nullptr)
 		{
+			// Copy the input data
+			memcpy(inputData.get(), inputBuffer, wrap->_frameSize * wrap->_inputChannels * wrap->_sampleSize);
+
 			// Call the input callback
 			wrap->_inputTsfn.NonBlockingCall([wrap, inputData](Napi::Env env, Napi::Function callback) {
 				callback.Call({Napi::Buffer<int8_t>::Copy(env, inputData.get(), wrap->_frameSize * wrap->_inputChannels * wrap->_sampleSize)});
@@ -168,7 +177,8 @@ void RtAudioWrap::openStream(const Napi::CallbackInfo &info)
 	unsigned int frameSize = info[4].As<Napi::Number>();
 	std::string streamName = info[5].As<Napi::String>();
 	Napi::Function inputCallback = info[6].IsNull() || info[6].IsUndefined() ? Napi::Function() : info[6].As<Napi::Function>();
-	RtAudioStreamFlags flags = info.Length() < 8 ? 0 : info[7].As<Napi::Number>();
+	Napi::Function frameOutputCallback = info[7].IsNull() || info[7].IsUndefined() ? Napi::Function() : info[7].As<Napi::Function>();
+	RtAudioStreamFlags flags = info.Length() < 9 ? 0 : info[8].As<Napi::Number>();
 
 	RtAudio::StreamOptions options;
 
@@ -178,10 +188,16 @@ void RtAudioWrap::openStream(const Napi::CallbackInfo &info)
 		throw Napi::Error::New(info.Env(), "24-bit signed integer is not available!");
 	}
 
-	// If there is already a TSFN, release it
+	// If there is already an input threadsafe-function, release it
 	if (_inputTsfn != nullptr)
 	{
 		_inputTsfn.Release();
+	}
+
+	// If there is already a frame output threadsafe-function, release it
+	if (_frameOutputTsfn != nullptr)
+	{
+		_frameOutputTsfn.Release();
 	}
 
 	// Save frame size
@@ -216,6 +232,13 @@ void RtAudioWrap::openStream(const Napi::CallbackInfo &info)
 	{
 		// Save the input callback as a thread safe function
 		_inputTsfn = Napi::ThreadSafeFunction::New(info.Env(), inputCallback, "inputCallback", 0, 1, [this](Napi::Env) {});
+	}
+
+	// If the frame output callback isn't null and the output info isn't null
+	if (!frameOutputCallback.IsEmpty() && !info[0].IsNull() && !info[0].IsUndefined())
+	{
+		// Save the input callback as a thread safe function
+		_frameOutputTsfn = Napi::ThreadSafeFunction::New(info.Env(), frameOutputCallback, "frameOutputCallback", 0, 1, [this](Napi::Env) {});
 	}
 }
 

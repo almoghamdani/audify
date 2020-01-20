@@ -213,6 +213,7 @@ export declare class RtAudio {
 	 * @param frameSize The amount of samples per frame.
 	 * @param streamName A stream name (currently used only in Jack).
 	 * @param inputCallback A callback that is called when a new input signal is available. Should be null for output-only streams.
+	 * @param frameOutputCallback A callback that is called when a frame is finished playing in the output device.
 	 * @param flags A bit-mask of stream flags (RtAudio.StreamFlags).
 	 */
 	openStream(
@@ -223,6 +224,7 @@ export declare class RtAudio {
 		frameSize: number,
 		streamName: string,
 		inputCallback: (inputData: Buffer) => void | null,
+		frameOutputCallback: () => void | null,
 		flags?: RtAudioStreamFlags
 	): void;
 

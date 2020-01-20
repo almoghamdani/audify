@@ -52,6 +52,7 @@ private:
 	RtAudioFormat _format;
 
 	Napi::ThreadSafeFunction _inputTsfn;
+	Napi::ThreadSafeFunction _frameOutputTsfn;
 
 	std::mutex _outputDataMutex;
 	std::queue<std::shared_ptr<int8_t>> _outputData;
