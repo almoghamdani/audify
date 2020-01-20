@@ -19,12 +19,12 @@ IF (UNIX)
     set(CMAKE_INSTALL_NAME_DIR "@rpath/")
 ENDIF()
 
-# Set RPATH as origin in linux
+# Set RPATH as origin in Linux
 IF (UNIX AND NOT APPLE)
     set(CMAKE_INSTALL_RPATH "$ORIGIN")
 ENDIF()
 
-# Use @loader_path as RPATH in macos
+# Use @loader_path as RPATH in macOS
 IF (APPLE)
     set(CMAKE_MACOSX_RPATH TRUE)
     set(CMAKE_INSTALL_RPATH "@loader_path")
