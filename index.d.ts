@@ -53,7 +53,7 @@ declare const enum RtAudioFormat {
 	/** 16-bit signed integer. */
 	RTAUDIO_SINT16 = 0x2,
 
-	/** 24-bit signed integer. */
+	/** 24-bit signed integer - Removed. */
 	RTAUDIO_SINT24 = 0x4,
 
 	/** 32-bit signed integer. */
@@ -302,4 +302,16 @@ export declare class RtAudio {
 	 * Returns the index of the default output device.
 	 */
 	getDefaultOutputDevice(): number;
+
+	/**
+	 * Sets the output's volume.
+	 * @param volume The volume for the output device. The volume should be between 0 and 1.
+	 */
+	setOutputVolume(volume: number): void;
+
+	/**
+	 * Gets the output's volume.
+	 * @returns The current volume of the output.
+	 */
+	getOutputVolume(): number;
 }

@@ -1,5 +1,7 @@
 #include "rt_audio.h"
 
+#include <cmath>
+
 #include "rt_audio_converter.h"
 
 int rt_callback(void *outputBuffer, void *inputBuffer, unsigned int nFrames, double streamTime, RtAudioStreamStatus status, void *userData)
@@ -25,12 +27,14 @@ int rt_callback(void *outputBuffer, void *inputBuffer, unsigned int nFrames, dou
 		// If there is a new output data
 		if (!wrap->_outputData.empty())
 		{
-			// Copy the new data to the output buffer
-			memcpy(outputBuffer, wrap->_outputData.front().get(), wrap->_frameSize * wrap->_outputChannels * wrap->_sampleSize);
+			// Copy the new data to the output buffer and apply volume
+			wrap->applyVolume(wrap->_outputData.front().get(), outputBuffer, wrap->_frameSize * wrap->_outputChannels);
 
 			// Remove the first element
 			wrap->_outputData.pop();
-		} else {
+		}
+		else
+		{
 			// Clear the output buffer
 			memset(outputBuffer, 0, wrap->_frameSize * wrap->_outputChannels * wrap->_sampleSize);
 		}
@@ -78,7 +82,9 @@ Napi::Object RtAudioWrap::Init(Napi::Env env, Napi::Object exports)
 					 InstanceMethod("setStreamTime", &RtAudioWrap::setStreamTime),
 					 InstanceMethod("getDevices", &RtAudioWrap::getDevices),
 					 InstanceMethod("getDefaultInputDevice", &RtAudioWrap::getDefaultInputDevice),
-					 InstanceMethod("getDefaultOutputDevice", &RtAudioWrap::getDefaultOutputDevice)});
+					 InstanceMethod("getDefaultOutputDevice", &RtAudioWrap::getDefaultOutputDevice),
+					 InstanceMethod("setOutputVolume", &RtAudioWrap::setOutputVolume),
+					 InstanceMethod("getOutputVolume", &RtAudioWrap::getOutputVolume)});
 
 	// Set the class's ctor function as a persistent object to keep it in memory
 	constructor = Napi::Persistent(ctor_func);
@@ -89,7 +95,7 @@ Napi::Object RtAudioWrap::Init(Napi::Env env, Napi::Object exports)
 	return exports;
 }
 
-RtAudioWrap::RtAudioWrap(const Napi::CallbackInfo &info) : Napi::ObjectWrap<RtAudioWrap>(info), _frameSize(0), _inputChannels(0)
+RtAudioWrap::RtAudioWrap(const Napi::CallbackInfo &info) : Napi::ObjectWrap<RtAudioWrap>(info), _frameSize(0), _inputChannels(0), _multiplier(1)
 {
 	RtAudio::Api api = info.Length() == 0 ? RtAudio::Api::UNSPECIFIED : (RtAudio::Api)(int)info[0].As<Napi::Number>();
 
@@ -166,6 +172,12 @@ void RtAudioWrap::openStream(const Napi::CallbackInfo &info)
 
 	RtAudio::StreamOptions options;
 
+	// Set SINT24 as invalid
+	if (format == RTAUDIO_SINT24)
+	{
+		throw Napi::Error::New(info.Env(), "24-bit signed integer is not available!");
+	}
+
 	// If there is already a TSFN, release it
 	if (_inputTsfn != nullptr)
 	{
@@ -181,6 +193,9 @@ void RtAudioWrap::openStream(const Napi::CallbackInfo &info)
 
 	// Save the sample size by the format
 	_sampleSize = getSampleSizeForFormat(format);
+
+	// Save the format
+	_format = format;
 
 	// Set stream options
 	options.flags = flags;
@@ -362,4 +377,63 @@ unsigned int RtAudioWrap::getSampleSizeForFormat(RtAudioFormat format)
 	default:
 		return 0;
 	}
+}
+
+double RtAudioWrap::getSignalMultiplierForVolume(double volume)
+{
+	// Explained here: https://stackoverflow.com/a/1165188
+	return (pow(15, volume) - 1) / (15 - 1);
+}
+
+void RtAudioWrap::applyVolume(void *src, void *dst, unsigned int amount)
+{
+	// Copy and apply volume
+	for (unsigned int i = 0; i < amount; i++)
+	{
+		switch (_format)
+		{
+		case RTAUDIO_SINT8:
+			*((int8_t *)dst + i) = (int8_t)(*((int8_t *)src + i) * _multiplier);
+			break;
+
+		case RTAUDIO_SINT16:
+			*((int16_t *)dst + i) = (int16_t)(*((int16_t *)src + i) * _multiplier);
+			break;
+
+		case RTAUDIO_SINT32:
+			*((int32_t *)dst + i) = (int32_t)(*((int32_t *)src + i) * _multiplier);
+			break;
+
+		case RTAUDIO_FLOAT32:
+			*((float *)dst + i) = (float)(*((float *)src + i) * _multiplier);
+			break;
+
+		case RTAUDIO_FLOAT64:
+			*((double *)dst + i) = (double)(*((double *)src + i) * _multiplier);
+			break;
+		}
+	}
+}
+
+void RtAudioWrap::setOutputVolume(const Napi::CallbackInfo &info)
+{
+	std::lock_guard lk(_outputDataMutex);
+
+	double volume = (double)info[0].As<Napi::Number>();
+
+	// Check for valid volume
+	if (volume < 0 || volume > 1)
+	{
+		throw Napi::Error::New(info.Env(), "Invalid volume value!");
+	}
+
+	// Calculate signal multiplier for volume
+	_multiplier = getSignalMultiplierForVolume(volume);
+}
+
+Napi::Value RtAudioWrap::getOutputVolume(const Napi::CallbackInfo &info)
+{
+	std::lock_guard lk(_outputDataMutex);
+
+	return Napi::Number::New(info.Env(), _multiplier);
 }

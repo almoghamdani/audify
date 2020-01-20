@@ -35,6 +35,9 @@ public:
 	Napi::Value getStreamTime(const Napi::CallbackInfo& info);
 	void setStreamTime(const Napi::CallbackInfo& info);
 
+	void setOutputVolume(const Napi::CallbackInfo& info);
+	Napi::Value getOutputVolume(const Napi::CallbackInfo& info);
+
 	friend int rt_callback(void *outputBuffer, void *inputBuffer, unsigned int nFrames,
 						   double streamTime, RtAudioStreamStatus status, void *userData);
 
@@ -46,11 +49,15 @@ private:
 	unsigned int _inputChannels;
 	unsigned int _outputChannels;
 	unsigned int _sampleSize;
+	RtAudioFormat _format;
 
 	Napi::ThreadSafeFunction _inputTsfn;
 
 	std::mutex _outputDataMutex;
 	std::queue<std::shared_ptr<int8_t>> _outputData;
+	double _multiplier;
 
 	unsigned int getSampleSizeForFormat(RtAudioFormat format);
+	double getSignalMultiplierForVolume(double volume);
+	void applyVolume(void *src, void *dst, unsigned int amount);
 };
