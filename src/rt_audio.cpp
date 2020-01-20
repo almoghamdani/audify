@@ -53,7 +53,7 @@ int rt_callback(void *outputBuffer, void *inputBuffer, unsigned int nFrames, dou
 		if (wrap->_inputTsfn != nullptr)
 		{
 			// Call the input callback
-			wrap->_inputTsfn.BlockingCall([wrap, inputData](Napi::Env env, Napi::Function callback) {
+			wrap->_inputTsfn.NonBlockingCall([wrap, inputData](Napi::Env env, Napi::Function callback) {
 				callback.Call({Napi::Buffer<int8_t>::Copy(env, inputData.get(), wrap->_frameSize * wrap->_inputChannels * wrap->_sampleSize)});
 			});
 		}
