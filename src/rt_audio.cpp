@@ -92,8 +92,7 @@ Napi::Object RtAudioWrap::Init(Napi::Env env, Napi::Object exports)
 					 InstanceMethod("getDevices", &RtAudioWrap::getDevices),
 					 InstanceMethod("getDefaultInputDevice", &RtAudioWrap::getDefaultInputDevice),
 					 InstanceMethod("getDefaultOutputDevice", &RtAudioWrap::getDefaultOutputDevice),
-					 InstanceMethod("setOutputVolume", &RtAudioWrap::setOutputVolume),
-					 InstanceMethod("getOutputVolume", &RtAudioWrap::getOutputVolume)});
+					 InstanceAccessor("volume", &RtAudioWrap::getOutputVolume, &RtAudioWrap::setOutputVolume)});
 
 	// Set the class's ctor function as a persistent object to keep it in memory
 	constructor = Napi::Persistent(ctor_func);
@@ -438,11 +437,11 @@ void RtAudioWrap::applyVolume(void *src, void *dst, unsigned int amount)
 	}
 }
 
-void RtAudioWrap::setOutputVolume(const Napi::CallbackInfo &info)
+void RtAudioWrap::setOutputVolume(const Napi::CallbackInfo &info, const Napi::Value &value)
 {
 	std::lock_guard lk(_outputDataMutex);
 
-	double volume = (double)info[0].As<Napi::Number>();
+	double volume = (double)value.As<Napi::Number>();
 
 	// Check for valid volume
 	if (volume < 0 || volume > 1)

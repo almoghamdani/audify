@@ -35,7 +35,7 @@ public:
 	Napi::Value getStreamTime(const Napi::CallbackInfo& info);
 	void setStreamTime(const Napi::CallbackInfo& info);
 
-	void setOutputVolume(const Napi::CallbackInfo& info);
+	void setOutputVolume(const Napi::CallbackInfo& info, const Napi::Value &value);
 	Napi::Value getOutputVolume(const Napi::CallbackInfo& info);
 
 	friend int rt_callback(void *outputBuffer, void *inputBuffer, unsigned int nFrames,
