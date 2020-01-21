@@ -87,11 +87,10 @@ Napi::Object RtAudioWrap::Init(Napi::Env env, Napi::Object exports)
 					 InstanceMethod("getApi", &RtAudioWrap::getApi),
 					 InstanceMethod("getStreamLatency", &RtAudioWrap::getStreamLatency),
 					 InstanceMethod("getStreamSampleRate", &RtAudioWrap::getStreamSampleRate),
-					 InstanceMethod("getStreamTime", &RtAudioWrap::getStreamTime),
-					 InstanceMethod("setStreamTime", &RtAudioWrap::setStreamTime),
 					 InstanceMethod("getDevices", &RtAudioWrap::getDevices),
 					 InstanceMethod("getDefaultInputDevice", &RtAudioWrap::getDefaultInputDevice),
 					 InstanceMethod("getDefaultOutputDevice", &RtAudioWrap::getDefaultOutputDevice),
+					 InstanceAccessor("streamTime", &RtAudioWrap::getStreamTime, &RtAudioWrap::setStreamTime),
 					 InstanceAccessor("volume", &RtAudioWrap::getOutputVolume, &RtAudioWrap::setOutputVolume)});
 
 	// Set the class's ctor function as a persistent object to keep it in memory
@@ -362,9 +361,9 @@ Napi::Value RtAudioWrap::getStreamTime(const Napi::CallbackInfo &info)
 	}
 }
 
-void RtAudioWrap::setStreamTime(const Napi::CallbackInfo &info)
+void RtAudioWrap::setStreamTime(const Napi::CallbackInfo &info, const Napi::Value &value)
 {
-	double time = info[0].As<Napi::Number>();
+	double time = value.As<Napi::Number>();
 
 	try
 	{

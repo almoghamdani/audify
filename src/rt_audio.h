@@ -33,7 +33,7 @@ public:
 	Napi::Value getStreamSampleRate(const Napi::CallbackInfo& info);
 
 	Napi::Value getStreamTime(const Napi::CallbackInfo& info);
-	void setStreamTime(const Napi::CallbackInfo& info);
+	void setStreamTime(const Napi::CallbackInfo& info, const Napi::Value &value);
 
 	void setOutputVolume(const Napi::CallbackInfo& info, const Napi::Value &value);
 	Napi::Value getOutputVolume(const Napi::CallbackInfo& info);
