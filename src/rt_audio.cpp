@@ -10,7 +10,8 @@ int rt_callback(void *outputBuffer, void *inputBuffer, unsigned int nFrames, dou
 
 	std::shared_ptr<int8_t> inputData(new int8_t[wrap->_frameSize * wrap->_inputChannels * wrap->_sampleSize]);
 
-	std::unique_lock lk(wrap->_outputDataMutex, std::defer_lock);
+	std::unique_lock outputLock(wrap->_outputDataMutex, std::defer_lock);
+	std::unique_lock tsfnLock(wrap->_tsfnMutex, std::defer_lock);
 
 	// Verify frame size
 	if (nFrames != wrap->_frameSize)
@@ -21,8 +22,8 @@ int rt_callback(void *outputBuffer, void *inputBuffer, unsigned int nFrames, dou
 	// If the output channel live
 	if (wrap->_outputChannels)
 	{
-		// Lock the output data queue mutex
-		lk.lock();
+		// Lock the output data queue mutex and threadsafe functions lock
+		std::lock(outputLock, tsfnLock);
 
 		// If there is a new output data
 		if (!wrap->_outputData.empty())
@@ -49,12 +50,18 @@ int rt_callback(void *outputBuffer, void *inputBuffer, unsigned int nFrames, dou
 		}
 
 		// Unlock the output data queue mutex
-		lk.unlock();
+		outputLock.unlock();
 	}
 
 	// If the input channel live
 	if (wrap->_inputChannels)
 	{
+		// If the threadsafe mutex isn't locked, lock it
+		if (!tsfnLock.owns_lock())
+		{
+			tsfnLock.lock();
+		}
+
 		// If the input threadsafe-function isn't null
 		if (wrap->_inputTsfn != nullptr)
 		{
@@ -90,6 +97,8 @@ Napi::Object RtAudioWrap::Init(Napi::Env env, Napi::Object exports)
 					 InstanceMethod("getDevices", &RtAudioWrap::getDevices),
 					 InstanceMethod("getDefaultInputDevice", &RtAudioWrap::getDefaultInputDevice),
 					 InstanceMethod("getDefaultOutputDevice", &RtAudioWrap::getDefaultOutputDevice),
+					 InstanceMethod("setInputCallback", &RtAudioWrap::setInputCallback),
+					 InstanceMethod("setFrameOutputCallback", &RtAudioWrap::setFrameOutputCallback),
 					 InstanceAccessor("streamTime", &RtAudioWrap::getStreamTime, &RtAudioWrap::setStreamTime),
 					 InstanceAccessor("volume", &RtAudioWrap::getOutputVolume, &RtAudioWrap::setOutputVolume)});
 
@@ -180,6 +189,8 @@ void RtAudioWrap::openStream(const Napi::CallbackInfo &info)
 
 	RtAudio::StreamOptions options;
 
+	std::unique_lock tsfnLock(_tsfnMutex, std::defer_lock);
+
 	// Set SINT24 as invalid
 	if (format == RTAUDIO_SINT24)
 	{
@@ -224,6 +235,9 @@ void RtAudioWrap::openStream(const Napi::CallbackInfo &info)
 	{
 		throw Napi::Error::New(info.Env(), ex.what());
 	}
+
+	// Lock the threadsafe functions mutex
+	tsfnLock.lock();
 
 	// If the input callback isn't null and the input info isn't null
 	if (!inputCallback.IsEmpty() && !info[1].IsNull() && !info[1].IsUndefined())
@@ -457,4 +471,40 @@ Napi::Value RtAudioWrap::getOutputVolume(const Napi::CallbackInfo &info)
 	std::lock_guard lk(_outputDataMutex);
 
 	return Napi::Number::New(info.Env(), _multiplier);
+}
+
+void RtAudioWrap::setInputCallback(const Napi::CallbackInfo &info)
+{
+	Napi::Function inputCallback = info[0].IsNull() || info[0].IsUndefined() ? Napi::Function() : info[0].As<Napi::Function>();
+
+	std::lock_guard lk(_tsfnMutex);
+
+	// If the input callback isn't null
+	if (!inputCallback.IsEmpty())
+	{
+		// Save the input callback as a thread safe function
+		_inputTsfn = Napi::ThreadSafeFunction::New(info.Env(), inputCallback, "inputCallback", 0, 1, [this](Napi::Env) {});
+	}
+	else
+	{
+		_inputTsfn = Napi::ThreadSafeFunction();
+	}
+}
+
+void RtAudioWrap::setFrameOutputCallback(const Napi::CallbackInfo &info)
+{
+	Napi::Function frameOutputCallback = info[0].IsNull() || info[0].IsUndefined() ? Napi::Function() : info[0].As<Napi::Function>();
+
+	std::lock_guard lk(_tsfnMutex);
+
+	// If the frame output callback isn't null
+	if (!frameOutputCallback.IsEmpty())
+	{
+		// Save the input callback as a thread safe function
+		_frameOutputTsfn = Napi::ThreadSafeFunction::New(info.Env(), frameOutputCallback, "frameOutputCallback", 0, 1, [this](Napi::Env) {});
+	}
+	else
+	{
+		_frameOutputTsfn = Napi::ThreadSafeFunction();
+	}
 }
