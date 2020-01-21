@@ -1100,7 +1100,7 @@
 			},
 			"children": [
 				{
-					"id": 73,
+					"id": 75,
 					"name": "constructor",
 					"kind": 512,
 					"kindString": "Constructor",
@@ -1112,7 +1112,7 @@
 					},
 					"signatures": [
 						{
-							"id": 74,
+							"id": 76,
 							"name": "new RtAudio",
 							"kind": 16384,
 							"kindString": "Constructor signature",
@@ -1122,7 +1122,7 @@
 							},
 							"parameters": [
 								{
-									"id": 75,
+									"id": 77,
 									"name": "api",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -1149,13 +1149,61 @@
 					"sources": [
 						{
 							"fileName": "index.d.ts",
-							"line": 200,
-							"character": 30
+							"line": 205,
+							"character": 27
 						}
 					]
 				},
 				{
-					"id": 105,
+					"id": 73,
+					"name": "outputVolume",
+					"kind": 1024,
+					"kindString": "Property",
+					"flags": {
+						"isPublic": true,
+						"isExported": true
+					},
+					"comment": {
+						"shortText": "The volume of the output device. This should be a number between 0 and 1."
+					},
+					"sources": [
+						{
+							"fileName": "index.d.ts",
+							"line": 202,
+							"character": 20
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "number"
+					}
+				},
+				{
+					"id": 74,
+					"name": "streamTime",
+					"kind": 1024,
+					"kindString": "Property",
+					"flags": {
+						"isPublic": true,
+						"isExported": true
+					},
+					"comment": {
+						"shortText": "The number of elapsed seconds since the stream was started. This should be a time in seconds greater than or equal to 0.0."
+					},
+					"sources": [
+						{
+							"fileName": "index.d.ts",
+							"line": 205,
+							"character": 18
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "number"
+					}
+				},
+				{
+					"id": 107,
 					"name": "clearOutputQueue",
 					"kind": 2048,
 					"kindString": "Method",
@@ -1164,7 +1212,7 @@
 					},
 					"signatures": [
 						{
-							"id": 106,
+							"id": 108,
 							"name": "clearOutputQueue",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -1181,13 +1229,13 @@
 					"sources": [
 						{
 							"fileName": "index.d.ts",
-							"line": 265,
+							"line": 271,
 							"character": 17
 						}
 					]
 				},
 				{
-					"id": 92,
+					"id": 94,
 					"name": "closeStream",
 					"kind": 2048,
 					"kindString": "Method",
@@ -1196,7 +1244,7 @@
 					},
 					"signatures": [
 						{
-							"id": 93,
+							"id": 95,
 							"name": "closeStream",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -1213,13 +1261,13 @@
 					"sources": [
 						{
 							"fileName": "index.d.ts",
-							"line": 234,
+							"line": 240,
 							"character": 12
 						}
 					]
 				},
 				{
-					"id": 107,
+					"id": 109,
 					"name": "getApi",
 					"kind": 2048,
 					"kindString": "Method",
@@ -1228,7 +1276,7 @@
 					},
 					"signatures": [
 						{
-							"id": 108,
+							"id": 110,
 							"name": "getApi",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -1245,13 +1293,13 @@
 					"sources": [
 						{
 							"fileName": "index.d.ts",
-							"line": 270,
+							"line": 276,
 							"character": 7
 						}
 					]
 				},
 				{
-					"id": 120,
+					"id": 117,
 					"name": "getDefaultInputDevice",
 					"kind": 2048,
 					"kindString": "Method",
@@ -1260,7 +1308,7 @@
 					},
 					"signatures": [
 						{
-							"id": 121,
+							"id": 118,
 							"name": "getDefaultInputDevice",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -1277,13 +1325,13 @@
 					"sources": [
 						{
 							"fileName": "index.d.ts",
-							"line": 301,
+							"line": 296,
 							"character": 22
 						}
 					]
 				},
 				{
-					"id": 122,
+					"id": 119,
 					"name": "getDefaultOutputDevice",
 					"kind": 2048,
 					"kindString": "Method",
@@ -1292,7 +1340,7 @@
 					},
 					"signatures": [
 						{
-							"id": 123,
+							"id": 120,
 							"name": "getDefaultOutputDevice",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -1309,13 +1357,13 @@
 					"sources": [
 						{
 							"fileName": "index.d.ts",
-							"line": 306,
+							"line": 301,
 							"character": 23
 						}
 					]
 				},
 				{
-					"id": 118,
+					"id": 115,
 					"name": "getDevices",
 					"kind": 2048,
 					"kindString": "Method",
@@ -1324,7 +1372,7 @@
 					},
 					"signatures": [
 						{
-							"id": 119,
+							"id": 116,
 							"name": "getDevices",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -1348,46 +1396,13 @@
 					"sources": [
 						{
 							"fileName": "index.d.ts",
-							"line": 296,
+							"line": 291,
 							"character": 11
 						}
 					]
 				},
 				{
-					"id": 127,
-					"name": "getOutputVolume",
-					"kind": 2048,
-					"kindString": "Method",
-					"flags": {
-						"isExported": true
-					},
-					"signatures": [
-						{
-							"id": 128,
-							"name": "getOutputVolume",
-							"kind": 4096,
-							"kindString": "Call signature",
-							"flags": {},
-							"comment": {
-								"shortText": "Gets the output's volume.",
-								"returns": "The current volume of the output.\n"
-							},
-							"type": {
-								"type": "intrinsic",
-								"name": "number"
-							}
-						}
-					],
-					"sources": [
-						{
-							"fileName": "index.d.ts",
-							"line": 318,
-							"character": 16
-						}
-					]
-				},
-				{
-					"id": 109,
+					"id": 111,
 					"name": "getStreamLatency",
 					"kind": 2048,
 					"kindString": "Method",
@@ -1396,7 +1411,7 @@
 					},
 					"signatures": [
 						{
-							"id": 110,
+							"id": 112,
 							"name": "getStreamLatency",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -1413,13 +1428,13 @@
 					"sources": [
 						{
 							"fileName": "index.d.ts",
-							"line": 275,
+							"line": 281,
 							"character": 17
 						}
 					]
 				},
 				{
-					"id": 111,
+					"id": 113,
 					"name": "getStreamSampleRate",
 					"kind": 2048,
 					"kindString": "Method",
@@ -1428,7 +1443,7 @@
 					},
 					"signatures": [
 						{
-							"id": 112,
+							"id": 114,
 							"name": "getStreamSampleRate",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -1445,45 +1460,13 @@
 					"sources": [
 						{
 							"fileName": "index.d.ts",
-							"line": 280,
+							"line": 286,
 							"character": 20
 						}
 					]
 				},
 				{
-					"id": 113,
-					"name": "getStreamTime",
-					"kind": 2048,
-					"kindString": "Method",
-					"flags": {
-						"isExported": true
-					},
-					"signatures": [
-						{
-							"id": 114,
-							"name": "getStreamTime",
-							"kind": 4096,
-							"kindString": "Call signature",
-							"flags": {},
-							"comment": {
-								"shortText": "Returns the number of elapsed seconds since the stream was started."
-							},
-							"type": {
-								"type": "intrinsic",
-								"name": "number"
-							}
-						}
-					],
-					"sources": [
-						{
-							"fileName": "index.d.ts",
-							"line": 285,
-							"character": 14
-						}
-					]
-				},
-				{
-					"id": 94,
+					"id": 96,
 					"name": "isStreamOpen",
 					"kind": 2048,
 					"kindString": "Method",
@@ -1492,7 +1475,7 @@
 					},
 					"signatures": [
 						{
-							"id": 95,
+							"id": 97,
 							"name": "isStreamOpen",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -1509,13 +1492,13 @@
 					"sources": [
 						{
 							"fileName": "index.d.ts",
-							"line": 239,
+							"line": 245,
 							"character": 13
 						}
 					]
 				},
 				{
-					"id": 100,
+					"id": 102,
 					"name": "isStreamRunning",
 					"kind": 2048,
 					"kindString": "Method",
@@ -1524,7 +1507,7 @@
 					},
 					"signatures": [
 						{
-							"id": 101,
+							"id": 103,
 							"name": "isStreamRunning",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -1541,13 +1524,13 @@
 					"sources": [
 						{
 							"fileName": "index.d.ts",
-							"line": 254,
+							"line": 260,
 							"character": 16
 						}
 					]
 				},
 				{
-					"id": 76,
+					"id": 78,
 					"name": "openStream",
 					"kind": 2048,
 					"kindString": "Method",
@@ -1556,7 +1539,7 @@
 					},
 					"signatures": [
 						{
-							"id": 77,
+							"id": 79,
 							"name": "openStream",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -1566,7 +1549,7 @@
 							},
 							"parameters": [
 								{
-									"id": 78,
+									"id": 80,
 									"name": "outputParameters",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -1590,7 +1573,7 @@
 									}
 								},
 								{
-									"id": 79,
+									"id": 81,
 									"name": "inputParameters",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -1614,7 +1597,7 @@
 									}
 								},
 								{
-									"id": 80,
+									"id": 82,
 									"name": "format",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -1629,7 +1612,7 @@
 									}
 								},
 								{
-									"id": 81,
+									"id": 83,
 									"name": "sampleRate",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -1643,7 +1626,7 @@
 									}
 								},
 								{
-									"id": 82,
+									"id": 84,
 									"name": "frameSize",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -1657,7 +1640,7 @@
 									}
 								},
 								{
-									"id": 83,
+									"id": 85,
 									"name": "streamName",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -1671,7 +1654,7 @@
 									}
 								},
 								{
-									"id": 84,
+									"id": 86,
 									"name": "inputCallback",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -1682,21 +1665,21 @@
 									"type": {
 										"type": "reflection",
 										"declaration": {
-											"id": 85,
+											"id": 87,
 											"name": "__type",
 											"kind": 65536,
 											"kindString": "Type literal",
 											"flags": {},
 											"signatures": [
 												{
-													"id": 86,
+													"id": 88,
 													"name": "__call",
 													"kind": 4096,
 													"kindString": "Call signature",
 													"flags": {},
 													"parameters": [
 														{
-															"id": 87,
+															"id": 89,
 															"name": "inputData",
 															"kind": 32768,
 															"kindString": "Parameter",
@@ -1725,7 +1708,7 @@
 											"sources": [
 												{
 													"fileName": "index.d.ts",
-													"line": 226,
+													"line": 232,
 													"character": 16
 												}
 											]
@@ -1733,7 +1716,7 @@
 									}
 								},
 								{
-									"id": 88,
+									"id": 90,
 									"name": "frameOutputCallback",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -1744,14 +1727,14 @@
 									"type": {
 										"type": "reflection",
 										"declaration": {
-											"id": 89,
+											"id": 91,
 											"name": "__type",
 											"kind": 65536,
 											"kindString": "Type literal",
 											"flags": {},
 											"signatures": [
 												{
-													"id": 90,
+													"id": 92,
 													"name": "__call",
 													"kind": 4096,
 													"kindString": "Call signature",
@@ -1774,7 +1757,7 @@
 											"sources": [
 												{
 													"fileName": "index.d.ts",
-													"line": 227,
+													"line": 233,
 													"character": 22
 												}
 											]
@@ -1782,7 +1765,7 @@
 									}
 								},
 								{
-									"id": 91,
+									"id": 93,
 									"name": "flags",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -1808,14 +1791,14 @@
 					"sources": [
 						{
 							"fileName": "index.d.ts",
-							"line": 219,
+							"line": 225,
 							"character": 11
 						}
 					]
 				},
 				{
-					"id": 124,
-					"name": "setOutputVolume",
+					"id": 127,
+					"name": "setFrameOutputCallback",
 					"kind": 2048,
 					"kindString": "Method",
 					"flags": {
@@ -1823,27 +1806,62 @@
 					},
 					"signatures": [
 						{
-							"id": 125,
-							"name": "setOutputVolume",
+							"id": 128,
+							"name": "setFrameOutputCallback",
 							"kind": 4096,
 							"kindString": "Call signature",
 							"flags": {},
 							"comment": {
-								"shortText": "Sets the output's volume."
+								"shortText": "Sets the frame output playback for the output device."
 							},
 							"parameters": [
 								{
-									"id": 126,
-									"name": "volume",
+									"id": 129,
+									"name": "callback",
 									"kind": 32768,
 									"kindString": "Parameter",
 									"flags": {},
 									"comment": {
-										"text": "The volume for the output device. The volume should be between 0 and 1.\n"
+										"text": "A callback that is called when a frame is finished playing in the output device.\n"
 									},
 									"type": {
-										"type": "intrinsic",
-										"name": "number"
+										"type": "reflection",
+										"declaration": {
+											"id": 130,
+											"name": "__type",
+											"kind": 65536,
+											"kindString": "Type literal",
+											"flags": {},
+											"signatures": [
+												{
+													"id": 131,
+													"name": "__call",
+													"kind": 4096,
+													"kindString": "Call signature",
+													"flags": {},
+													"type": {
+														"type": "union",
+														"types": [
+															{
+																"type": "intrinsic",
+																"name": "void"
+															},
+															{
+																"type": "intrinsic",
+																"name": "null"
+															}
+														]
+													}
+												}
+											],
+											"sources": [
+												{
+													"fileName": "index.d.ts",
+													"line": 313,
+													"character": 33
+												}
+											]
+										}
 									}
 								}
 							],
@@ -1856,14 +1874,14 @@
 					"sources": [
 						{
 							"fileName": "index.d.ts",
-							"line": 312,
-							"character": 16
+							"line": 313,
+							"character": 23
 						}
 					]
 				},
 				{
-					"id": 115,
-					"name": "setStreamTime",
+					"id": 121,
+					"name": "setInputCallback",
 					"kind": 2048,
 					"kindString": "Method",
 					"flags": {
@@ -1871,27 +1889,75 @@
 					},
 					"signatures": [
 						{
-							"id": 116,
-							"name": "setStreamTime",
+							"id": 122,
+							"name": "setInputCallback",
 							"kind": 4096,
 							"kindString": "Call signature",
 							"flags": {},
 							"comment": {
-								"shortText": "Set the stream time to a time in seconds greater than or equal to 0.0."
+								"shortText": "Sets the input callback function for the input device."
 							},
 							"parameters": [
 								{
-									"id": 117,
-									"name": "time",
+									"id": 123,
+									"name": "callback",
 									"kind": 32768,
 									"kindString": "Parameter",
 									"flags": {},
 									"comment": {
-										"text": "The new stream time.\n"
+										"text": "A callback that is called when a new input signal is available. Should be null for output-only streams.\n"
 									},
 									"type": {
-										"type": "intrinsic",
-										"name": "number"
+										"type": "reflection",
+										"declaration": {
+											"id": 124,
+											"name": "__type",
+											"kind": 65536,
+											"kindString": "Type literal",
+											"flags": {},
+											"signatures": [
+												{
+													"id": 125,
+													"name": "__call",
+													"kind": 4096,
+													"kindString": "Call signature",
+													"flags": {},
+													"parameters": [
+														{
+															"id": 126,
+															"name": "inputData",
+															"kind": 32768,
+															"kindString": "Parameter",
+															"flags": {},
+															"type": {
+																"type": "reference",
+																"name": "Buffer"
+															}
+														}
+													],
+													"type": {
+														"type": "union",
+														"types": [
+															{
+																"type": "intrinsic",
+																"name": "void"
+															},
+															{
+																"type": "intrinsic",
+																"name": "null"
+															}
+														]
+													}
+												}
+											],
+											"sources": [
+												{
+													"fileName": "index.d.ts",
+													"line": 307,
+													"character": 27
+												}
+											]
+										}
 									}
 								}
 							],
@@ -1904,13 +1970,13 @@
 					"sources": [
 						{
 							"fileName": "index.d.ts",
-							"line": 291,
-							"character": 14
+							"line": 307,
+							"character": 17
 						}
 					]
 				},
 				{
-					"id": 96,
+					"id": 98,
 					"name": "start",
 					"kind": 2048,
 					"kindString": "Method",
@@ -1919,7 +1985,7 @@
 					},
 					"signatures": [
 						{
-							"id": 97,
+							"id": 99,
 							"name": "start",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -1936,13 +2002,13 @@
 					"sources": [
 						{
 							"fileName": "index.d.ts",
-							"line": 244,
+							"line": 250,
 							"character": 6
 						}
 					]
 				},
 				{
-					"id": 98,
+					"id": 100,
 					"name": "stop",
 					"kind": 2048,
 					"kindString": "Method",
@@ -1951,7 +2017,7 @@
 					},
 					"signatures": [
 						{
-							"id": 99,
+							"id": 101,
 							"name": "stop",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -1968,13 +2034,13 @@
 					"sources": [
 						{
 							"fileName": "index.d.ts",
-							"line": 249,
+							"line": 255,
 							"character": 5
 						}
 					]
 				},
 				{
-					"id": 102,
+					"id": 104,
 					"name": "write",
 					"kind": 2048,
 					"kindString": "Method",
@@ -1983,7 +2049,7 @@
 					},
 					"signatures": [
 						{
-							"id": 103,
+							"id": 105,
 							"name": "write",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -1993,7 +2059,7 @@
 							},
 							"parameters": [
 								{
-									"id": 104,
+									"id": 106,
 									"name": "pcm",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -2016,7 +2082,7 @@
 					"sources": [
 						{
 							"fileName": "index.d.ts",
-							"line": 260,
+							"line": 266,
 							"character": 6
 						}
 					]
@@ -2027,31 +2093,37 @@
 					"title": "Constructors",
 					"kind": 512,
 					"children": [
-						73
+						75
+					]
+				},
+				{
+					"title": "Properties",
+					"kind": 1024,
+					"children": [
+						73,
+						74
 					]
 				},
 				{
 					"title": "Methods",
 					"kind": 2048,
 					"children": [
-						105,
-						92,
 						107,
-						120,
-						122,
-						118,
-						127,
+						94,
 						109,
+						117,
+						119,
+						115,
 						111,
 						113,
-						94,
-						100,
-						76,
-						124,
-						115,
 						96,
+						102,
+						78,
+						127,
+						121,
 						98,
-						102
+						100,
+						104
 					]
 				}
 			],
