@@ -60,7 +60,8 @@ private:
 
 	std::mutex _outputDataMutex;
 	std::queue<std::shared_ptr<int8_t>> _outputData;
-	double _multiplier;
+	double _outputVolume;
+	double _outputMultiplier;
 
 	unsigned int getSampleSizeForFormat(RtAudioFormat format);
 	double getSignalMultiplierForVolume(double volume);

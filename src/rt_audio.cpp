@@ -100,7 +100,7 @@ Napi::Object RtAudioWrap::Init(Napi::Env env, Napi::Object exports)
 					 InstanceMethod("setInputCallback", &RtAudioWrap::setInputCallback),
 					 InstanceMethod("setFrameOutputCallback", &RtAudioWrap::setFrameOutputCallback),
 					 InstanceAccessor("streamTime", &RtAudioWrap::getStreamTime, &RtAudioWrap::setStreamTime),
-					 InstanceAccessor("volume", &RtAudioWrap::getOutputVolume, &RtAudioWrap::setOutputVolume)});
+					 InstanceAccessor("outputVolume", &RtAudioWrap::getOutputVolume, &RtAudioWrap::setOutputVolume)});
 
 	// Set the class's ctor function as a persistent object to keep it in memory
 	constructor = Napi::Persistent(ctor_func);
@@ -111,7 +111,7 @@ Napi::Object RtAudioWrap::Init(Napi::Env env, Napi::Object exports)
 	return exports;
 }
 
-RtAudioWrap::RtAudioWrap(const Napi::CallbackInfo &info) : Napi::ObjectWrap<RtAudioWrap>(info), _frameSize(0), _inputChannels(0), _multiplier(1)
+RtAudioWrap::RtAudioWrap(const Napi::CallbackInfo &info) : Napi::ObjectWrap<RtAudioWrap>(info), _frameSize(0), _inputChannels(0), _outputMultiplier(1), _outputVolume(1)
 {
 	RtAudio::Api api = info.Length() == 0 ? RtAudio::Api::UNSPECIFIED : (RtAudio::Api)(int)info[0].As<Napi::Number>();
 
@@ -428,23 +428,23 @@ void RtAudioWrap::applyVolume(void *src, void *dst, unsigned int amount)
 		switch (_format)
 		{
 		case RTAUDIO_SINT8:
-			*((int8_t *)dst + i) = (int8_t)(*((int8_t *)src + i) * _multiplier);
+			*((int8_t *)dst + i) = (int8_t)(*((int8_t *)src + i) * _outputMultiplier);
 			break;
 
 		case RTAUDIO_SINT16:
-			*((int16_t *)dst + i) = (int16_t)(*((int16_t *)src + i) * _multiplier);
+			*((int16_t *)dst + i) = (int16_t)(*((int16_t *)src + i) * _outputMultiplier);
 			break;
 
 		case RTAUDIO_SINT32:
-			*((int32_t *)dst + i) = (int32_t)(*((int32_t *)src + i) * _multiplier);
+			*((int32_t *)dst + i) = (int32_t)(*((int32_t *)src + i) * _outputMultiplier);
 			break;
 
 		case RTAUDIO_FLOAT32:
-			*((float *)dst + i) = (float)(*((float *)src + i) * _multiplier);
+			*((float *)dst + i) = (float)(*((float *)src + i) * _outputMultiplier);
 			break;
 
 		case RTAUDIO_FLOAT64:
-			*((double *)dst + i) = (double)(*((double *)src + i) * _multiplier);
+			*((double *)dst + i) = (double)(*((double *)src + i) * _outputMultiplier);
 			break;
 		}
 	}
@@ -463,14 +463,17 @@ void RtAudioWrap::setOutputVolume(const Napi::CallbackInfo &info, const Napi::Va
 	}
 
 	// Calculate signal multiplier for volume
-	_multiplier = getSignalMultiplierForVolume(volume);
+	_outputMultiplier = getSignalMultiplierForVolume(volume);
+
+	// Save volume
+	_outputVolume = volume;
 }
 
 Napi::Value RtAudioWrap::getOutputVolume(const Napi::CallbackInfo &info)
 {
 	std::lock_guard lk(_outputDataMutex);
 
-	return Napi::Number::New(info.Env(), _multiplier);
+	return Napi::Number::New(info.Env(), _outputVolume);
 }
 
 void RtAudioWrap::setInputCallback(const Napi::CallbackInfo &info)
