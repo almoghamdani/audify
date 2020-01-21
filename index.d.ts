@@ -229,8 +229,8 @@ export declare class RtAudio {
 		sampleRate: number,
 		frameSize: number,
 		streamName: string,
-		inputCallback: (inputData: Buffer) => void | null,
-		frameOutputCallback: () => void | null,
+		inputCallback: ((inputData: Buffer) => void) | null,
+		frameOutputCallback: (() => void) | null,
 		flags?: RtAudioStreamFlags
 	): void;
 
@@ -304,11 +304,11 @@ export declare class RtAudio {
 	 * Sets the input callback function for the input device.
 	 * @param callback A callback that is called when a new input signal is available. Should be null for output-only streams.
 	 */
-	setInputCallback(callback: (inputData: Buffer) => void | null): void;
+	setInputCallback(callback: ((inputData: Buffer) => void) | null): void;
 
 	/**
 	 * Sets the frame output playback for the output device.
 	 * @param callback A callback that is called when a frame is finished playing in the output device.
 	 */
-	setFrameOutputCallback(callback: () => void | null): void;
+	setFrameOutputCallback(callback: (() => void) | null): void;
 }
