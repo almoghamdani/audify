@@ -1663,56 +1663,56 @@
 										"text": "A callback that is called when a new input signal is available. Should be null for output-only streams."
 									},
 									"type": {
-										"type": "reflection",
-										"declaration": {
-											"id": 87,
-											"name": "__type",
-											"kind": 65536,
-											"kindString": "Type literal",
-											"flags": {},
-											"signatures": [
-												{
-													"id": 88,
-													"name": "__call",
-													"kind": 4096,
-													"kindString": "Call signature",
+										"type": "union",
+										"types": [
+											{
+												"type": "reflection",
+												"declaration": {
+													"id": 87,
+													"name": "__type",
+													"kind": 65536,
+													"kindString": "Type literal",
 													"flags": {},
-													"parameters": [
+													"signatures": [
 														{
-															"id": 89,
-															"name": "inputData",
-															"kind": 32768,
-															"kindString": "Parameter",
+															"id": 88,
+															"name": "__call",
+															"kind": 4096,
+															"kindString": "Call signature",
 															"flags": {},
+															"parameters": [
+																{
+																	"id": 89,
+																	"name": "inputData",
+																	"kind": 32768,
+																	"kindString": "Parameter",
+																	"flags": {},
+																	"type": {
+																		"type": "reference",
+																		"name": "Buffer"
+																	}
+																}
+															],
 															"type": {
-																"type": "reference",
-																"name": "Buffer"
+																"type": "intrinsic",
+																"name": "void"
 															}
 														}
 													],
-													"type": {
-														"type": "union",
-														"types": [
-															{
-																"type": "intrinsic",
-																"name": "void"
-															},
-															{
-																"type": "intrinsic",
-																"name": "null"
-															}
-														]
-													}
+													"sources": [
+														{
+															"fileName": "index.d.ts",
+															"line": 232,
+															"character": 16
+														}
+													]
 												}
-											],
-											"sources": [
-												{
-													"fileName": "index.d.ts",
-													"line": 232,
-													"character": 16
-												}
-											]
-										}
+											},
+											{
+												"type": "intrinsic",
+												"name": "null"
+											}
+										]
 									}
 								},
 								{
@@ -1725,43 +1725,43 @@
 										"text": "A callback that is called when a frame is finished playing in the output device."
 									},
 									"type": {
-										"type": "reflection",
-										"declaration": {
-											"id": 91,
-											"name": "__type",
-											"kind": 65536,
-											"kindString": "Type literal",
-											"flags": {},
-											"signatures": [
-												{
-													"id": 92,
-													"name": "__call",
-													"kind": 4096,
-													"kindString": "Call signature",
+										"type": "union",
+										"types": [
+											{
+												"type": "reflection",
+												"declaration": {
+													"id": 91,
+													"name": "__type",
+													"kind": 65536,
+													"kindString": "Type literal",
 													"flags": {},
-													"type": {
-														"type": "union",
-														"types": [
-															{
+													"signatures": [
+														{
+															"id": 92,
+															"name": "__call",
+															"kind": 4096,
+															"kindString": "Call signature",
+															"flags": {},
+															"type": {
 																"type": "intrinsic",
 																"name": "void"
-															},
-															{
-																"type": "intrinsic",
-																"name": "null"
 															}
-														]
-													}
+														}
+													],
+													"sources": [
+														{
+															"fileName": "index.d.ts",
+															"line": 233,
+															"character": 22
+														}
+													]
 												}
-											],
-											"sources": [
-												{
-													"fileName": "index.d.ts",
-													"line": 233,
-													"character": 22
-												}
-											]
-										}
+											},
+											{
+												"type": "intrinsic",
+												"name": "null"
+											}
+										]
 									}
 								},
 								{
@@ -1825,43 +1825,43 @@
 										"text": "A callback that is called when a frame is finished playing in the output device.\n"
 									},
 									"type": {
-										"type": "reflection",
-										"declaration": {
-											"id": 130,
-											"name": "__type",
-											"kind": 65536,
-											"kindString": "Type literal",
-											"flags": {},
-											"signatures": [
-												{
-													"id": 131,
-													"name": "__call",
-													"kind": 4096,
-													"kindString": "Call signature",
+										"type": "union",
+										"types": [
+											{
+												"type": "reflection",
+												"declaration": {
+													"id": 130,
+													"name": "__type",
+													"kind": 65536,
+													"kindString": "Type literal",
 													"flags": {},
-													"type": {
-														"type": "union",
-														"types": [
-															{
+													"signatures": [
+														{
+															"id": 131,
+															"name": "__call",
+															"kind": 4096,
+															"kindString": "Call signature",
+															"flags": {},
+															"type": {
 																"type": "intrinsic",
 																"name": "void"
-															},
-															{
-																"type": "intrinsic",
-																"name": "null"
 															}
-														]
-													}
+														}
+													],
+													"sources": [
+														{
+															"fileName": "index.d.ts",
+															"line": 313,
+															"character": 33
+														}
+													]
 												}
-											],
-											"sources": [
-												{
-													"fileName": "index.d.ts",
-													"line": 313,
-													"character": 33
-												}
-											]
-										}
+											},
+											{
+												"type": "intrinsic",
+												"name": "null"
+											}
+										]
 									}
 								}
 							],
@@ -1908,56 +1908,56 @@
 										"text": "A callback that is called when a new input signal is available. Should be null for output-only streams.\n"
 									},
 									"type": {
-										"type": "reflection",
-										"declaration": {
-											"id": 124,
-											"name": "__type",
-											"kind": 65536,
-											"kindString": "Type literal",
-											"flags": {},
-											"signatures": [
-												{
-													"id": 125,
-													"name": "__call",
-													"kind": 4096,
-													"kindString": "Call signature",
+										"type": "union",
+										"types": [
+											{
+												"type": "reflection",
+												"declaration": {
+													"id": 124,
+													"name": "__type",
+													"kind": 65536,
+													"kindString": "Type literal",
 													"flags": {},
-													"parameters": [
+													"signatures": [
 														{
-															"id": 126,
-															"name": "inputData",
-															"kind": 32768,
-															"kindString": "Parameter",
+															"id": 125,
+															"name": "__call",
+															"kind": 4096,
+															"kindString": "Call signature",
 															"flags": {},
+															"parameters": [
+																{
+																	"id": 126,
+																	"name": "inputData",
+																	"kind": 32768,
+																	"kindString": "Parameter",
+																	"flags": {},
+																	"type": {
+																		"type": "reference",
+																		"name": "Buffer"
+																	}
+																}
+															],
 															"type": {
-																"type": "reference",
-																"name": "Buffer"
+																"type": "intrinsic",
+																"name": "void"
 															}
 														}
 													],
-													"type": {
-														"type": "union",
-														"types": [
-															{
-																"type": "intrinsic",
-																"name": "void"
-															},
-															{
-																"type": "intrinsic",
-																"name": "null"
-															}
-														]
-													}
+													"sources": [
+														{
+															"fileName": "index.d.ts",
+															"line": 307,
+															"character": 27
+														}
+													]
 												}
-											],
-											"sources": [
-												{
-													"fileName": "index.d.ts",
-													"line": 307,
-													"character": 27
-												}
-											]
-										}
+											},
+											{
+												"type": "intrinsic",
+												"name": "null"
+											}
+										]
 									}
 								}
 							],
