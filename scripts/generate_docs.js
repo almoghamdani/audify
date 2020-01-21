@@ -28,6 +28,9 @@ if (project) {
 			// Render docs
 			app.generateDocs(project, outputDir);
 
+			// Regenerate JSON because generate docs deleted it
+			app.generateJson(project, outputDir + '/documentation.json');
+
 			// Commit the new docs
 			git.add("docs").commit("chore: regenerate docs");
 		} else {
