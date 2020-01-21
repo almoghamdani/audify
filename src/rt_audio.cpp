@@ -417,7 +417,7 @@ unsigned int RtAudioWrap::getSampleSizeForFormat(RtAudioFormat format)
 double RtAudioWrap::getSignalMultiplierForVolume(double volume)
 {
 	// Explained here: https://stackoverflow.com/a/1165188
-	return (pow(15, volume) - 1) / (15 - 1);
+	return (pow(10, volume) - 1) / (10 - 1);
 }
 
 void RtAudioWrap::applyVolume(void *src, void *dst, unsigned int amount)
