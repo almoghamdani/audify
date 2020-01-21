@@ -198,6 +198,12 @@ export declare class OpusDecoder {
     and OSS), Macintosh OS X (CoreAudio and Jack), and Windows
     (DirectSound, ASIO and WASAPI) operating systems. */
 export declare class RtAudio {
+	/** The volume of the output device. This should be a number between 0 and 1. */
+	public outputVolume: number;
+
+	/** The number of elapsed seconds since the stream was started. This should be a time in seconds greater than or equal to 0.0.  */
+	public streamTime: number;
+
 	/**
 	 * Create an RtAudio instance.
 	 * @param api The audio API to use. (Default will be automatically selected)
@@ -280,17 +286,6 @@ export declare class RtAudio {
 	getStreamSampleRate(): number;
 
 	/**
-	 * Returns the number of elapsed seconds since the stream was started.
-	 */
-	getStreamTime(): number;
-
-	/**
-	 * Set the stream time to a time in seconds greater than or equal to 0.0.
-	 * @param time The new stream time.
-	 */
-	setStreamTime(time: number): void;
-
-	/**
 	 * Returns the list of available devices.
 	 */
 	getDevices(): Array<RtAudioDeviceInfo>;
@@ -306,14 +301,14 @@ export declare class RtAudio {
 	getDefaultOutputDevice(): number;
 
 	/**
-	 * Sets the output's volume.
-	 * @param volume The volume for the output device. The volume should be between 0 and 1.
+	 * Sets the input callback function for the input device.
+	 * @param callback A callback that is called when a new input signal is available. Should be null for output-only streams.
 	 */
-	setOutputVolume(volume: number): void;
+	setInputCallback(callback: (inputData: Buffer) => void | null): void;
 
 	/**
-	 * Gets the output's volume.
-	 * @returns The current volume of the output.
+	 * Sets the frame output playback for the output device.
+	 * @param callback A callback that is called when a frame is finished playing in the output device.
 	 */
-	getOutputVolume(): number;
+	setFrameOutputCallback(callback: () => void | null): void;
 }
