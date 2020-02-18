@@ -31,12 +31,17 @@ IF (APPLE)
 ENDIF()
 
 # Compile Opus
-set(BUILD_SHARED_LIBS ON)
-set(BUILD_TESTING OFF)
+set(BUILD_SHARED_LIBS ON CACHE BOOL "")
+set(BUILD_TESTING OFF CACHE BOOL "")
 add_subdirectory(vendor/opus opus)
 include_directories(vendor/opus/include)
 
 # Compile RtAudio
+# Enable ASIO and DirectSound support on windows
+IF (WIN32)
+    set(RTAUDIO_API_ASIO ON CACHE BOOL "Build ASIO API")
+    set(RTAUDIO_API_DS ON CACHE BOOL "Build DirectSound API")
+ENDIF ()
 set(RTAUDIO_BUILD_TESTING OFF)
 add_subdirectory(vendor/rtaudio rtaudio)
 include_directories(vendor/rtaudio)
