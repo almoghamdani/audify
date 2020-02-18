@@ -37,6 +37,11 @@ add_subdirectory(vendor/opus opus)
 include_directories(vendor/opus/include)
 
 # Compile RtAudio
+# Enable ASIO and DirectSound support on windows
+IF (WIN32)
+    set(RTAUDIO_API_ASIO ON)
+    set(RTAUDIO_API_DS ON)
+ENDIF ()
 set(RTAUDIO_BUILD_TESTING OFF)
 add_subdirectory(vendor/rtaudio rtaudio)
 include_directories(vendor/rtaudio)
