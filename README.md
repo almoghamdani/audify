@@ -15,11 +15,11 @@ npm install audify
 ```
 
 ***Most regular installs will support prebuilds that are built with each release.***
-***The prebuilds are for Node v8.16.0+, v10.16.0+, v11.8.0+, v12.0.0+, v13.0.0+ and Electron v5.0.0+, v6.0.0+, v7.0.0+.***
+***The prebuilds are for Node v12.11.x+, v13.x.x, v14.x.x and Electron v8.x.x, v9.x.x, v10.x.x, v11.x.x, v12.x.x.***
 
 #### Requirements for source build
 
-* Node or Electron versions that support N-API 4 and up ([N-API Node Version Matrix](https://nodejs.org/docs/latest/api/n-api.html#n_api_n_api_version_matrix))
+* Node or Electron versions that support N-API 5 and up ([N-API Node Version Matrix](https://nodejs.org/docs/latest/api/n-api.html#n_api_node_api_version_matrix))
 * [CMake](http://www.cmake.org/download/)
 * A proper C/C++ compiler toolchain of the given platform
     * **Windows**:

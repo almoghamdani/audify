@@ -12,11 +12,11 @@
 		"predeploy": "npm run docs",
 		"build-binaries": "npm run build-binaries-node && npm run build-binaries-electron",
 		"build-binaries-node": "run-script-os",
-		"build-binaries-node:win32": "prebuild --backend cmake-js --include-regex \"^.*\\.(node|dylib|dll|so(\\.[0-9])?)$\" -t 8.16.0 -t 10.16.0 -t 11.8.0 -t 12.0.0 -t 13.0.0 --verbose -u %GITHUB_TOKEN%",
-		"build-binaries-node:darwin:linux": "prebuild --backend cmake-js --include-regex \"^.*\\.(node|dylib|dll|so(\\.[0-9])?)$\" -t 8.16.0 -t 10.16.0 -t 11.8.0 -t 12.0.0 -t 13.0.0 --verbose -u $GITHUB_TOKEN",
+		"build-binaries-node:win32": "prebuild --backend cmake-js --include-regex \"^.*\\.(node|dylib|dll|so(\\.[0-9])?)$\" -t 12.11.0 -t 13.0.0 -t 14.0.0 --verbose -u %GITHUB_TOKEN%",
+		"build-binaries-node:darwin:linux": "prebuild --backend cmake-js --include-regex \"^.*\\.(node|dylib|dll|so(\\.[0-9])?)$\" -t 12.11.0 -t 13.0.0 -t 14.0.0 --verbose -u $GITHUB_TOKEN",
 		"build-binaries-electron": "run-script-os",
-		"build-binaries-electron:win32": "prebuild --backend cmake-js --include-regex \"^.*\\.(node|dylib|dll|so(\\.[0-9])?)$\" -r electron -t 5.0.0 -t 6.0.0 -t 7.0.0 --verbose -u %GITHUB_TOKEN%",
-		"build-binaries-electron:darwin:linux": "prebuild --backend cmake-js --include-regex \"^.*\\.(node|dylib|dll|so(\\.[0-9])?)$\" -r electron -t 5.0.0 -t 6.0.0 -t 7.0.0 --verbose -u $GITHUB_TOKEN"
+		"build-binaries-electron:win32": "prebuild --backend cmake-js --include-regex \"^.*\\.(node|dylib|dll|so(\\.[0-9])?)$\" -r electron -t 8.0.0 -t 9.0.0 -t 10.0.0 -t 11.0.0 -t 12.0.0 --verbose -u %GITHUB_TOKEN%",
+		"build-binaries-electron:darwin:linux": "prebuild --backend cmake-js --include-regex \"^.*\\.(node|dylib|dll|so(\\.[0-9])?)$\" -r electron -t 8.0.0 -t 9.0.0 -t 10.0.0 -t 11.0.0 -t 12.0.0 --verbose -u $GITHUB_TOKEN"
 	},
 	"repository": {
 		"type": "git",
@@ -54,17 +54,18 @@
 	"homepage": "https://github.com/almoghamdani/audify#readme",
 	"dependencies": {
 		"bindings": "^1.5.0",
-		"cmake-js": "^6.0.0",
-		"node-addon-api": "^2.0.0",
-		"prebuild-install": "^5.3.3"
+		"cmake-js": "^6.1.0",
+		"node-addon-api": "^3.1.0",
+		"prebuild-install": "^6.0.1"
 	},
 	"devDependencies": {
-		"@types/node": "^12.12.17",
+		"@types/node": "^14.14.37",
 		"eledoc": "^0.2.1",
-		"np": "^5.2.1",
-		"prebuild": "^9.1.1",
-		"run-script-os": "^1.0.7",
-		"simple-git": "^1.129.0",
-		"typedoc": "^0.15.4"
+		"np": "^7.4.0",
+		"prebuild": "^10.0.1",
+		"run-script-os": "^1.1.6",
+		"simple-git": "^1.132.0",
+		"typedoc": "^0.20.34",
+		"typescript": "^4.2.3"
 	}
 }
