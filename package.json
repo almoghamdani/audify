@@ -20,7 +20,7 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/almogh52/audify.git"
+		"url": "git+https://github.com/almoghamdani/audify.git"
 	},
 	"keywords": [
 		"play",
@@ -49,9 +49,9 @@
 	"author": "Almog Hamdani",
 	"license": "MIT",
 	"bugs": {
-		"url": "https://github.com/almogh52/audify/issues"
+		"url": "https://github.com/almoghamdani/audify/issues"
 	},
-	"homepage": "https://github.com/almogh52/audify#readme",
+	"homepage": "https://github.com/almoghamdani/audify#readme",
 	"dependencies": {
 		"bindings": "^1.5.0",
 		"cmake-js": "^6.0.0",

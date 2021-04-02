@@ -1,5 +1,5 @@
 [![npm version](https://badge.fury.io/js/audify.svg)](https://badge.fury.io/js/audify)
-[![Build Status](https://travis-ci.com/almogh52/audify.svg?branch=master)](https://travis-ci.com/almogh52/audify)
+[![Build Status](https://travis-ci.com/almoghamdani/audify.svg?branch=master)](https://travis-ci.com/almoghamdani/audify)
 
 # Audify.js
 Audify.js - Play/Stream/Record PCM audio data &amp; Encode/Decode Opus to PCM audio data
@@ -76,7 +76,7 @@ rtAudio.start();
 ```
 
 ## Documentation
-Full documentation available [here](https://almogh52.github.io/audify/).
+Full documentation available [here](https://almoghamdani.github.io/audify/).
 
 ## Legal
 This project is licensed under the MIT license.
