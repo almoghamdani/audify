@@ -4,17 +4,17 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>RtAudio | Audify.js</title>
-	<meta name="description" content="">
+	<meta name="description" content="Documentation for Audify.js">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link href="https://fonts.googleapis.com/css?family=Noto+Sans&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="../assets/css/main.css">
+	<script async src="../assets/js/search.js" id="search-script"></script>
 </head>
 <body>
 <header>
 	<div class="tsd-page-toolbar">
 		<div class="container">
 			<div class="table-wrap">
-				<div class="table-cell" id="tsd-search" data-index="../assets/js/search.js" data-base="..">
+				<div class="table-cell" id="tsd-search" data-index="../assets/js/search.json" data-base="..">
 					<div class="field">
 						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
 						<input id="tsd-search-field" type="text" />
@@ -41,8 +41,6 @@
 							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
 							<input type="checkbox" id="tsd-filter-externals" checked />
 							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
-							<input type="checkbox" id="tsd-filter-only-exported" />
-							<label class="tsd-widget" for="tsd-filter-only-exported">Only exported</label>
 						</div>
 					</div>
 					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
@@ -54,124 +52,21 @@
 		<div class="container">
 			<ul class="tsd-breadcrumb">
 				<li>
-					<a href="../globals.html">Globals</a>
+					<a href="../modules.html">Audify.js</a>
 				</li>
 				<li>
 					<a href="rtaudio.html">RtAudio</a>
 				</li>
 			</ul>
+			<h1>Class RtAudio</h1>
 		</div>
 	</div>
 </header>
-<div class="container">
-	<div class="row container container-main">
-		<div class="col-3 col-menu menu-sticky-wrap menu-highlight">
-			<nav class="tsd-navigation secondary menu-sticky">
-				<ul>
-					<ul class="before-current">
-						<li class=" tsd-kind-enum tsd-is-not-exported">
-							<a href="../enums/opusapplication.html" class="tsd-kind-icon">Opus<wbr>Application</a>
-						</li>
-						<li class=" tsd-kind-enum tsd-is-not-exported">
-							<a href="../enums/rtaudioapi.html" class="tsd-kind-icon">Rt<wbr>Audio<wbr>Api</a>
-						</li>
-						<li class=" tsd-kind-enum tsd-is-not-exported">
-							<a href="../enums/rtaudioformat.html" class="tsd-kind-icon">Rt<wbr>Audio<wbr>Format</a>
-						</li>
-						<li class=" tsd-kind-enum tsd-is-not-exported">
-							<a href="../enums/rtaudiostreamflags.html" class="tsd-kind-icon">Rt<wbr>Audio<wbr>Stream<wbr>Flags</a>
-						</li>
-						<li class=" tsd-kind-class">
-							<a href="opusdecoder.html" class="tsd-kind-icon">Opus<wbr>Decoder</a>
-						</li>
-						<li class=" tsd-kind-class">
-							<a href="opusencoder.html" class="tsd-kind-icon">Opus<wbr>Encoder</a>
-						</li>
-					</ul>
-					<ul class="current">
-						<li class="current tsd-kind-class">
-							<a href="rtaudio.html" class="tsd-kind-icon">Rt<wbr>Audio</a>
-							<ul>
-								<li class=" tsd-kind-constructor tsd-parent-kind-class">
-									<a href="rtaudio.html#constructor" class="tsd-kind-icon">constructor</a>
-								</li>
-								<li class=" tsd-kind-property tsd-parent-kind-class">
-									<a href="rtaudio.html#outputvolume" class="tsd-kind-icon">output<wbr>Volume</a>
-								</li>
-								<li class=" tsd-kind-property tsd-parent-kind-class">
-									<a href="rtaudio.html#streamtime" class="tsd-kind-icon">stream<wbr>Time</a>
-								</li>
-								<li class=" tsd-kind-method tsd-parent-kind-class">
-									<a href="rtaudio.html#clearoutputqueue" class="tsd-kind-icon">clear<wbr>Output<wbr>Queue</a>
-								</li>
-								<li class=" tsd-kind-method tsd-parent-kind-class">
-									<a href="rtaudio.html#closestream" class="tsd-kind-icon">close<wbr>Stream</a>
-								</li>
-								<li class=" tsd-kind-method tsd-parent-kind-class">
-									<a href="rtaudio.html#getapi" class="tsd-kind-icon">get<wbr>Api</a>
-								</li>
-								<li class=" tsd-kind-method tsd-parent-kind-class">
-									<a href="rtaudio.html#getdefaultinputdevice" class="tsd-kind-icon">get<wbr>Default<wbr>Input<wbr>Device</a>
-								</li>
-								<li class=" tsd-kind-method tsd-parent-kind-class">
-									<a href="rtaudio.html#getdefaultoutputdevice" class="tsd-kind-icon">get<wbr>Default<wbr>Output<wbr>Device</a>
-								</li>
-								<li class=" tsd-kind-method tsd-parent-kind-class">
-									<a href="rtaudio.html#getdevices" class="tsd-kind-icon">get<wbr>Devices</a>
-								</li>
-								<li class=" tsd-kind-method tsd-parent-kind-class">
-									<a href="rtaudio.html#getstreamlatency" class="tsd-kind-icon">get<wbr>Stream<wbr>Latency</a>
-								</li>
-								<li class=" tsd-kind-method tsd-parent-kind-class">
-									<a href="rtaudio.html#getstreamsamplerate" class="tsd-kind-icon">get<wbr>Stream<wbr>Sample<wbr>Rate</a>
-								</li>
-								<li class=" tsd-kind-method tsd-parent-kind-class">
-									<a href="rtaudio.html#isstreamopen" class="tsd-kind-icon">is<wbr>Stream<wbr>Open</a>
-								</li>
-								<li class=" tsd-kind-method tsd-parent-kind-class">
-									<a href="rtaudio.html#isstreamrunning" class="tsd-kind-icon">is<wbr>Stream<wbr>Running</a>
-								</li>
-								<li class=" tsd-kind-method tsd-parent-kind-class">
-									<a href="rtaudio.html#openstream" class="tsd-kind-icon">open<wbr>Stream</a>
-								</li>
-								<li class=" tsd-kind-method tsd-parent-kind-class">
-									<a href="rtaudio.html#setframeoutputcallback" class="tsd-kind-icon">set<wbr>Frame<wbr>Output<wbr>Callback</a>
-								</li>
-								<li class=" tsd-kind-method tsd-parent-kind-class">
-									<a href="rtaudio.html#setinputcallback" class="tsd-kind-icon">set<wbr>Input<wbr>Callback</a>
-								</li>
-								<li class=" tsd-kind-method tsd-parent-kind-class">
-									<a href="rtaudio.html#start" class="tsd-kind-icon">start</a>
-								</li>
-								<li class=" tsd-kind-method tsd-parent-kind-class">
-									<a href="rtaudio.html#stop" class="tsd-kind-icon">stop</a>
-								</li>
-								<li class=" tsd-kind-method tsd-parent-kind-class">
-									<a href="rtaudio.html#write" class="tsd-kind-icon">write</a>
-								</li>
-							</ul>
-						</li>
-					</ul>
-					<ul class="after-current">
-						<li class=" tsd-kind-interface tsd-is-not-exported">
-							<a href="../interfaces/rtaudiodeviceinfo.html" class="tsd-kind-icon">Rt<wbr>Audio<wbr>Device<wbr>Info</a>
-						</li>
-						<li class=" tsd-kind-interface tsd-is-not-exported">
-							<a href="../interfaces/rtaudiostreamparameters.html" class="tsd-kind-icon">Rt<wbr>Audio<wbr>Stream<wbr>Parameters</a>
-						</li>
-					</ul>
-				</ul>
-				<ul>
-					<li>📑 Index</li>
-					<li><br></li>
-					<li class=" ">
-						<a href="../globals.html">Globals</a>
-				</li>                </ul>
-			</nav>
-		</div>
-		<div class="col-9 col-content">
+<div class="container container-main">
+	<div class="row">
+		<div class="col-8 col-content">
 			<section class="tsd-panel tsd-comment">
-				<div class="tsd-comment">
+				<div class="tsd-comment tsd-typography">
 					<div class="lead">
 						<p>RtAudio provides a common API (Application Programming Interface)
 							for realtime audio input/output across Linux (native ALSA, Jack,
@@ -189,651 +84,734 @@
 				</ul>
 			</section>
 			<section class="tsd-panel-group tsd-index-group">
+				<h2>Index</h2>
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
 						<section class="tsd-index-section ">
 							<h3>Constructors</h3>
-							<div class="tsd-navigation secondary">
-								<ul>
-									<li class="tsd-kind-constructor tsd-parent-kind-class">
-										<a href="rtaudio.html#constructor" class="tsd-kind-icon">constructor</a>
-									</li>
-								</ul>
-							</div>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="rtaudio.html#constructor" class="tsd-kind-icon">constructor</a></li>
+							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
-							<div class="tsd-navigation secondary">
-								<ul>
-									<li class="tsd-kind-property tsd-parent-kind-class">
-										<a href="rtaudio.html#outputvolume" class="tsd-kind-icon">output<wbr>Volume</a>
-									</li>
-								</ul>
-							</div>
-							<div class="tsd-navigation secondary">
-								<ul>
-									<li class="tsd-kind-property tsd-parent-kind-class">
-										<a href="rtaudio.html#streamtime" class="tsd-kind-icon">stream<wbr>Time</a>
-									</li>
-								</ul>
-							</div>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="rtaudio.html#outputvolume" class="tsd-kind-icon">output<wbr>Volume</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="rtaudio.html#streamtime" class="tsd-kind-icon">stream<wbr>Time</a></li>
+							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
-							<div class="tsd-navigation secondary">
-								<ul>
-									<li class="tsd-kind-method tsd-parent-kind-class">
-										<a href="rtaudio.html#clearoutputqueue" class="tsd-kind-icon">clear<wbr>Output<wbr>Queue</a>
-									</li>
-								</ul>
-							</div>
-							<div class="tsd-navigation secondary">
-								<ul>
-									<li class="tsd-kind-method tsd-parent-kind-class">
-										<a href="rtaudio.html#closestream" class="tsd-kind-icon">close<wbr>Stream</a>
-									</li>
-								</ul>
-							</div>
-							<div class="tsd-navigation secondary">
-								<ul>
-									<li class="tsd-kind-method tsd-parent-kind-class">
-										<a href="rtaudio.html#getapi" class="tsd-kind-icon">get<wbr>Api</a>
-									</li>
-								</ul>
-							</div>
-							<div class="tsd-navigation secondary">
-								<ul>
-									<li class="tsd-kind-method tsd-parent-kind-class">
-										<a href="rtaudio.html#getdefaultinputdevice" class="tsd-kind-icon">get<wbr>Default<wbr>Input<wbr>Device</a>
-									</li>
-								</ul>
-							</div>
-							<div class="tsd-navigation secondary">
-								<ul>
-									<li class="tsd-kind-method tsd-parent-kind-class">
-										<a href="rtaudio.html#getdefaultoutputdevice" class="tsd-kind-icon">get<wbr>Default<wbr>Output<wbr>Device</a>
-									</li>
-								</ul>
-							</div>
-							<div class="tsd-navigation secondary">
-								<ul>
-									<li class="tsd-kind-method tsd-parent-kind-class">
-										<a href="rtaudio.html#getdevices" class="tsd-kind-icon">get<wbr>Devices</a>
-									</li>
-								</ul>
-							</div>
-							<div class="tsd-navigation secondary">
-								<ul>
-									<li class="tsd-kind-method tsd-parent-kind-class">
-										<a href="rtaudio.html#getstreamlatency" class="tsd-kind-icon">get<wbr>Stream<wbr>Latency</a>
-									</li>
-								</ul>
-							</div>
-							<div class="tsd-navigation secondary">
-								<ul>
-									<li class="tsd-kind-method tsd-parent-kind-class">
-										<a href="rtaudio.html#getstreamsamplerate" class="tsd-kind-icon">get<wbr>Stream<wbr>Sample<wbr>Rate</a>
-									</li>
-								</ul>
-							</div>
-							<div class="tsd-navigation secondary">
-								<ul>
-									<li class="tsd-kind-method tsd-parent-kind-class">
-										<a href="rtaudio.html#isstreamopen" class="tsd-kind-icon">is<wbr>Stream<wbr>Open</a>
-									</li>
-								</ul>
-							</div>
-							<div class="tsd-navigation secondary">
-								<ul>
-									<li class="tsd-kind-method tsd-parent-kind-class">
-										<a href="rtaudio.html#isstreamrunning" class="tsd-kind-icon">is<wbr>Stream<wbr>Running</a>
-									</li>
-								</ul>
-							</div>
-							<div class="tsd-navigation secondary">
-								<ul>
-									<li class="tsd-kind-method tsd-parent-kind-class">
-										<a href="rtaudio.html#openstream" class="tsd-kind-icon">open<wbr>Stream</a>
-									</li>
-								</ul>
-							</div>
-							<div class="tsd-navigation secondary">
-								<ul>
-									<li class="tsd-kind-method tsd-parent-kind-class">
-										<a href="rtaudio.html#setframeoutputcallback" class="tsd-kind-icon">set<wbr>Frame<wbr>Output<wbr>Callback</a>
-									</li>
-								</ul>
-							</div>
-							<div class="tsd-navigation secondary">
-								<ul>
-									<li class="tsd-kind-method tsd-parent-kind-class">
-										<a href="rtaudio.html#setinputcallback" class="tsd-kind-icon">set<wbr>Input<wbr>Callback</a>
-									</li>
-								</ul>
-							</div>
-							<div class="tsd-navigation secondary">
-								<ul>
-									<li class="tsd-kind-method tsd-parent-kind-class">
-										<a href="rtaudio.html#start" class="tsd-kind-icon">start</a>
-									</li>
-								</ul>
-							</div>
-							<div class="tsd-navigation secondary">
-								<ul>
-									<li class="tsd-kind-method tsd-parent-kind-class">
-										<a href="rtaudio.html#stop" class="tsd-kind-icon">stop</a>
-									</li>
-								</ul>
-							</div>
-							<div class="tsd-navigation secondary">
-								<ul>
-									<li class="tsd-kind-method tsd-parent-kind-class">
-										<a href="rtaudio.html#write" class="tsd-kind-icon">write</a>
-									</li>
-								</ul>
-							</div>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="rtaudio.html#clearoutputqueue" class="tsd-kind-icon">clear<wbr>Output<wbr>Queue</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="rtaudio.html#closestream" class="tsd-kind-icon">close<wbr>Stream</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="rtaudio.html#getapi" class="tsd-kind-icon">get<wbr>Api</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="rtaudio.html#getdefaultinputdevice" class="tsd-kind-icon">get<wbr>Default<wbr>Input<wbr>Device</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="rtaudio.html#getdefaultoutputdevice" class="tsd-kind-icon">get<wbr>Default<wbr>Output<wbr>Device</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="rtaudio.html#getdevices" class="tsd-kind-icon">get<wbr>Devices</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="rtaudio.html#getstreamlatency" class="tsd-kind-icon">get<wbr>Stream<wbr>Latency</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="rtaudio.html#getstreamsamplerate" class="tsd-kind-icon">get<wbr>Stream<wbr>Sample<wbr>Rate</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="rtaudio.html#isstreamopen" class="tsd-kind-icon">is<wbr>Stream<wbr>Open</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="rtaudio.html#isstreamrunning" class="tsd-kind-icon">is<wbr>Stream<wbr>Running</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="rtaudio.html#openstream" class="tsd-kind-icon">open<wbr>Stream</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="rtaudio.html#setframeoutputcallback" class="tsd-kind-icon">set<wbr>Frame<wbr>Output<wbr>Callback</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="rtaudio.html#setinputcallback" class="tsd-kind-icon">set<wbr>Input<wbr>Callback</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="rtaudio.html#start" class="tsd-kind-icon">start</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="rtaudio.html#stop" class="tsd-kind-icon">stop</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="rtaudio.html#write" class="tsd-kind-icon">write</a></li>
+							</ul>
 						</section>
 					</div>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Constructors</h2>
-				<section class="tsd-panel tsd-member tsd-kind-constructor tsd-parent-kind-class tsd-descriptions">
+				<section class="tsd-panel tsd-member tsd-kind-constructor tsd-parent-kind-class">
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>RtAudio<span class="tsd-signature-symbol">(</span>api<span class="tsd-signature-symbol">?: </span><a href="../enums/rtaudioapi.html" class="tsd-signature-type">RtAudioApi</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="rtaudio.html" class="tsd-signature-type">RtAudio</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>RtAudio<span class="tsd-signature-symbol">(</span>api<span class="tsd-signature-symbol">?: </span><a href="../enums/rtaudioapi.html" class="tsd-signature-type" data-tsd-kind="Enumeration">RtAudioApi</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="rtaudio.html" class="tsd-signature-type" data-tsd-kind="Class">RtAudio</a></li>
 					</ul>
-					<div class="tsd-comment">
-						<div class="lead">
-							<p>Create an RtAudio instance.</p>
-						</div>
-					</div>
-					<h4 class="tsd-parameters-title">Parameters</h4>
-					<ul class="tsd-parameters">
-						<li>
-							<span class="name">api</span>: <a href="../enums/rtaudioapi.html" class="tsd-signature-type">RtAudioApi</a> <span class="tsd-flag ts-flagOptional">Optional</span>&nbsp;
-							<div class="tsd-comment">
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/almogh52/audify/blob/32d7538/index.d.ts#L205">index.d.ts:205</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>The audio API to use. (Default will be automatically selected)</p>
+									<p>Create an RtAudio instance.</p>
 								</div>
 							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> api: <a href="../enums/rtaudioapi.html" class="tsd-signature-type" data-tsd-kind="Enumeration">RtAudioApi</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The audio API to use. (Default will be automatically selected)</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="rtaudio.html" class="tsd-signature-type" data-tsd-kind="Class">RtAudio</a></h4>
 						</li>
 					</ul>
-					<h4 class="tsd-returns-title">Returns <a href="rtaudio.html" class="tsd-signature-type">RtAudio</a></h4>
-					</ul>
-					<div class="tsd-comment">
-					</div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/almogh52/audify/blob/0fdc23e/index.d.ts#L205">index.d.ts:205</a></li>
-						</ul>
-					</aside>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-descriptions">
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="outputvolume" class="tsd-anchor"></a>
 					<h3>output<wbr>Volume</h3>
-					<div class="tsd-signature tsd-kind-icon">outputVolume<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
-					<div class="tsd-comment">
+					<div class="tsd-signature tsd-kind-icon">output<wbr>Volume<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/almogh52/audify/blob/32d7538/index.d.ts#L202">index.d.ts:202</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
 						<div class="lead">
 							<p>The volume of the output device. This should be a number between 0 and 1.</p>
 						</div>
 					</div>
-					<div class="tsd-comment">
-					</div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/almogh52/audify/blob/0fdc23e/index.d.ts#L202">index.d.ts:202</a></li>
-						</ul>
-					</aside>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-descriptions">
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="streamtime" class="tsd-anchor"></a>
 					<h3>stream<wbr>Time</h3>
-					<div class="tsd-signature tsd-kind-icon">streamTime<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
-					<div class="tsd-comment">
+					<div class="tsd-signature tsd-kind-icon">stream<wbr>Time<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/almogh52/audify/blob/32d7538/index.d.ts#L205">index.d.ts:205</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
 						<div class="lead">
 							<p>The number of elapsed seconds since the stream was started. This should be a time in seconds greater than or equal to 0.0.</p>
 						</div>
 					</div>
-					<div class="tsd-comment">
-					</div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/almogh52/audify/blob/0fdc23e/index.d.ts#L205">index.d.ts:205</a></li>
-						</ul>
-					</aside>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Methods</h2>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-descriptions">
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="clearoutputqueue" class="tsd-anchor"></a>
 					<h3>clear<wbr>Output<wbr>Queue</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
 						<li class="tsd-signature tsd-kind-icon">clear<wbr>Output<wbr>Queue<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
-					<div class="tsd-comment">
-						<div class="lead">
-							<p>Clears the output stream queue.</p>
-						</div>
-					</div>
-					<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span>    </h4>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/almogh52/audify/blob/32d7538/index.d.ts#L271">index.d.ts:271</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Clears the output stream queue.</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
 					</ul>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/almogh52/audify/blob/0fdc23e/index.d.ts#L271">index.d.ts:271</a></li>
-						</ul>
-					</aside>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-descriptions">
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="closestream" class="tsd-anchor"></a>
 					<h3>close<wbr>Stream</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
 						<li class="tsd-signature tsd-kind-icon">close<wbr>Stream<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
-					<div class="tsd-comment">
-						<div class="lead">
-							<p>A function that closes a stream and frees any associated stream memory.</p>
-						</div>
-					</div>
-					<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span>    </h4>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/almogh52/audify/blob/32d7538/index.d.ts#L240">index.d.ts:240</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>A function that closes a stream and frees any associated stream memory.</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
 					</ul>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/almogh52/audify/blob/0fdc23e/index.d.ts#L240">index.d.ts:240</a></li>
-						</ul>
-					</aside>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-descriptions">
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="getapi" class="tsd-anchor"></a>
 					<h3>get<wbr>Api</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
 						<li class="tsd-signature tsd-kind-icon">get<wbr>Api<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
 					</ul>
-					<div class="tsd-comment">
-						<div class="lead">
-							<p>Returns the full display name of the current used API.</p>
-						</div>
-					</div>
-					<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span>    </h4>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/almogh52/audify/blob/32d7538/index.d.ts#L276">index.d.ts:276</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Returns the full display name of the current used API.</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+						</li>
 					</ul>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/almogh52/audify/blob/0fdc23e/index.d.ts#L276">index.d.ts:276</a></li>
-						</ul>
-					</aside>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-descriptions">
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="getdefaultinputdevice" class="tsd-anchor"></a>
 					<h3>get<wbr>Default<wbr>Input<wbr>Device</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
 						<li class="tsd-signature tsd-kind-icon">get<wbr>Default<wbr>Input<wbr>Device<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
 					</ul>
-					<div class="tsd-comment">
-						<div class="lead">
-							<p>Returns the index of the default input device.</p>
-						</div>
-					</div>
-					<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span>    </h4>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/almogh52/audify/blob/32d7538/index.d.ts#L296">index.d.ts:296</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Returns the index of the default input device.</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
+						</li>
 					</ul>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/almogh52/audify/blob/0fdc23e/index.d.ts#L296">index.d.ts:296</a></li>
-						</ul>
-					</aside>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-descriptions">
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="getdefaultoutputdevice" class="tsd-anchor"></a>
 					<h3>get<wbr>Default<wbr>Output<wbr>Device</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
 						<li class="tsd-signature tsd-kind-icon">get<wbr>Default<wbr>Output<wbr>Device<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
 					</ul>
-					<div class="tsd-comment">
-						<div class="lead">
-							<p>Returns the index of the default output device.</p>
-						</div>
-					</div>
-					<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span>    </h4>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/almogh52/audify/blob/32d7538/index.d.ts#L301">index.d.ts:301</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Returns the index of the default output device.</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
+						</li>
 					</ul>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/almogh52/audify/blob/0fdc23e/index.d.ts#L301">index.d.ts:301</a></li>
-						</ul>
-					</aside>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-descriptions">
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="getdevices" class="tsd-anchor"></a>
 					<h3>get<wbr>Devices</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>Devices<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/rtaudiodeviceinfo.html" class="tsd-signature-type">RtAudioDeviceInfo</a><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Devices<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/rtaudiodeviceinfo.html" class="tsd-signature-type" data-tsd-kind="Interface">RtAudioDeviceInfo</a><span class="tsd-signature-symbol">[]</span></li>
 					</ul>
-					<div class="tsd-comment">
-						<div class="lead">
-							<p>Returns the list of available devices.</p>
-						</div>
-					</div>
-					<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/rtaudiodeviceinfo.html" class="tsd-signature-type">RtAudioDeviceInfo</a><span class="tsd-signature-symbol">&gt;</span>    </h4>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/almogh52/audify/blob/32d7538/index.d.ts#L291">index.d.ts:291</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Returns the list of available devices.</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <a href="../interfaces/rtaudiodeviceinfo.html" class="tsd-signature-type" data-tsd-kind="Interface">RtAudioDeviceInfo</a><span class="tsd-signature-symbol">[]</span></h4>
+						</li>
 					</ul>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/almogh52/audify/blob/0fdc23e/index.d.ts#L291">index.d.ts:291</a></li>
-						</ul>
-					</aside>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-descriptions">
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="getstreamlatency" class="tsd-anchor"></a>
 					<h3>get<wbr>Stream<wbr>Latency</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
 						<li class="tsd-signature tsd-kind-icon">get<wbr>Stream<wbr>Latency<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
 					</ul>
-					<div class="tsd-comment">
-						<div class="lead">
-							<p>Returns the internal stream latency in sample frames.</p>
-						</div>
-					</div>
-					<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span>    </h4>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/almogh52/audify/blob/32d7538/index.d.ts#L281">index.d.ts:281</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Returns the internal stream latency in sample frames.</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
+						</li>
 					</ul>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/almogh52/audify/blob/0fdc23e/index.d.ts#L281">index.d.ts:281</a></li>
-						</ul>
-					</aside>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-descriptions">
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="getstreamsamplerate" class="tsd-anchor"></a>
 					<h3>get<wbr>Stream<wbr>Sample<wbr>Rate</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
 						<li class="tsd-signature tsd-kind-icon">get<wbr>Stream<wbr>Sample<wbr>Rate<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
 					</ul>
-					<div class="tsd-comment">
-						<div class="lead">
-							<p>Returns actual sample rate in use by the stream.</p>
-						</div>
-					</div>
-					<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span>    </h4>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/almogh52/audify/blob/32d7538/index.d.ts#L286">index.d.ts:286</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Returns actual sample rate in use by the stream.</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
+						</li>
 					</ul>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/almogh52/audify/blob/0fdc23e/index.d.ts#L286">index.d.ts:286</a></li>
-						</ul>
-					</aside>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-descriptions">
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="isstreamopen" class="tsd-anchor"></a>
 					<h3>is<wbr>Stream<wbr>Open</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
 						<li class="tsd-signature tsd-kind-icon">is<wbr>Stream<wbr>Open<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
 					</ul>
-					<div class="tsd-comment">
-						<div class="lead">
-							<p>Returns true if a stream is open and false if not.</p>
-						</div>
-					</div>
-					<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span>    </h4>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/almogh52/audify/blob/32d7538/index.d.ts#L245">index.d.ts:245</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Returns true if a stream is open and false if not.</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+						</li>
 					</ul>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/almogh52/audify/blob/0fdc23e/index.d.ts#L245">index.d.ts:245</a></li>
-						</ul>
-					</aside>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-descriptions">
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="isstreamrunning" class="tsd-anchor"></a>
 					<h3>is<wbr>Stream<wbr>Running</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
 						<li class="tsd-signature tsd-kind-icon">is<wbr>Stream<wbr>Running<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
 					</ul>
-					<div class="tsd-comment">
-						<div class="lead">
-							<p>Returns true if the stream is running and false if it is stopped or not open.</p>
-						</div>
-					</div>
-					<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span>    </h4>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/almogh52/audify/blob/32d7538/index.d.ts#L260">index.d.ts:260</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Returns true if the stream is running and false if it is stopped or not open.</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+						</li>
 					</ul>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/almogh52/audify/blob/0fdc23e/index.d.ts#L260">index.d.ts:260</a></li>
-						</ul>
-					</aside>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-descriptions">
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="openstream" class="tsd-anchor"></a>
 					<h3>open<wbr>Stream</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">open<wbr>Stream<span class="tsd-signature-symbol">(</span>outputParameters<span class="tsd-signature-symbol">: </span><a href="../interfaces/rtaudiostreamparameters.html" class="tsd-signature-type">RtAudioStreamParameters</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span>, inputParameters<span class="tsd-signature-symbol">: </span><a href="../interfaces/rtaudiostreamparameters.html" class="tsd-signature-type">RtAudioStreamParameters</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span>, format<span class="tsd-signature-symbol">: </span><a href="../enums/rtaudioformat.html" class="tsd-signature-type">RtAudioFormat</a>, sampleRate<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, frameSize<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, streamName<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, inputCallback<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span>, frameOutputCallback<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span>, flags<span class="tsd-signature-symbol">?: </span><a href="../enums/rtaudiostreamflags.html" class="tsd-signature-type">RtAudioStreamFlags</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">open<wbr>Stream<span class="tsd-signature-symbol">(</span>outputParameters<span class="tsd-signature-symbol">: </span><a href="../interfaces/rtaudiostreamparameters.html" class="tsd-signature-type" data-tsd-kind="Interface">RtAudioStreamParameters</a>, inputParameters<span class="tsd-signature-symbol">: </span><a href="../interfaces/rtaudiostreamparameters.html" class="tsd-signature-type" data-tsd-kind="Interface">RtAudioStreamParameters</a>, format<span class="tsd-signature-symbol">: </span><a href="../enums/rtaudioformat.html" class="tsd-signature-type" data-tsd-kind="Enumeration">RtAudioFormat</a>, sampleRate<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, frameSize<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, streamName<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, inputCallback<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>inputData<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Buffer</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span>, frameOutputCallback<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span>, flags<span class="tsd-signature-symbol">?: </span><a href="../enums/rtaudiostreamflags.html" class="tsd-signature-type" data-tsd-kind="Enumeration">RtAudioStreamFlags</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
-					<div class="tsd-comment">
-						<div class="lead">
-							<p>A public function for opening a stream with the specified parameters.</p>
-						</div>
-					</div>
-					<h4 class="tsd-parameters-title">Parameters</h4>
-					<ul class="tsd-parameters">
-						<li>
-							<span class="name">outputParameters</span>: <a href="../interfaces/rtaudiostreamparameters.html" class="tsd-signature-type">RtAudioStreamParameters</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span>
-							<div class="tsd-comment">
-								<p>Specifies output stream parameters to use when opening a stream. For input-only streams, this argument should be null.</p>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/almogh52/audify/blob/32d7538/index.d.ts#L225">index.d.ts:225</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>A public function for opening a stream with the specified parameters.</p>
+								</div>
 							</div>
-						</li>
-						<li>
-							<span class="name">inputParameters</span>: <a href="../interfaces/rtaudiostreamparameters.html" class="tsd-signature-type">RtAudioStreamParameters</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span>
-							<div class="tsd-comment">
-								<p>Specifies input stream parameters to use when opening a stream. For output-only streams, this argument should be null.</p>
-							</div>
-						</li>
-						<li>
-							<span class="name">format</span>: <a href="../enums/rtaudioformat.html" class="tsd-signature-type">RtAudioFormat</a>
-							<div class="tsd-comment">
-								<p>An RtAudio.Format specifying the desired sample data format.</p>
-							</div>
-						</li>
-						<li>
-							<span class="name">sampleRate</span>: <span class="tsd-signature-type">number</span>
-							<div class="tsd-comment">
-								<p>The desired sample rate (sample frames per second).</p>
-							</div>
-						</li>
-						<li>
-							<span class="name">frameSize</span>: <span class="tsd-signature-type">number</span>
-							<div class="tsd-comment">
-								<p>The amount of samples per frame.</p>
-							</div>
-						</li>
-						<li>
-							<span class="name">streamName</span>: <span class="tsd-signature-type">string</span>
-							<div class="tsd-comment">
-								<p>A stream name (currently used only in Jack).</p>
-							</div>
-						</li>
-						<li>
-							<span class="name">inputCallback</span>: <span class="tsd-signature-type">function</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span>
-							<div class="tsd-comment">
-								<p>A callback that is called when a new input signal is available. Should be null for output-only streams.</p>
-							</div>
-						</li>
-						<li>
-							<span class="name">frameOutputCallback</span>: <span class="tsd-signature-type">function</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span>
-							<div class="tsd-comment">
-								<p>A callback that is called when a frame is finished playing in the output device.</p>
-							</div>
-						</li>
-						<li>
-							<span class="name">flags</span>: <a href="../enums/rtaudiostreamflags.html" class="tsd-signature-type">RtAudioStreamFlags</a> <span class="tsd-flag ts-flagOptional">Optional</span>&nbsp;
-							<div class="tsd-comment">
-								<p>A bit-mask of stream flags (RtAudio.StreamFlags).</p>
-							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>outputParameters: <a href="../interfaces/rtaudiostreamparameters.html" class="tsd-signature-type" data-tsd-kind="Interface">RtAudioStreamParameters</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Specifies output stream parameters to use when opening a stream. For input-only streams, this argument should be null.</p>
+									</div>
+								</li>
+								<li>
+									<h5>inputParameters: <a href="../interfaces/rtaudiostreamparameters.html" class="tsd-signature-type" data-tsd-kind="Interface">RtAudioStreamParameters</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Specifies input stream parameters to use when opening a stream. For output-only streams, this argument should be null.</p>
+									</div>
+								</li>
+								<li>
+									<h5>format: <a href="../enums/rtaudioformat.html" class="tsd-signature-type" data-tsd-kind="Enumeration">RtAudioFormat</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>An RtAudio.Format specifying the desired sample data format.</p>
+									</div>
+								</li>
+								<li>
+									<h5>sampleRate: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The desired sample rate (sample frames per second).</p>
+									</div>
+								</li>
+								<li>
+									<h5>frameSize: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The amount of samples per frame.</p>
+									</div>
+								</li>
+								<li>
+									<h5>streamName: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>A stream name (currently used only in Jack).</p>
+									</div>
+								</li>
+								<li>
+									<h5>inputCallback: <span class="tsd-signature-symbol">(</span>inputData<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Buffer</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>A callback that is called when a new input signal is available. Should be null for output-only streams.</p>
+									</div>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter-signature">
+											<ul class="tsd-signatures tsd-kind-type-literal">
+												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>inputData<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Buffer</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+											</ul>
+											<ul class="tsd-descriptions">
+												<li class="tsd-description">
+													<h4 class="tsd-parameters-title">Parameters</h4>
+													<ul class="tsd-parameters">
+														<li>
+															<h5>inputData: <span class="tsd-signature-type">Buffer</span></h5>
+														</li>
+													</ul>
+													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+												</li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+								<li>
+									<h5>frameOutputCallback: <span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>A callback that is called when a frame is finished playing in the output device.</p>
+									</div>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter-signature">
+											<ul class="tsd-signatures tsd-kind-type-literal">
+												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+											</ul>
+											<ul class="tsd-descriptions">
+												<li class="tsd-description">
+													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+												</li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> flags: <a href="../enums/rtaudiostreamflags.html" class="tsd-signature-type" data-tsd-kind="Enumeration">RtAudioStreamFlags</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>A bit-mask of stream flags (RtAudio.StreamFlags).</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 						</li>
 					</ul>
-					<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span>    </h4>
-					</ul>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/almogh52/audify/blob/0fdc23e/index.d.ts#L225">index.d.ts:225</a></li>
-						</ul>
-					</aside>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-descriptions">
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="setframeoutputcallback" class="tsd-anchor"></a>
 					<h3>set<wbr>Frame<wbr>Output<wbr>Callback</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">set<wbr>Frame<wbr>Output<wbr>Callback<span class="tsd-signature-symbol">(</span>callback<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">set<wbr>Frame<wbr>Output<wbr>Callback<span class="tsd-signature-symbol">(</span>callback<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
-					<div class="tsd-comment">
-						<div class="lead">
-							<p>Sets the frame output playback for the output device.</p>
-						</div>
-					</div>
-					<h4 class="tsd-parameters-title">Parameters</h4>
-					<ul class="tsd-parameters">
-						<li>
-							<span class="name">callback</span>: <span class="tsd-signature-type">function</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span>
-							<div class="tsd-comment">
-								<p>A callback that is called when a frame is finished playing in the output device.</p>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/almogh52/audify/blob/32d7538/index.d.ts#L313">index.d.ts:313</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Sets the frame output playback for the output device.</p>
+								</div>
 							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>callback: <span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>A callback that is called when a frame is finished playing in the output device.</p>
+									</div>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter-signature">
+											<ul class="tsd-signatures tsd-kind-type-literal">
+												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+											</ul>
+											<ul class="tsd-descriptions">
+												<li class="tsd-description">
+													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+												</li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 						</li>
 					</ul>
-					<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span>    </h4>
-					</ul>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/almogh52/audify/blob/0fdc23e/index.d.ts#L313">index.d.ts:313</a></li>
-						</ul>
-					</aside>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-descriptions">
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="setinputcallback" class="tsd-anchor"></a>
 					<h3>set<wbr>Input<wbr>Callback</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">set<wbr>Input<wbr>Callback<span class="tsd-signature-symbol">(</span>callback<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">set<wbr>Input<wbr>Callback<span class="tsd-signature-symbol">(</span>callback<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>inputData<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Buffer</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
-					<div class="tsd-comment">
-						<div class="lead">
-							<p>Sets the input callback function for the input device.</p>
-						</div>
-					</div>
-					<h4 class="tsd-parameters-title">Parameters</h4>
-					<ul class="tsd-parameters">
-						<li>
-							<span class="name">callback</span>: <span class="tsd-signature-type">function</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span>
-							<div class="tsd-comment">
-								<p>A callback that is called when a new input signal is available. Should be null for output-only streams.</p>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/almogh52/audify/blob/32d7538/index.d.ts#L307">index.d.ts:307</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Sets the input callback function for the input device.</p>
+								</div>
 							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>callback: <span class="tsd-signature-symbol">(</span>inputData<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Buffer</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>A callback that is called when a new input signal is available. Should be null for output-only streams.</p>
+									</div>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter-signature">
+											<ul class="tsd-signatures tsd-kind-type-literal">
+												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>inputData<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Buffer</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+											</ul>
+											<ul class="tsd-descriptions">
+												<li class="tsd-description">
+													<h4 class="tsd-parameters-title">Parameters</h4>
+													<ul class="tsd-parameters">
+														<li>
+															<h5>inputData: <span class="tsd-signature-type">Buffer</span></h5>
+														</li>
+													</ul>
+													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+												</li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 						</li>
 					</ul>
-					<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span>    </h4>
-					</ul>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/almogh52/audify/blob/0fdc23e/index.d.ts#L307">index.d.ts:307</a></li>
-						</ul>
-					</aside>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-descriptions">
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="start" class="tsd-anchor"></a>
 					<h3>start</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
 						<li class="tsd-signature tsd-kind-icon">start<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
-					<div class="tsd-comment">
-						<div class="lead">
-							<p>Start the stream.</p>
-						</div>
-					</div>
-					<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span>    </h4>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/almogh52/audify/blob/32d7538/index.d.ts#L250">index.d.ts:250</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Start the stream.</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
 					</ul>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/almogh52/audify/blob/0fdc23e/index.d.ts#L250">index.d.ts:250</a></li>
-						</ul>
-					</aside>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-descriptions">
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="stop" class="tsd-anchor"></a>
 					<h3>stop</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
 						<li class="tsd-signature tsd-kind-icon">stop<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
-					<div class="tsd-comment">
-						<div class="lead">
-							<p>Stop the stream.</p>
-						</div>
-					</div>
-					<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span>    </h4>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/almogh52/audify/blob/32d7538/index.d.ts#L255">index.d.ts:255</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Stop the stream.</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
 					</ul>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/almogh52/audify/blob/0fdc23e/index.d.ts#L255">index.d.ts:255</a></li>
-						</ul>
-					</aside>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-descriptions">
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="write" class="tsd-anchor"></a>
 					<h3>write</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
 						<li class="tsd-signature tsd-kind-icon">write<span class="tsd-signature-symbol">(</span>pcm<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Buffer</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
-					<div class="tsd-comment">
-						<div class="lead">
-							<p>Queues a new output PCM data to be played using the stream.</p>
-						</div>
-					</div>
-					<h4 class="tsd-parameters-title">Parameters</h4>
-					<ul class="tsd-parameters">
-						<li>
-							<span class="name">pcm</span>: <span class="tsd-signature-type">Buffer</span>
-							<div class="tsd-comment">
-								<p>The raw PCM data. The length should be frame_size * no_of_output_channels * size_of_sample.</p>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/almogh52/audify/blob/32d7538/index.d.ts#L266">index.d.ts:266</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Queues a new output PCM data to be played using the stream.</p>
+								</div>
 							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>pcm: <span class="tsd-signature-type">Buffer</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The raw PCM data. The length should be frame_size * no_of_output_channels * size_of_sample.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 						</li>
 					</ul>
-					<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span>    </h4>
-					</ul>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/almogh52/audify/blob/0fdc23e/index.d.ts#L266">index.d.ts:266</a></li>
-						</ul>
-					</aside>
 				</section>
 			</section>
-			<footer>
-				<div class="tsd-legend-group">
-					<ul class="tsd-legend">
-						<li class="tsd-is-inherited"><span class="tsd-kind-icon">Inherited</span></li>
-						<li class="tsd-is-protected"><span class="tsd-kind-icon">Protected</span></li>
-						<li class="tsd-is-private"><span class="tsd-kind-icon">Private</span></li>
-						<li class="tsd-is-static"><span class="tsd-kind-icon">Static</span></li>
-					</ul>
-					<ul class="tsd-legend">
-						<li class="tsd-kind-module"><span class="tsd-kind-icon">Module</span></li>
-						<li class="tsd-kind-object-literal"><span class="tsd-kind-icon">Object</span></li>
-						<li class="tsd-kind-property"><span class="tsd-kind-icon">Property</span></li>
-					</ul>
-					<ul class="tsd-legend">
-						<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
-						<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
-						<li class="tsd-kind-index-signature"><span class="tsd-kind-icon">Index</span></li>
-					</ul>
-					<ul class="tsd-legend">
-						<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type</span></li>
-						<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
-						<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
-					</ul>
-					<ul class="tsd-legend">
-						<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enum</span></li>
-						<li class="tsd-kind-constructor"><span class="tsd-kind-icon">Constructor</span></li>
-						<li class="tsd-kind-accessor"><span class="tsd-kind-icon">Getter/Setter</span></li>
-					</ul>
-				</div>
-			</footer>
+		</div>
+		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li class=" ">
+						<a href="../modules.html">Exports</a>
+					</li>
+				</ul>
+			</nav>
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+					<li class=" tsd-kind-enum">
+						<a href="../enums/opusapplication.html" class="tsd-kind-icon">Opus<wbr>Application</a>
+					</li>
+					<li class=" tsd-kind-enum">
+						<a href="../enums/rtaudioapi.html" class="tsd-kind-icon">Rt<wbr>Audio<wbr>Api</a>
+					</li>
+					<li class=" tsd-kind-enum">
+						<a href="../enums/rtaudioformat.html" class="tsd-kind-icon">Rt<wbr>Audio<wbr>Format</a>
+					</li>
+					<li class=" tsd-kind-enum">
+						<a href="../enums/rtaudiostreamflags.html" class="tsd-kind-icon">Rt<wbr>Audio<wbr>Stream<wbr>Flags</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="opusdecoder.html" class="tsd-kind-icon">Opus<wbr>Decoder</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="opusencoder.html" class="tsd-kind-icon">Opus<wbr>Encoder</a>
+					</li>
+				</ul>
+				<ul class="current">
+					<li class="current tsd-kind-class">
+						<a href="rtaudio.html" class="tsd-kind-icon">Rt<wbr>Audio</a>
+						<ul>
+							<li class=" tsd-kind-constructor tsd-parent-kind-class">
+								<a href="rtaudio.html#constructor" class="tsd-kind-icon">constructor</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="rtaudio.html#outputvolume" class="tsd-kind-icon">output<wbr>Volume</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="rtaudio.html#streamtime" class="tsd-kind-icon">stream<wbr>Time</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="rtaudio.html#clearoutputqueue" class="tsd-kind-icon">clear<wbr>Output<wbr>Queue</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="rtaudio.html#closestream" class="tsd-kind-icon">close<wbr>Stream</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="rtaudio.html#getapi" class="tsd-kind-icon">get<wbr>Api</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="rtaudio.html#getdefaultinputdevice" class="tsd-kind-icon">get<wbr>Default<wbr>Input<wbr>Device</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="rtaudio.html#getdefaultoutputdevice" class="tsd-kind-icon">get<wbr>Default<wbr>Output<wbr>Device</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="rtaudio.html#getdevices" class="tsd-kind-icon">get<wbr>Devices</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="rtaudio.html#getstreamlatency" class="tsd-kind-icon">get<wbr>Stream<wbr>Latency</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="rtaudio.html#getstreamsamplerate" class="tsd-kind-icon">get<wbr>Stream<wbr>Sample<wbr>Rate</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="rtaudio.html#isstreamopen" class="tsd-kind-icon">is<wbr>Stream<wbr>Open</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="rtaudio.html#isstreamrunning" class="tsd-kind-icon">is<wbr>Stream<wbr>Running</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="rtaudio.html#openstream" class="tsd-kind-icon">open<wbr>Stream</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="rtaudio.html#setframeoutputcallback" class="tsd-kind-icon">set<wbr>Frame<wbr>Output<wbr>Callback</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="rtaudio.html#setinputcallback" class="tsd-kind-icon">set<wbr>Input<wbr>Callback</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="rtaudio.html#start" class="tsd-kind-icon">start</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="rtaudio.html#stop" class="tsd-kind-icon">stop</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="rtaudio.html#write" class="tsd-kind-icon">write</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+				<ul class="after-current">
+					<li class=" tsd-kind-interface">
+						<a href="../interfaces/rtaudiodeviceinfo.html" class="tsd-kind-icon">Rt<wbr>Audio<wbr>Device<wbr>Info</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="../interfaces/rtaudiostreamparameters.html" class="tsd-kind-icon">Rt<wbr>Audio<wbr>Stream<wbr>Parameters</a>
+					</li>
+				</ul>
+			</nav>
 		</div>
 	</div>
 </div>
+<footer>
+	<div class="container">
+		<h2>Legend</h2>
+		<div class="tsd-legend-group">
+			<ul class="tsd-legend">
+				<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
+			</ul>
+		</div>
+	</div>
+</footer>
 <div class="overlay"></div>
 <script src="../assets/js/main.js"></script>
-<script>if (location.protocol == 'file:') document.write('<script src="../assets/js/search.js"><' + '/script>');</script>
 </body>
 </html>
