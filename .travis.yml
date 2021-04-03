@@ -7,6 +7,13 @@ jobs:
   include:
     - name: "windows - amd64"
       os: windows
+      deploy:
+        provider: script
+        skip_cleanup: true
+        script:
+          - npm run build-binaries
+        on:
+          tags: on
     - name: "linux - amd64"
       os: linux
       arch: amd64
