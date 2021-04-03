@@ -53,6 +53,7 @@ cache:
 
 deploy:
   provider: script
+  skip_cleanup: true
   script:
     - if command -v arm-linux-gnueabihf-gcc; then npm run build-binaries-node -- -- -arch arm && npm run build-binaries-electron -- -- -arch arm ; else npm run build-binaries ; fi
   on:
