@@ -30,6 +30,12 @@ IF (APPLE)
     set(CMAKE_INSTALL_RPATH "@loader_path")
 ENDIF()
 
+# Fix issues in compiling Opus for arm32
+IF (NODE_ARCH STREQUAL "arm")
+    set(CMAKE_SYSTEM_PROCESSOR arm)
+    set(CMAKE_C_FLAGS "-mfpu=neon")
+ENDIF()
+
 # Compile Opus
 set(BUILD_SHARED_LIBS ON CACHE BOOL "")
 set(BUILD_TESTING OFF CACHE BOOL "")
