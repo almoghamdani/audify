@@ -1,6 +1,6 @@
 {
 	"name": "audify",
-	"version": "1.5.2",
+	"version": "1.5.3",
 	"description": "Play/Stream/Record PCM audio data & Encode/Decode Opus to PCM audio data",
 	"main": "index.js",
 	"types": "index.d.ts",
