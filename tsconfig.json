@@ -3,11 +3,14 @@
     "module": "CommonJS",
     "lib": ["ES2018"],
     "target": "ES2018",
-    
-    "noImplicitAny": true,
-    "removeComments": true,
+    "strict": true,
+    "alwaysStrict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
     "preserveConstEnums": true,
-    "sourceMap": true
+    "declaration": true,
+    "sourceMap": true,
+    "isolatedModules": true
   },
   "include": ["*.ts"]
 }
