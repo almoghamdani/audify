@@ -37,4 +37,18 @@ const RtAudioStreamFlags = {
 	RTAUDIO_JACK_DONT_CONNECT: 0x20
 };
 
-exports = module.exports = { ...rawAudify, OpusApplication, RtAudioApi, RtAudioFormat, RtAudioStreamFlags };
+const RtAudioErrorType = {
+	WARNING: 0,
+	DEBUG_WARNING: 1,
+	UNSPECIFIED: 2,
+	NO_DEVICES_FOUND: 3,
+	INVALID_DEVICE: 4,
+	MEMORY_ERROR: 5,
+	INVALID_PARAMETER: 6,
+	INVALID_USE: 7,
+	DRIVER_ERROR: 8,
+	SYSTEM_ERROR: 9,
+	THREAD_ERROR: 10,
+};
+
+exports = module.exports = { ...rawAudify, OpusApplication, RtAudioApi, RtAudioFormat, RtAudioStreamFlags, RtAudioErrorType };

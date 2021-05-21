@@ -4,6 +4,8 @@
 
 #include "rt_audio_converter.h"
 
+Napi::ThreadSafeFunction errorTsfn;
+
 int rt_callback(void *outputBuffer, void *inputBuffer, unsigned int nFrames, double streamTime, RtAudioStreamStatus status, void *userData)
 {
 	RtAudioWrap *wrap = (RtAudioWrap *)userData;
@@ -186,6 +188,7 @@ void RtAudioWrap::openStream(const Napi::CallbackInfo &info)
 	Napi::Function inputCallback = info[6].IsNull() || info[6].IsUndefined() ? Napi::Function() : info[6].As<Napi::Function>();
 	Napi::Function frameOutputCallback = info[7].IsNull() || info[7].IsUndefined() ? Napi::Function() : info[7].As<Napi::Function>();
 	RtAudioStreamFlags flags = info.Length() < 9 ? 0 : info[8].As<Napi::Number>();
+	Napi::Function errorCallback = info.Length() < 10 || info[9].IsNull() || info[9].IsUndefined() ? Napi::Function() : info[9].As<Napi::Function>();
 
 	RtAudio::StreamOptions options;
 
@@ -195,6 +198,12 @@ void RtAudioWrap::openStream(const Napi::CallbackInfo &info)
 	if (format == RTAUDIO_SINT24)
 	{
 		throw Napi::Error::New(info.Env(), "24-bit signed integer is not available!");
+	}
+
+	// If there is already an error threadsafe-function, release it
+	if (errorTsfn != nullptr)
+	{
+		errorTsfn.Release();
 	}
 
 	// If there is already an input threadsafe-function, release it
@@ -226,10 +235,23 @@ void RtAudioWrap::openStream(const Napi::CallbackInfo &info)
 	options.flags = flags;
 	options.streamName = streamName;
 
+	// Create ThreadSafeFunction for error callback
+	if (!errorCallback.IsEmpty())
+	{
+		errorTsfn = Napi::ThreadSafeFunction::New(info.Env(), errorCallback, "errorCallback", 0, 1, [this](Napi::Env) {});
+	}
+
 	try
 	{
 		// Open the stream
-		_rtAudio->openStream(info[0].IsNull() || info[0].IsUndefined() ? nullptr : &outputParams, info[1].IsNull() || info[1].IsUndefined() ? nullptr : &inputParams, format, sampleRate, &frameSize, rt_callback, this, &options);
+		_rtAudio->openStream(info[0].IsNull() || info[0].IsUndefined() ? nullptr : &outputParams, info[1].IsNull() || info[1].IsUndefined() ? nullptr : &inputParams, format, sampleRate, &frameSize, rt_callback, this, &options, [](RtAudioError::Type type, const std::string &errorMsg) {
+			if (errorTsfn != nullptr)
+			{
+				errorTsfn.NonBlockingCall([type, errorMsg](Napi::Env env, Napi::Function callback) {
+					callback.Call({Napi::Number::New(env, type), Napi::String::New(env, errorMsg)});
+				});
+			}
+		});
 	}
 	catch (std::exception &ex)
 	{
