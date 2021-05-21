@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>RtAudioApi | Audify.js</title>
+	<title>RtAudioErrorType | Audify.js</title>
 	<meta name="description" content="Documentation for Audify.js">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -55,10 +55,10 @@
 					<a href="../modules.html">Audify.js</a>
 				</li>
 				<li>
-					<a href="rtaudioapi.html">RtAudioApi</a>
+					<a href="rtaudioerrortype.html">RtAudioErrorType</a>
 				</li>
 			</ul>
-			<h1>Enumeration RtAudioApi</h1>
+			<h1>Enumeration RtAudioErrorType</h1>
 		</div>
 	</div>
 </header>
@@ -68,7 +68,7 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Audio API specifier arguments.</p>
+						<p>RtAudio error types</p>
 					</div>
 				</div>
 			</section>
@@ -79,16 +79,17 @@
 						<section class="tsd-index-section ">
 							<h3>Enumeration members</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="rtaudioapi.html#linux_alsa" class="tsd-kind-icon">LINUX_<wbr>ALSA</a></li>
-								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="rtaudioapi.html#linux_oss" class="tsd-kind-icon">LINUX_<wbr>OSS</a></li>
-								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="rtaudioapi.html#linux_pulse" class="tsd-kind-icon">LINUX_<wbr>PULSE</a></li>
-								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="rtaudioapi.html#macosx_core" class="tsd-kind-icon">MACOSX_<wbr>CORE</a></li>
-								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="rtaudioapi.html#rtaudio_dummy" class="tsd-kind-icon">RTAUDIO_<wbr>DUMMY</a></li>
-								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="rtaudioapi.html#unix_jack" class="tsd-kind-icon">UNIX_<wbr>JACK</a></li>
-								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="rtaudioapi.html#unspecified" class="tsd-kind-icon">UNSPECIFIED</a></li>
-								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="rtaudioapi.html#windows_asio" class="tsd-kind-icon">WINDOWS_<wbr>ASIO</a></li>
-								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="rtaudioapi.html#windows_ds" class="tsd-kind-icon">WINDOWS_<wbr>DS</a></li>
-								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="rtaudioapi.html#windows_wasapi" class="tsd-kind-icon">WINDOWS_<wbr>WASAPI</a></li>
+								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="rtaudioerrortype.html#debug_warning" class="tsd-kind-icon">DEBUG_<wbr>WARNING</a></li>
+								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="rtaudioerrortype.html#driver_error" class="tsd-kind-icon">DRIVER_<wbr>ERROR</a></li>
+								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="rtaudioerrortype.html#invalid_device" class="tsd-kind-icon">INVALID_<wbr>DEVICE</a></li>
+								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="rtaudioerrortype.html#invalid_parameter" class="tsd-kind-icon">INVALID_<wbr>PARAMETER</a></li>
+								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="rtaudioerrortype.html#invalid_use" class="tsd-kind-icon">INVALID_<wbr>USE</a></li>
+								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="rtaudioerrortype.html#memory_error" class="tsd-kind-icon">MEMORY_<wbr>ERROR</a></li>
+								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="rtaudioerrortype.html#no_devices_found" class="tsd-kind-icon">NO_<wbr>DEVICES_<wbr>FOUND</a></li>
+								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="rtaudioerrortype.html#system_error" class="tsd-kind-icon">SYSTEM_<wbr>ERROR</a></li>
+								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="rtaudioerrortype.html#thread_error" class="tsd-kind-icon">THREAD_<wbr>ERROR</a></li>
+								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="rtaudioerrortype.html#unspecified" class="tsd-kind-icon">UNSPECIFIED</a></li>
+								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="rtaudioerrortype.html#warning" class="tsd-kind-icon">WARNING</a></li>
 							</ul>
 						</section>
 					</div>
@@ -97,152 +98,167 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Enumeration members</h2>
 				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
-					<a name="linux_alsa" class="tsd-anchor"></a>
-					<h3>LINUX_<wbr>ALSA</h3>
-					<div class="tsd-signature tsd-kind-icon">LINUX_<wbr>ALSA<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = 1</span></div>
+					<a name="debug_warning" class="tsd-anchor"></a>
+					<h3>DEBUG_<wbr>WARNING</h3>
+					<div class="tsd-signature tsd-kind-icon">DEBUG_<wbr>WARNING<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = 1</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/almoghamdani/audify/blob/7e79322/index.d.ts#L21">index.d.ts:21</a></li>
+							<li>Defined in <a href="https://github.com/almoghamdani/audify/blob/7e79322/index.d.ts#L96">index.d.ts:96</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>The Advanced Linux Sound Architecture API.</p>
+							<p>A non-critical error which might be useful for debugging.</p>
 						</div>
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
-					<a name="linux_oss" class="tsd-anchor"></a>
-					<h3>LINUX_<wbr>OSS</h3>
-					<div class="tsd-signature tsd-kind-icon">LINUX_<wbr>OSS<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = 3</span></div>
+					<a name="driver_error" class="tsd-anchor"></a>
+					<h3>DRIVER_<wbr>ERROR</h3>
+					<div class="tsd-signature tsd-kind-icon">DRIVER_<wbr>ERROR<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = 8</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/almoghamdani/audify/blob/7e79322/index.d.ts#L27">index.d.ts:27</a></li>
+							<li>Defined in <a href="https://github.com/almoghamdani/audify/blob/7e79322/index.d.ts#L117">index.d.ts:117</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>The Linux Open Sound System API.</p>
+							<p>A system driver error occurred.</p>
 						</div>
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
-					<a name="linux_pulse" class="tsd-anchor"></a>
-					<h3>LINUX_<wbr>PULSE</h3>
-					<div class="tsd-signature tsd-kind-icon">LINUX_<wbr>PULSE<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = 2</span></div>
+					<a name="invalid_device" class="tsd-anchor"></a>
+					<h3>INVALID_<wbr>DEVICE</h3>
+					<div class="tsd-signature tsd-kind-icon">INVALID_<wbr>DEVICE<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = 4</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/almoghamdani/audify/blob/7e79322/index.d.ts#L24">index.d.ts:24</a></li>
+							<li>Defined in <a href="https://github.com/almoghamdani/audify/blob/7e79322/index.d.ts#L105">index.d.ts:105</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>The Linux PulseAudio API.</p>
+							<p>An invalid device ID was specified.</p>
 						</div>
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
-					<a name="macosx_core" class="tsd-anchor"></a>
-					<h3>MACOSX_<wbr>CORE</h3>
-					<div class="tsd-signature tsd-kind-icon">MACOSX_<wbr>CORE<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = 5</span></div>
+					<a name="invalid_parameter" class="tsd-anchor"></a>
+					<h3>INVALID_<wbr>PARAMETER</h3>
+					<div class="tsd-signature tsd-kind-icon">INVALID_<wbr>PARAMETER<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = 6</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/almoghamdani/audify/blob/7e79322/index.d.ts#L33">index.d.ts:33</a></li>
+							<li>Defined in <a href="https://github.com/almoghamdani/audify/blob/7e79322/index.d.ts#L111">index.d.ts:111</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Macintosh OS-X Core Audio API.</p>
+							<p>An invalid parameter was specified to a function.</p>
 						</div>
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
-					<a name="rtaudio_dummy" class="tsd-anchor"></a>
-					<h3>RTAUDIO_<wbr>DUMMY</h3>
-					<div class="tsd-signature tsd-kind-icon">RTAUDIO_<wbr>DUMMY<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = 9</span></div>
+					<a name="invalid_use" class="tsd-anchor"></a>
+					<h3>INVALID_<wbr>USE</h3>
+					<div class="tsd-signature tsd-kind-icon">INVALID_<wbr>USE<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = 7</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/almoghamdani/audify/blob/7e79322/index.d.ts#L45">index.d.ts:45</a></li>
+							<li>Defined in <a href="https://github.com/almoghamdani/audify/blob/7e79322/index.d.ts#L114">index.d.ts:114</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>A compilable but non-functional API.</p>
+							<p>The function was called incorrectly.</p>
 						</div>
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
-					<a name="unix_jack" class="tsd-anchor"></a>
-					<h3>UNIX_<wbr>JACK</h3>
-					<div class="tsd-signature tsd-kind-icon">UNIX_<wbr>JACK<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = 4</span></div>
+					<a name="memory_error" class="tsd-anchor"></a>
+					<h3>MEMORY_<wbr>ERROR</h3>
+					<div class="tsd-signature tsd-kind-icon">MEMORY_<wbr>ERROR<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = 5</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/almoghamdani/audify/blob/7e79322/index.d.ts#L30">index.d.ts:30</a></li>
+							<li>Defined in <a href="https://github.com/almoghamdani/audify/blob/7e79322/index.d.ts#L108">index.d.ts:108</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>The Jack Low-Latency Audio Server API.</p>
+							<p>An error occurred during memory allocation.</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
+					<a name="no_devices_found" class="tsd-anchor"></a>
+					<h3>NO_<wbr>DEVICES_<wbr>FOUND</h3>
+					<div class="tsd-signature tsd-kind-icon">NO_<wbr>DEVICES_<wbr>FOUND<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = 3</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/almoghamdani/audify/blob/7e79322/index.d.ts#L102">index.d.ts:102</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>No devices found on system.</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
+					<a name="system_error" class="tsd-anchor"></a>
+					<h3>SYSTEM_<wbr>ERROR</h3>
+					<div class="tsd-signature tsd-kind-icon">SYSTEM_<wbr>ERROR<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = 9</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/almoghamdani/audify/blob/7e79322/index.d.ts#L120">index.d.ts:120</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>A system error occurred.</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
+					<a name="thread_error" class="tsd-anchor"></a>
+					<h3>THREAD_<wbr>ERROR</h3>
+					<div class="tsd-signature tsd-kind-icon">THREAD_<wbr>ERROR<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = 10</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/almoghamdani/audify/blob/7e79322/index.d.ts#L123">index.d.ts:123</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>A thread error occurred.</p>
 						</div>
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
 					<a name="unspecified" class="tsd-anchor"></a>
 					<h3>UNSPECIFIED</h3>
-					<div class="tsd-signature tsd-kind-icon">UNSPECIFIED<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = 0</span></div>
+					<div class="tsd-signature tsd-kind-icon">UNSPECIFIED<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = 2</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/almoghamdani/audify/blob/7e79322/index.d.ts#L18">index.d.ts:18</a></li>
+							<li>Defined in <a href="https://github.com/almoghamdani/audify/blob/7e79322/index.d.ts#L99">index.d.ts:99</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Search for a working compiled API.</p>
+							<p>The default, unspecified error type.</p>
 						</div>
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
-					<a name="windows_asio" class="tsd-anchor"></a>
-					<h3>WINDOWS_<wbr>ASIO</h3>
-					<div class="tsd-signature tsd-kind-icon">WINDOWS_<wbr>ASIO<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = 7</span></div>
+					<a name="warning" class="tsd-anchor"></a>
+					<h3>WARNING</h3>
+					<div class="tsd-signature tsd-kind-icon">WARNING<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = 0</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/almoghamdani/audify/blob/7e79322/index.d.ts#L39">index.d.ts:39</a></li>
+							<li>Defined in <a href="https://github.com/almoghamdani/audify/blob/7e79322/index.d.ts#L93">index.d.ts:93</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>The Steinberg Audio Stream I/O API.</p>
-						</div>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
-					<a name="windows_ds" class="tsd-anchor"></a>
-					<h3>WINDOWS_<wbr>DS</h3>
-					<div class="tsd-signature tsd-kind-icon">WINDOWS_<wbr>DS<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = 8</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/almoghamdani/audify/blob/7e79322/index.d.ts#L42">index.d.ts:42</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>The Microsoft DirectSound API.</p>
-						</div>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
-					<a name="windows_wasapi" class="tsd-anchor"></a>
-					<h3>WINDOWS_<wbr>WASAPI</h3>
-					<div class="tsd-signature tsd-kind-icon">WINDOWS_<wbr>WASAPI<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = 6</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/almoghamdani/audify/blob/7e79322/index.d.ts#L36">index.d.ts:36</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>The Microsoft WASAPI API.</p>
+							<p>A non-critical error.</p>
 						</div>
 					</div>
 				</section>
@@ -261,48 +277,51 @@
 					<li class=" tsd-kind-enum">
 						<a href="opusapplication.html" class="tsd-kind-icon">Opus<wbr>Application</a>
 					</li>
+					<li class=" tsd-kind-enum">
+						<a href="rtaudioapi.html" class="tsd-kind-icon">Rt<wbr>Audio<wbr>Api</a>
+					</li>
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-enum">
-						<a href="rtaudioapi.html" class="tsd-kind-icon">Rt<wbr>Audio<wbr>Api</a>
+						<a href="rtaudioerrortype.html" class="tsd-kind-icon">Rt<wbr>Audio<wbr>Error<wbr>Type</a>
 						<ul>
 							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
-								<a href="rtaudioapi.html#linux_alsa" class="tsd-kind-icon">LINUX_<wbr>ALSA</a>
+								<a href="rtaudioerrortype.html#debug_warning" class="tsd-kind-icon">DEBUG_<wbr>WARNING</a>
 							</li>
 							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
-								<a href="rtaudioapi.html#linux_oss" class="tsd-kind-icon">LINUX_<wbr>OSS</a>
+								<a href="rtaudioerrortype.html#driver_error" class="tsd-kind-icon">DRIVER_<wbr>ERROR</a>
 							</li>
 							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
-								<a href="rtaudioapi.html#linux_pulse" class="tsd-kind-icon">LINUX_<wbr>PULSE</a>
+								<a href="rtaudioerrortype.html#invalid_device" class="tsd-kind-icon">INVALID_<wbr>DEVICE</a>
 							</li>
 							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
-								<a href="rtaudioapi.html#macosx_core" class="tsd-kind-icon">MACOSX_<wbr>CORE</a>
+								<a href="rtaudioerrortype.html#invalid_parameter" class="tsd-kind-icon">INVALID_<wbr>PARAMETER</a>
 							</li>
 							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
-								<a href="rtaudioapi.html#rtaudio_dummy" class="tsd-kind-icon">RTAUDIO_<wbr>DUMMY</a>
+								<a href="rtaudioerrortype.html#invalid_use" class="tsd-kind-icon">INVALID_<wbr>USE</a>
 							</li>
 							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
-								<a href="rtaudioapi.html#unix_jack" class="tsd-kind-icon">UNIX_<wbr>JACK</a>
+								<a href="rtaudioerrortype.html#memory_error" class="tsd-kind-icon">MEMORY_<wbr>ERROR</a>
 							</li>
 							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
-								<a href="rtaudioapi.html#unspecified" class="tsd-kind-icon">UNSPECIFIED</a>
+								<a href="rtaudioerrortype.html#no_devices_found" class="tsd-kind-icon">NO_<wbr>DEVICES_<wbr>FOUND</a>
 							</li>
 							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
-								<a href="rtaudioapi.html#windows_asio" class="tsd-kind-icon">WINDOWS_<wbr>ASIO</a>
+								<a href="rtaudioerrortype.html#system_error" class="tsd-kind-icon">SYSTEM_<wbr>ERROR</a>
 							</li>
 							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
-								<a href="rtaudioapi.html#windows_ds" class="tsd-kind-icon">WINDOWS_<wbr>DS</a>
+								<a href="rtaudioerrortype.html#thread_error" class="tsd-kind-icon">THREAD_<wbr>ERROR</a>
 							</li>
 							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
-								<a href="rtaudioapi.html#windows_wasapi" class="tsd-kind-icon">WINDOWS_<wbr>WASAPI</a>
+								<a href="rtaudioerrortype.html#unspecified" class="tsd-kind-icon">UNSPECIFIED</a>
+							</li>
+							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
+								<a href="rtaudioerrortype.html#warning" class="tsd-kind-icon">WARNING</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
-					<li class=" tsd-kind-enum">
-						<a href="rtaudioerrortype.html" class="tsd-kind-icon">Rt<wbr>Audio<wbr>Error<wbr>Type</a>
-					</li>
 					<li class=" tsd-kind-enum">
 						<a href="rtaudioformat.html" class="tsd-kind-icon">Rt<wbr>Audio<wbr>Format</a>
 					</li>
