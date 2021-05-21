@@ -9,7 +9,7 @@
 		"safe-docs": "git merge-base $(git log --pretty=format:%h -n1 index.d.ts) $(git log --pretty=format:%h -n1 docs) --is-ancestor || (npm run docs && git add docs && git commit -m 'chore: regenerate docs' docs)",
 		"rebuild": "cmake-js compile",
 		"install": "prebuild-install || npm run rebuild",
-		"deploy": "np",
+		"deploy": "np --yolo",
 		"predeploy": "npm run safe-docs",
 		"build-binaries": "npm run build-binaries-node && npm run build-binaries-electron",
 		"build-binaries-node": "run-script-os",
