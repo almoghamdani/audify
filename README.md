@@ -19,7 +19,7 @@ npm install audify
 
 #### Requirements for source build
 
-* Node or Electron versions that support N-API 5 and up ([N-API Node Version Matrix](https://nodejs.org/docs/latest/api/n-api.html#n_api_node_api_version_matrix))
+* Node or Electron versions that support N-API 5 and up ([N-API Node Version Matrix](https://nodejs.org/docs/latest/api/n-api.html#node-api-version-matrix))
 * [CMake](http://www.cmake.org/download/)
 * A proper C/C++ compiler toolchain of the given platform
     * **Windows**:
