@@ -270,7 +270,7 @@ export declare class RtAudio {
     frameOutputCallback: (() => void) | null,
     flags?: RtAudioStreamFlags,
     errorCallback?: ((type: RtAudioErrorType, msg: string) => void) | null
-  ): void;
+  ): number;
 
   /**
    * A function that closes a stream and frees any associated stream memory.
