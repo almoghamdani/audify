@@ -265,7 +265,7 @@ Napi::Value RtAudioWrap::openStream(const Napi::CallbackInfo &info) {
     throw Napi::Error::New(info.Env(), ex.what());
   }
 
-  // Save frame size
+  // Save frame size after openStream() has been called in case frameSize was overridden or 0 for default
   _frameSize = frameSize;
 
   // Lock the threadsafe functions mutex
