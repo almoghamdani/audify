@@ -247,12 +247,12 @@ export declare class RtAudio {
   constructor(api?: RtAudioApi);
 
   /**
-   * A public function for opening a stream with the specified parameters.
+   * A public function for opening a stream with the specified parameters. Returns the actual frameSize used by the stream, useful if a frameSize of 0 is passed.
    * @param outputParameters Specifies output stream parameters to use when opening a stream. For input-only streams, this argument should be null.
    * @param inputParameters Specifies input stream parameters to use when opening a stream. For output-only streams, this argument should be null.
    * @param format An RtAudio.Format specifying the desired sample data format.
    * @param sampleRate The desired sample rate (sample frames per second).
-   * @param frameSize The amount of samples per frame.
+   * @param frameSize The amount of samples per frame. Can be 0 for some APIs, in which case the lowest allowable value is determined; this is necessary for the ASIO & Jack APIs where the user can set an overriding global buffer size for their device.
    * @param streamName A stream name (currently used only in Jack).
    * @param inputCallback A callback that is called when a new input signal is available. Should be null for output-only streams.
    * @param frameOutputCallback A callback that is called when a frame is finished playing in the output device.
@@ -270,7 +270,7 @@ export declare class RtAudio {
     frameOutputCallback: (() => void) | null,
     flags?: RtAudioStreamFlags,
     errorCallback?: ((type: RtAudioErrorType, msg: string) => void) | null
-  ): void;
+  ): number;
 
   /**
    * A function that closes a stream and frees any associated stream memory.

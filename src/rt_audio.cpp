@@ -174,7 +174,7 @@ Napi::Value RtAudioWrap::getDefaultOutputDevice(
   return Napi::Number::New(info.Env(), _rtAudio->getDefaultOutputDevice());
 }
 
-void RtAudioWrap::openStream(const Napi::CallbackInfo &info) {
+Napi::Value RtAudioWrap::openStream(const Napi::CallbackInfo &info) {
   RtAudio::StreamParameters outputParams =
       info[0].IsNull() || info[0].IsUndefined()
           ? RtAudio::StreamParameters()
@@ -226,9 +226,6 @@ void RtAudioWrap::openStream(const Napi::CallbackInfo &info) {
     _frameOutputTsfn.Release();
   }
 
-  // Save frame size
-  _frameSize = frameSize;
-
   // Save input and output channels
   _inputChannels = inputParams.nChannels;
   _outputChannels = outputParams.nChannels;
@@ -268,6 +265,9 @@ void RtAudioWrap::openStream(const Napi::CallbackInfo &info) {
     throw Napi::Error::New(info.Env(), ex.what());
   }
 
+  // Save frame size after openStream() has been called in case frameSize was overridden or 0 for default
+  _frameSize = frameSize;
+
   // Lock the threadsafe functions mutex
   tsfnLock.lock();
 
@@ -286,6 +286,7 @@ void RtAudioWrap::openStream(const Napi::CallbackInfo &info) {
         info.Env(), frameOutputCallback, "frameOutputCallback", 0, 1,
         [this](Napi::Env) {});
   }
+  return Napi::Number::New(info.Env(), _frameSize);
 }
 
 void RtAudioWrap::closeStream(const Napi::CallbackInfo &info) {
