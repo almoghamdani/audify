@@ -258,6 +258,7 @@ export declare class RtAudio {
    * @param frameOutputCallback A callback that is called when a frame is finished playing in the output device.
    * @param flags A bit-mask of stream flags (RtAudio.StreamFlags).
    * @param errorCallback A callback that is called when an error has occurred.
+   * @return The actual frame-size used for stream. Useful if passed 0 as frameSize.
    */
   openStream(
     outputParameters: RtAudioStreamParameters | null,
