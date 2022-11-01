@@ -12,6 +12,7 @@ class RtAudioWrap : public Napi::ObjectWrap<RtAudioWrap> {
   static Napi::Object Init(Napi::Env env, Napi::Object exports);
   RtAudioWrap(const Napi::CallbackInfo& info);
   ~RtAudioWrap();
+  static void destroy();
 
   Napi::Value getDevices(const Napi::CallbackInfo& info);
   Napi::Value getDefaultInputDevice(const Napi::CallbackInfo& info);

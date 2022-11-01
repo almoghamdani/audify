@@ -10,6 +10,7 @@ class OpusEncoderWrap : public Napi::ObjectWrap<OpusEncoderWrap> {
   static Napi::Object Init(Napi::Env env, Napi::Object exports);
   OpusEncoderWrap(const Napi::CallbackInfo &info);
   ~OpusEncoderWrap();
+  static void destroy();
 
   Napi::Value encode(const Napi::CallbackInfo &info);
   Napi::Value encodeFloat(const Napi::CallbackInfo &info);

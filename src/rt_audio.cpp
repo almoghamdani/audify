@@ -114,6 +114,10 @@ Napi::Object RtAudioWrap::Init(Napi::Env env, Napi::Object exports) {
   return exports;
 }
 
+void RtAudioWrap::destroy() {
+  constructor.Reset();
+}
+
 RtAudioWrap::RtAudioWrap(const Napi::CallbackInfo &info)
     : Napi::ObjectWrap<RtAudioWrap>(info),
       _frameSize(0),
