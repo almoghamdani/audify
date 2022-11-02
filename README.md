@@ -15,7 +15,7 @@ npm install audify
 ```
 
 ***Most regular installs will support prebuilds that are built with each release.***
-***The prebuilds are for Node v12.11.x+, v13.x.x, v14.x.x, v15.x.x, v16.x.x, v17.x.x and Electron v8.x.x, v9.x.x, v10.x.x, v11.x.x, v12.x.x., v13.x.x., v14.x.x, v15.x.x, v16.x.x.***
+***The prebuilds are for Node v12.11.x+, v13.x.x, v14.x.x, v15.x.x, v16.x.x, v17.x.x, v18.x.x and Electron v8.x.x, v9.x.x, v10.x.x, v11.x.x, v12.x.x., v13.x.x., v14.x.x, v15.x.x, v16.x.x., v17.x.x., v18.x.x., v19.x.x., v20.x.x., v21.x.x.***
 
 #### Requirements for source build
 
