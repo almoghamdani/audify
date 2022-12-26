@@ -9,9 +9,9 @@ jobs:
     strategy:
       matrix:
         config:
-          - { name: "Windows", os: windows-latest }
-          - { name: "Ubuntu", os: ubuntu-latest }
-          - { name: "macOS", os: macos-latest }
+          - { name: "Windows", os: windows-latest, cc: "cl", cxx: "cl" }
+          - { name: "Ubuntu", os: ubuntu-latest, cc: "gcc", cxx: "g++" }
+          - { name: "macOS", os: macos-latest, cc: "clang", cxx: "clang++" }
 
     steps:
       - name: Check-Out Code
@@ -32,3 +32,6 @@ jobs:
 
       - name: Build Audify
         run: npm run build-binaries
+        env:
+          CMAKE_C_COMPILER: ${{ matrix.cc }}
+          CMAKE_CXX_COMPILER: ${{ matrix.cxx }}
