@@ -1,0 +1,31 @@
+name: Build && Deploy
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ${{ matrix.config.os }}
+
+    strategy:
+      matrix:
+        config:
+          - { name: "Windows", os: windows-latest }
+          - { name: "Ubuntu", os: ubuntu-latest }
+          - { name: "macOS", os: macos-latest }
+
+    steps:
+      - name: Check-Out Code
+        uses: actions/checkout@v3
+        with:
+          submodules: true
+
+      - name: Setup Ninja
+        uses: ashutoshvarma/setup-ninja@master
+
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: lts/*
+
+      - name: Build
+        run: npm run build-binaries
