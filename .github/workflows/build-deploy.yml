@@ -13,9 +13,9 @@ jobs:
           - { name: "Ubuntu", os: ubuntu-latest, cc: "gcc", cxx: "g++" }
           # - { name: "macOS", os: macos-latest, cc: "clang", cxx: "clang++" }
 
-    env:
-      CC: ${{ matrix.cc }}
-      CXX: ${{ matrix.cxx }}
+    # env:
+    #   CC: ${{ matrix.cc }}
+    #   CXX: ${{ matrix.cxx }}
 
     steps:
       - name: Check-Out Code
@@ -23,8 +23,8 @@ jobs:
         with:
           submodules: true
 
-      - name: Setup Ninja
-        uses: ashutoshvarma/setup-ninja@master
+      - name: Setup CMake/Ninja
+        uses: lukka/get-cmake@latest
 
       - name: Setup Node
         uses: actions/setup-node@v3
