@@ -13,6 +13,10 @@ jobs:
           - { name: "Ubuntu", os: ubuntu-latest, cc: "gcc", cxx: "g++" }
           - { name: "macOS", os: macos-latest, cc: "clang", cxx: "clang++" }
 
+    env:
+      CMAKE_C_COMPILER: ${{ matrix.cc }}
+      CMAKE_CXX_COMPILER: ${{ matrix.cxx }}
+
     steps:
       - name: Check-Out Code
         uses: actions/checkout@v3
@@ -32,6 +36,3 @@ jobs:
 
       - name: Build Audify
         run: npm run build-binaries
-        env:
-          CMAKE_C_COMPILER: ${{ matrix.cc }}
-          CMAKE_CXX_COMPILER: ${{ matrix.cxx }}
