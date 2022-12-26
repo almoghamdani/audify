@@ -9,13 +9,13 @@ jobs:
     strategy:
       matrix:
         config:
-          - { name: "Windows", os: windows-latest, cc: "cl", cxx: "cl" }
+          # - { name: "Windows", os: windows-latest, cc: "cl", cxx: "cl" }
           - { name: "Ubuntu", os: ubuntu-latest, cc: "gcc", cxx: "g++" }
-          - { name: "macOS", os: macos-latest, cc: "clang", cxx: "clang++" }
+          # - { name: "macOS", os: macos-latest, cc: "clang", cxx: "clang++" }
 
     env:
-      CMAKE_C_COMPILER: ${{ matrix.cc }}
-      CMAKE_CXX_COMPILER: ${{ matrix.cxx }}
+      CC: ${{ matrix.cc }}
+      CXX: ${{ matrix.cxx }}
 
     steps:
       - name: Check-Out Code
