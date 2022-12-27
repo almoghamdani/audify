@@ -36,6 +36,7 @@ jobs:
         if: ${{ (runner.os == 'Linux') && (matrix.config.arch != 'amd64') }}
         run: |
           sudo dpkg --add-architecture ${{ matrix.config.arch }}
+          cat /etc/apt/sources.list
 
       - name: Install Cross-Build Toolchain
         uses: awalsh128/cache-apt-pkgs-action@latest
