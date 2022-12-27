@@ -58,7 +58,7 @@ jobs:
         run: npm ci --ignore-scripts
 
       - name: Build Audify
-        run: npm rebuild -- --arch ${{ env.BUILD_ARCH }}
+        run: npm run rebuild -- --arch ${{ env.BUILD_ARCH }}
 
       - name: Build Audify Prebuilt Binaries
-        run: npm run build-binaries -- -- --arch ${{ env.BUILD_ARCH }}
+        run: npm run build-binaries -- -- -- --arch ${{ env.BUILD_ARCH }}
