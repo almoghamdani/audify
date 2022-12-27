@@ -10,13 +10,13 @@ jobs:
       matrix:
         config:
           # - { name: "Windows", os: windows-latest }
-          # - { name: "Ubuntu (x64)", os: ubuntu-latest, arch: "amd64" }
+          - { name: "Ubuntu (x64)", os: ubuntu-latest, arch: "amd64" }
           - { name: "Ubuntu (ARM64)", os: ubuntu-latest, arch: "arm64", cc: "aarch64-linux-gnu-gcc", cxx: "aarch64-linux-gnu-g++" }
           # - { name: "macOS", os: macos-latest }
 
     env:
-      CC: "${{ matrix.config.cc != '' && matrix.config.cc || '' }}"
-      CXX: "${{ matrix.config.cxx != '' && matrix.config.cxx || '' }}"
+      CC: "${{ matrix.config.cc || '' }}"
+      CXX: "${{ matrix.config.cxx || '' }}"
 
     steps:
       - name: Check-Out Code
@@ -56,5 +56,5 @@ jobs:
       - name: Install Audify
         run: npm ci
 
-      # - name: Build Audify Prebuilt Binaries
-      #   run: npm run build-binaries
+      - name: Build Audify Prebuilt Binaries
+        run: npm run build-binaries
