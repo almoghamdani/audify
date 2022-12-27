@@ -32,18 +32,20 @@ jobs:
         with:
           node-version: lts/*
 
-      - name: Prepare Machine For Cross-Build
-        if: ${{ (runner.os == 'Linux') && (matrix.config.arch != 'amd64') }}
-        run: |
-          sudo dpkg --add-architecture ${{ matrix.config.arch }}
-          cat /etc/apt/sources.list
-
       - name: Install Cross-Build Toolchain
         uses: awalsh128/cache-apt-pkgs-action@latest
         if: ${{ (runner.os == 'Linux') && (matrix.config.arch != 'amd64') }}
         with:
           packages: crossbuild-essential-${{ matrix.config.arch }}
           version: 1.0
+
+      - name: Prepare Machine For Cross-Build
+        if: ${{ (runner.os == 'Linux') && (matrix.config.arch != 'amd64') }}
+        run: |
+          sudo dpkg --remove-architecture amd64
+          sudo dpkg --add-architecture ${{ matrix.config.arch }}
+          sed -i 's#http://azure.archive.ubuntu.com/ubuntu/#http://ports.ubuntu.com/ubuntu-ports/#g' /etc/apt/sources.list
+          sudo apt-get update -yq
 
       - name: Install External Dependencies
         uses: awalsh128/cache-apt-pkgs-action@latest
