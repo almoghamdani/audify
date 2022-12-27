@@ -9,9 +9,14 @@ jobs:
     strategy:
       matrix:
         config:
-          - { name: "Windows", os: windows-latest }
-          - { name: "Ubuntu", os: ubuntu-latest }
-          - { name: "macOS", os: macos-latest }
+          # - { name: "Windows", os: windows-latest }
+          # - { name: "Ubuntu (x64)", os: ubuntu-latest, arch: "amd64" }
+          - { name: "Ubuntu (ARM64)", os: ubuntu-latest, arch: "arm64", cc: "aarch64-linux-gnueabihf-gcc", cxx: "aarch64-linux-gnueabihf-g++" }
+          # - { name: "macOS", os: macos-latest }
+
+    env:
+      CC: "${{ matrix.config.cc != "" && "matrix.config.cc" || "env.CC" }}""
+      CXX: "${{ matrix.config.cxx != "" && "matrix.config.cxx" || "env.CXX" }}""
 
     steps:
       - name: Check-Out Code
@@ -27,15 +32,28 @@ jobs:
         with:
           node-version: lts/*
 
+      - name: Prepare Machine For Cross-Build
+        if: ${{ (runner.os == 'Linux') && (matrix.config.arch != 'amd64') }}
+        run: |
+          sudo dpkg --add-architecture ${{ matrix.config.arch }}
+          sudo apt-get update -yq
+
+      - name: Install Cross-Build Toolchain
+        uses: awalsh128/cache-apt-pkgs-action@latest
+        if: ${{ (runner.os == 'Linux') && (matrix.config.arch != 'amd64') }}
+        with:
+          packages: crossbuild-essential-${{ matrix.config.arch }}
+          version: 1.0
+
       - name: Install External Dependencies
         uses: awalsh128/cache-apt-pkgs-action@latest
         if: runner.os == 'Linux'
         with:
-          packages: libasound2 libasound2-dev libpulse-dev
+          packages: libasound2:${{ matrix.config.arch }} libasound2-dev:${{ matrix.config.arch }} libpulse-dev:${{ matrix.config.arch }}
           version: 1.0
 
       - name: Install Audify
         run: npm ci
 
-      - name: Build Audify
-        run: npm run build-binaries
+      # - name: Build Audify Prebuilt Binaries
+      #   run: npm run build-binaries
