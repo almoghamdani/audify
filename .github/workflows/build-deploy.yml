@@ -42,9 +42,8 @@ jobs:
       - name: Prepare Machine For Cross-Build
         if: ${{ (runner.os == 'Linux') && (matrix.config.arch != 'amd64') }}
         run: |
-          sudo dpkg --remove-architecture amd64
           sudo dpkg --add-architecture ${{ matrix.config.arch }}
-          sudo sed -i 's#http://azure.archive.ubuntu.com/ubuntu#http://ports.ubuntu.com/ubuntu-ports#g' /etc/apt/sources.list
+          sudo sed -i 's#http://azure.archive.ubuntu.com/ubuntu#[arch=${{ matrix.config.arch }}] http://ports.ubuntu.com/ubuntu-ports#g' /etc/apt/sources.list
           sudo apt-get update -yq
 
       - name: Install External Dependencies
