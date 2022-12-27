@@ -11,7 +11,7 @@ jobs:
         config:
           # - { name: "Windows", os: windows-latest }
           # - { name: "Ubuntu (x64)", os: ubuntu-latest, arch: "amd64" }
-          - { name: "Ubuntu (ARM64)", os: ubuntu-latest, arch: "arm64", cc: "aarch64-linux-gnueabihf-gcc", cxx: "aarch64-linux-gnueabihf-g++" }
+          - { name: "Ubuntu (ARM64)", os: ubuntu-latest, arch: "arm64", cc: "aarch64-linux-gnu-gcc", cxx: "aarch64-linux-gnu-g++" }
           # - { name: "macOS", os: macos-latest }
 
     env:
