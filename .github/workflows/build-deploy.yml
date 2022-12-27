@@ -15,8 +15,8 @@ jobs:
           # - { name: "macOS", os: macos-latest }
 
     env:
-      CC: "${{ matrix.config.cc != "" && matrix.config.cc || env.CC }}"
-      CXX: "${{ matrix.config.cxx != "" && matrix.config.cxx || env.CXX }}"
+      CC: "${{ matrix.config.cc != '' && matrix.config.cc || env.CC }}"
+      CXX: "${{ matrix.config.cxx != '' && matrix.config.cxx || env.CXX }}"
 
     steps:
       - name: Check-Out Code
