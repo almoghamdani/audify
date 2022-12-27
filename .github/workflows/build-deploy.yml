@@ -45,6 +45,7 @@ jobs:
         run: |
           sudo dpkg --add-architecture ${{ matrix.config.arch }}
           sudo sed -i 's#http://azure.archive.ubuntu.com/ubuntu#[arch=${{ matrix.config.arch }}] http://ports.ubuntu.com/ubuntu-ports#g' /etc/apt/sources.list
+          sudo apt-get update -yq
 
       - name: Install External Dependencies
         uses: awalsh128/cache-apt-pkgs-action@latest
