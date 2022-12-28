@@ -9,7 +9,7 @@ Napi::Object Init(Napi::Env env, Napi::Object exports) {
   OpusDecoderWrap::Init(env, exports);
   RtAudioWrap::Init(env, exports);
 
-  return exports; 
+  return exports;
 }
 
 NODE_API_MODULE(audify, Init)

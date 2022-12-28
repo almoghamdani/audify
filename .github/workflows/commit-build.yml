@@ -1,7 +1,9 @@
 name: Commit Build
 
 on:
+  pull_request:
   push:
+    branches: master
     paths:
       - "src/**"
       - "vendor/**"
