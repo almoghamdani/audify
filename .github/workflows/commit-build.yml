@@ -11,6 +11,7 @@ on:
       - "**.ts"
       - "package-lock.json"
       - "tsconfig.json"
+      - "!docs/**"
 
 jobs:
   commit-build:
