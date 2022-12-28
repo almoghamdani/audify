@@ -15,8 +15,8 @@ jobs:
           - { name: "macOS", os: macos-latest, arch: "x64" }
 
     env:
-      CC: "${{ matrix.config.toolchain-arch && format("{0}-linux-gnu-gcc", matrix.config.toolchain-arch) || '' }}"
-      CXX: "${{ matrix.config.toolchain-arch && format("{0}-linux-gnu-g++", matrix.config.toolchain-arch) || '' }}"
+      CC: "${{ matrix.config.toolchain-arch && format('{0}-linux-gnu-gcc', matrix.config.toolchain-arch) || '' }}"
+      CXX: "${{ matrix.config.toolchain-arch && format('{0}-linux-gnu-g++', matrix.config.toolchain-arch) || '' }}"
 
     steps:
       - name: Check-Out Code
