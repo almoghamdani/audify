@@ -76,7 +76,7 @@ rtAudio.openStream(
   48000, // Sampling rate is 48kHz
   1920, // Frame size is 1920 (40ms)
   "MyStream", // The name of the stream (used for JACK Api)
-  (pcm) => rtAudio.write(pcm) // Input callback function, write every input pcm data to the output buffer
+  (pcm) => rtAudio.write(pcm) // Input callback function, write every input  pcm data to the output buffer
 );
 
 // Start the stream
