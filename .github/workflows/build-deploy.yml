@@ -22,7 +22,10 @@ jobs:
             arch: arm
             apt-arch: armhf
             toolchain-arch: arm
+            gnu-name: gnueabihf
         exclude:
+          - os: windows-latest
+            arch: arm64
           - os: windows-latest
             arch: arm
           - os: ubuntu-latest
@@ -40,8 +43,8 @@ jobs:
           # - { name: "macOS (ARM64)", os: macos-latest, arch: "arm64" }
 
     env:
-      CC: "${{ matrix.toolchain-arch && format('{0}-linux-gnu-gcc', matrix.toolchain-arch) || '' }}"
-      CXX: "${{ matrix.toolchain-arch && format('{0}-linux-gnu-g++', matrix.toolchain-arch) || '' }}"
+      CC: "${{ matrix.toolchain-arch && format('{0}-linux-{1}-gcc', matrix.toolchain-arch, matrix.gnu-name || 'gnu') || '' }}"
+      CXX: "${{ matrix.toolchain-arch && format('{0}-linux-{1}-g++', matrix.toolchain-arch, matrix.gnu-name || 'gnu') || '' }}"
 
     steps:
       - name: Check-Out Code
