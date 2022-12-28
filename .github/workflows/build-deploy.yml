@@ -4,7 +4,7 @@ on: [push]
 
 jobs:
   build:
-    runs-on: ${{ matrix.config.os }}
+    runs-on: ${{ matrix.os }}
 
     strategy:
       matrix:
@@ -40,8 +40,8 @@ jobs:
           # - { name: "macOS (ARM64)", os: macos-latest, arch: "arm64" }
 
     env:
-      CC: "${{ matrix.config.toolchain-arch && format('{0}-linux-gnu-gcc', matrix.config.toolchain-arch) || '' }}"
-      CXX: "${{ matrix.config.toolchain-arch && format('{0}-linux-gnu-g++', matrix.config.toolchain-arch) || '' }}"
+      CC: "${{ matrix.toolchain-arch && format('{0}-linux-gnu-gcc', matrix.toolchain-arch) || '' }}"
+      CXX: "${{ matrix.toolchain-arch && format('{0}-linux-gnu-g++', matrix.toolchain-arch) || '' }}"
 
     steps:
       - name: Check-Out Code
@@ -59,27 +59,27 @@ jobs:
 
       - name: Install Cross-Build Toolchain
         uses: awalsh128/cache-apt-pkgs-action@latest
-        if: ${{ runner.os == 'Linux' && matrix.config.arch != 'x64' }}
+        if: ${{ runner.os == 'Linux' && matrix.arch != 'x64' }}
         with:
-          packages: crossbuild-essential-${{ matrix.config.apt-arch }}
+          packages: crossbuild-essential-${{ matrix.apt-arch }}
           version: 1.0
 
       - name: Prepare Machine For Cross-Build
-        if: ${{ runner.os == 'Linux' && matrix.config.arch != 'x64' }}
+        if: ${{ runner.os == 'Linux' && matrix.arch != 'x64' }}
         run: |
-          sudo dpkg --add-architecture ${{ matrix.config.apt-arch }}
-          sudo sed -i 's#http://azure.archive.ubuntu.com/ubuntu#[arch=${{ matrix.config.apt-arch }}] http://ports.ubuntu.com/ubuntu-ports#g' /etc/apt/sources.list
+          sudo dpkg --add-architecture ${{ matrix.apt-arch }}
+          sudo sed -i 's#http://azure.archive.ubuntu.com/ubuntu#[arch=${{ matrix.apt-arch }}] http://ports.ubuntu.com/ubuntu-ports#g' /etc/apt/sources.list
           sudo apt-get update -yq
 
       - name: Install External Dependencies
         if: runner.os == 'Linux'
-        run: sudo apt-get install libasound2:${{ matrix.config.apt-arch }} libasound2-dev:${{ matrix.config.apt-arch }} libpulse-dev:${{ matrix.config.apt-arch }}
+        run: sudo apt-get install libasound2:${{ matrix.apt-arch }} libasound2-dev:${{ matrix.apt-arch }} libpulse-dev:${{ matrix.apt-arch }}
 
       - name: Install Audify Dependencies
         run: npm ci --ignore-scripts
 
       - name: Build Audify
-        run: npm run rebuild -- --arch ${{ matrix.config.arch }}
+        run: npm run rebuild -- --arch ${{ matrix.arch }}
 
       # - name: Build Audify Prebuilt Binaries
-      #   run: npm run build-binaries -- -- -- --arch ${{ matrix.config.arch }}
+      #   run: npm run build-binaries -- -- -- --arch ${{ matrix.arch }}
