@@ -9,10 +9,10 @@ jobs:
     strategy:
       matrix:
         config:
-          - { name: "Windows", os: windows-latest, arch: "x64" }
-          - { name: "Ubuntu (x64)", os: ubuntu-latest, arch: "x64", apt-arch: "amd64" }
+          # - { name: "Windows", os: windows-latest, arch: "x64" }
+          # - { name: "Ubuntu (x64)", os: ubuntu-latest, arch: "x64", apt-arch: "amd64" }
           - { name: "Ubuntu (ARM64)", os: ubuntu-latest, arch: "arm64", toolchain-arch: "aarch64", apt-arch: "arm64" }
-          - { name: "macOS", os: macos-latest, arch: "x64" }
+          # - { name: "macOS", os: macos-latest, arch: "x64" }
 
     env:
       CC: "${{ matrix.config.toolchain-arch && format('{0}-linux-gnu-gcc', matrix.config.toolchain-arch) || '' }}"
@@ -47,7 +47,7 @@ jobs:
           sudo apt-get update -yq
 
       - name: Install External Dependencies
-        uses: awalsh128/cache-apt-pkgs-action@latest
+        uses: awalsh128/cache-apt-pkgs-action@v1.2.1
         if: runner.os == 'Linux'
         with:
           packages: libasound2:${{ matrix.config.apt-arch }} libasound2-dev:${{ matrix.config.apt-arch }} libpulse-dev:${{ matrix.config.apt-arch }}
@@ -60,5 +60,5 @@ jobs:
       - name: Build Audify
         run: npm run rebuild -- --arch ${{ matrix.config.arch }}
 
-      - name: Build Audify Prebuilt Binaries
-        run: npm run build-binaries -- -- -- --arch ${{ matrix.config.arch }}
+      # - name: Build Audify Prebuilt Binaries
+      #   run: npm run build-binaries -- -- -- --arch ${{ matrix.config.arch }}
