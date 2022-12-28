@@ -50,10 +50,23 @@ jobs:
         uses: awalsh128/cache-apt-pkgs-action@v1.2.1
         if: runner.os == 'Linux'
         with:
-          packages: libasound2:${{ matrix.config.apt-arch }} libasound2-dev:${{ matrix.config.apt-arch }} libpulse-dev:${{ matrix.config.apt-arch }}
+          packages: libasound2:${{ matrix.config.apt-arch }}
           version: 1.0
           execute_install_scripts: true
-          debug: false
+
+      - uses: awalsh128/cache-apt-pkgs-action@v1.2.1
+        if: runner.os == 'Linux'
+        with:
+          packages: libasound2-dev:${{ matrix.config.apt-arch }}
+          version: 1.0
+          execute_install_scripts: true
+
+      - uses: awalsh128/cache-apt-pkgs-action@v1.2.1
+        if: runner.os == 'Linux'
+        with:
+          packages: libpulse-dev:${{ matrix.config.apt-arch }}
+          version: 1.0
+          execute_install_scripts: true
 
       - name: Install Audify Dependencies
         run: npm ci --ignore-scripts
