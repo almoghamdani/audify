@@ -6,18 +6,17 @@
 	"types": "index.d.ts",
 	"scripts": {
 		"docs": "typedoc index.d.ts --hideGenerator --name Audify.js",
-		"safe-docs": "git merge-base $(git log --pretty=format:%h -n1 index.d.ts) $(git log --pretty=format:%h -n1 docs) --is-ancestor || (npm run docs && git add docs && git commit -m 'chore: regenerate docs' docs)",
 		"rebuild": "cmake-js compile",
 		"install": "prebuild-install || npm run rebuild",
 		"deploy": "np --yolo",
-		"predeploy": "npm run safe-docs",
-		"build-binaries": "npm run build-binaries-node && npm run build-binaries-electron",
+		"build-binaries": "npm run build-binaries-node",
+		"postbuild-binaries": "npm run build-binaries-electron",
 		"build-binaries-node": "run-script-os",
-		"build-binaries-node:win32": "prebuild --backend cmake-js --include-regex \"^.*\\.(node|dylib|dll|so(\\.[0-9])?)$\" -t 12.11.0 -t 13.0.0 -t 14.0.0 -t 15.0.0 -t 16.0.0 -t 17.0.0 -t 18.0.0 --verbose -u %GITHUB_TOKEN%",
-		"build-binaries-node:darwin:linux": "prebuild --backend cmake-js --include-regex \"^.*\\.(node|dylib|dll|so(\\.[0-9])?)$\" -t 12.11.0 -t 13.0.0 -t 14.0.0 -t 15.0.0 -t 16.0.0 -t 17.0.0 -t 18.0.0 --verbose -u $GITHUB_TOKEN",
+		"build-binaries-node:win32": "prebuild --backend cmake-js --include-regex \"^.*\\.(node|dylib|dll|so(\\.[0-9])?)$\" -t 12.11.0 -t 13.0.0 -t 14.0.0 -t 15.0.0 -t 16.0.0 -t 17.0.0 -t 18.0.0 -t 19.0.0 --verbose -u %GITHUB_TOKEN%",
+		"build-binaries-node:darwin:linux": "prebuild --backend cmake-js --include-regex \"^.*\\.(node|dylib|dll|so(\\.[0-9])?)$\" -t 12.11.0 -t 13.0.0 -t 14.0.0 -t 15.0.0 -t 16.0.0 -t 17.0.0 -t 18.0.0 -t 19.0.0 --verbose -u $GITHUB_TOKEN",
 		"build-binaries-electron": "run-script-os",
-		"build-binaries-electron:win32": "prebuild --backend cmake-js --include-regex \"^.*\\.(node|dylib|dll|so(\\.[0-9])?)$\" -r electron -t 8.0.0 -t 9.0.0 -t 10.0.0 -t 11.0.0 -t 12.0.0 -t 13.0.0 -t 14.0.0 -t 15.0.0 -t 16.0.0 -t 17.0.0 -t 18.0.0 -t 19.0.0 -t 20.0.0 -t 21.0.0 --verbose -u %GITHUB_TOKEN%",
-		"build-binaries-electron:darwin:linux": "prebuild --backend cmake-js --include-regex \"^.*\\.(node|dylib|dll|so(\\.[0-9])?)$\" -r electron -t 8.0.0 -t 9.0.0 -t 10.0.0 -t 11.0.0 -t 12.0.0 -t 13.0.0 -t 14.0.0 -t 15.0.0 -t 16.0.0 -t 17.0.0 -t 18.0.0 -t 19.0.0 -t 20.0.0 -t 21.0.0 --verbose -u $GITHUB_TOKEN"
+		"build-binaries-electron:win32": "prebuild --backend cmake-js --include-regex \"^.*\\.(node|dylib|dll|so(\\.[0-9])?)$\" -r electron -t 8.0.0 -t 9.0.0 -t 10.0.0 -t 11.0.0 -t 12.0.0 -t 13.0.0 -t 14.0.0 -t 15.0.0 -t 16.0.0 -t 17.0.0 -t 18.0.0 -t 19.0.0 -t 20.0.0 -t 21.0.0 -t 22.0.0 --verbose -u %GITHUB_TOKEN%",
+		"build-binaries-electron:darwin:linux": "prebuild --backend cmake-js --include-regex \"^.*\\.(node|dylib|dll|so(\\.[0-9])?)$\" -r electron -t 8.0.0 -t 9.0.0 -t 10.0.0 -t 11.0.0 -t 12.0.0 -t 13.0.0 -t 14.0.0 -t 15.0.0 -t 16.0.0 -t 17.0.0 -t 18.0.0 -t 19.0.0 -t 20.0.0 -t 21.0.0 -t 22.0.0 --verbose -u $GITHUB_TOKEN"
 	},
 	"repository": {
 		"type": "git",
@@ -30,7 +29,7 @@
 		"encode",
 		"decode",
 		"opus",
-		"rtaudio",
+    "rtaudio",
 		"alsa",
 		"jack",
 		"pulseaudio",
@@ -56,16 +55,16 @@
 	"homepage": "https://github.com/almoghamdani/audify#readme",
 	"dependencies": {
 		"bindings": "^1.5.0",
-		"cmake-js": "^6.3.0",
-		"node-addon-api": "^4.2.0",
+		"cmake-js": "^7.1.1",
+		"node-addon-api": "^5.0.0",
 		"prebuild-install": "^7.1.1"
 	},
 	"devDependencies": {
-		"@types/node": "^16.11.10",
-		"np": "^7.6.0",
+		"@types/node": "^18.11.18",
+		"np": "^7.6.2",
 		"prebuild": "^11.0.4",
 		"run-script-os": "^1.1.6",
-		"typedoc": "^0.22.10",
-		"typescript": "^4.5.2"
+		"typedoc": "^0.23.23",
+		"typescript": "^4.9.4"
 	}
 }

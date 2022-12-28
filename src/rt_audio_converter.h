@@ -15,7 +15,7 @@ class RtAudioConverter {
     Napi::Array array = Napi::Array::New(env, items.size());
 
     // For each element, convert it to Napi::Value and add it
-    for (int i = 0; i < items.size(); i++) {
+    for (uint32_t i = 0; i < static_cast<uint32_t>(items.size()); i++) {
       array[i] = Napi::Value::From(env, items[i]);
     }
 
