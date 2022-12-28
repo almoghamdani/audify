@@ -2,6 +2,8 @@ name: Re-Generate Docs
 
 on:
   push:
+    branches:
+      - master
     paths:
       - "README.md"
       - "**.d.ts"
