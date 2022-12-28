@@ -25,7 +25,9 @@ jobs:
         run: npm ci --ignore-scripts
 
       - name: Re-Generate Docs
-        run: npm run docs
+        run: |
+          rm -rf ./docs
+          npm run docs
 
       - name: Commit Docs
         uses: stefanzweifel/git-auto-commit-action@v4
