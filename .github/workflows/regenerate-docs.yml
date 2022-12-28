@@ -36,3 +36,4 @@ jobs:
         with:
           commit_message: "chore: regenerate docs"
           file_pattern: "docs"
+          token: ${{ secrets.DOCS_GITHUB_PAT }}
