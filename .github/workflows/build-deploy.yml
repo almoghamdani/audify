@@ -9,15 +9,14 @@ jobs:
     strategy:
       matrix:
         config:
-          # - { name: "Windows", os: windows-latest, arch: "amd64" }
-          - { name: "Ubuntu (x64)", os: ubuntu-latest, arch: "amd64" }
-          - { name: "Ubuntu (ARM64)", os: ubuntu-latest, arch: "arm64", cc: "aarch64-linux-gnu-gcc", cxx: "aarch64-linux-gnu-g++" }
-          # - { name: "macOS", os: macos-latest, arch: "amd64" }
+          - { name: "Windows", os: windows-latest, arch: "x64" }
+          - { name: "Ubuntu (x64)", os: ubuntu-latest, arch: "x64", apt-arch: "amd64" }
+          - { name: "Ubuntu (ARM64)", os: ubuntu-latest, arch: "arm64", toolchain-arch: "aarch64", apt-arch: "arm64" }
+          - { name: "macOS", os: macos-latest, arch: "x64" }
 
     env:
-      CC: "${{ matrix.config.cc || '' }}"
-      CXX: "${{ matrix.config.cxx || '' }}"
-      BUILD_ARCH: "${{ matrix.config.arch != 'amd64' && matrix.config.arch || 'x64' }}"
+      CC: "${{ matrix.config.toolchain-arch && format("{0}-linux-gnu-gcc", matrix.config.toolchain-arch) || '' }}"
+      CXX: "${{ matrix.config.toolchain-arch && format("{0}-linux-gnu-g++", matrix.config.toolchain-arch) || '' }}"
 
     steps:
       - name: Check-Out Code
@@ -35,30 +34,31 @@ jobs:
 
       - name: Install Cross-Build Toolchain
         uses: awalsh128/cache-apt-pkgs-action@latest
-        if: ${{ (runner.os == 'Linux') && (matrix.config.arch != 'amd64') }}
+        if: ${{ runner.os == 'Linux' && matrix.config.arch != 'x64' }}
         with:
-          packages: crossbuild-essential-${{ matrix.config.arch }}
+          packages: crossbuild-essential-${{ matrix.config.apt-arch }}
           version: 1.0
 
       - name: Prepare Machine For Cross-Build
-        if: ${{ (runner.os == 'Linux') && (matrix.config.arch != 'amd64') }}
+        if: ${{ runner.os == 'Linux' && matrix.config.arch != 'x64' }}
         run: |
-          sudo dpkg --add-architecture ${{ matrix.config.arch }}
-          sudo sed -i 's#http://azure.archive.ubuntu.com/ubuntu#[arch=${{ matrix.config.arch }}] http://ports.ubuntu.com/ubuntu-ports#g' /etc/apt/sources.list
+          sudo dpkg --add-architecture ${{ matrix.config.apt-arch }}
+          sudo sed -i 's#http://azure.archive.ubuntu.com/ubuntu#[arch=${{ matrix.config.apt-arch }}] http://ports.ubuntu.com/ubuntu-ports#g' /etc/apt/sources.list
           sudo apt-get update -yq
 
       - name: Install External Dependencies
         uses: awalsh128/cache-apt-pkgs-action@latest
         if: runner.os == 'Linux'
         with:
-          packages: libasound2:${{ matrix.config.arch }} libasound2-dev:${{ matrix.config.arch }} libpulse-dev:${{ matrix.config.arch }}
+          packages: libasound2:${{ matrix.config.apt-arch }} libasound2-dev:${{ matrix.config.apt-arch }} libpulse-dev:${{ matrix.config.apt-arch }}
           version: 1.0
+          execute_install_scripts: true
 
       - name: Install Audify Dependencies
         run: npm ci --ignore-scripts
 
       - name: Build Audify
-        run: npm run rebuild -- --arch ${{ env.BUILD_ARCH }}
+        run: npm run rebuild -- --arch ${{ matrix.config.arch }}
 
       - name: Build Audify Prebuilt Binaries
-        run: npm run build-binaries -- -- -- --arch ${{ env.BUILD_ARCH }}
+        run: npm run build-binaries -- -- -- --arch ${{ matrix.config.arch }}
