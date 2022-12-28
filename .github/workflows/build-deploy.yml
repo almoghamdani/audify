@@ -45,12 +45,6 @@ jobs:
         with:
           submodules: true
 
-      - name: Add MSVC To PATH
-        uses: ilammy/msvc-dev-cmd@v1
-        if: runner.os == 'Windows'
-        with:
-          arch: ${{ matrix.arch == 'ia32' && 'x86' || matrix.arch }}
-
       - name: Setup CMake/Ninja
         uses: lukka/get-cmake@latest
 
@@ -81,7 +75,13 @@ jobs:
         run: npm ci --ignore-scripts
 
       - name: Build Audify
-        run: npm run rebuild -- -G Ninja --arch ${{ matrix.arch }}
+        run: npm run rebuild -- --arch ${{ matrix.arch }}
+
+      - name: Upload Audify Binaries
+        uses: actions/upload-artifact@v3
+        with:
+          name: audify-${{ env.GITHUB_SHA }}-release
+          path: build/Release/
 
       # - name: Build Audify Prebuilt Binaries
-      #   run: npm run build-binaries -- -- -- -G Ninja --arch ${{ matrix.arch }}
+      #   run: npm run build-binaries -- -- -- --arch ${{ matrix.arch }}
