@@ -34,13 +34,6 @@ jobs:
             arch: ia32
           - os: macos-latest
             arch: arm
-        # config:
-          # - { name: "Windows (x64)", os: windows-latest, arch: "x64" }
-          # - { name: "Windows (IA32)", os: windows-latest, arch: "ia32" }
-          # - { name: "Ubuntu (x64)", os: ubuntu-latest, arch: "x64", apt-arch: "amd64" }
-          # - { name: "Ubuntu (ARM64)", os: ubuntu-latest, arch: "arm64", toolchain-arch: "aarch64", apt-arch: "arm64" }
-          # - { name: "macOS (x64)", os: macos-latest, arch: "x64" }
-          # - { name: "macOS (ARM64)", os: macos-latest, arch: "arm64" }
 
     env:
       CC: "${{ matrix.toolchain-arch && format('{0}-linux-{1}-gcc', matrix.toolchain-arch, matrix.gnu-name || 'gnu') || '' }}"
@@ -51,6 +44,12 @@ jobs:
         uses: actions/checkout@v3
         with:
           submodules: true
+
+      - name: Add MSVC To PATH
+        uses: ilammy/msvc-dev-cmd@v1
+        if: runner.os == 'Windows'
+        with:
+          arch: ${{ matrix.arch == 'ia32' && 'x86' || matrix.arch }}
 
       - name: Setup CMake/Ninja
         uses: lukka/get-cmake@latest
@@ -85,4 +84,4 @@ jobs:
         run: npm run rebuild -- -G Ninja --arch ${{ matrix.arch }}
 
       # - name: Build Audify Prebuilt Binaries
-      #   run: npm run build-binaries -- -- -- --arch ${{ matrix.arch }}
+      #   run: npm run build-binaries -- -- -- -G Ninja --arch ${{ matrix.arch }}
