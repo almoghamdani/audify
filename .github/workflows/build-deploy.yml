@@ -80,7 +80,7 @@ jobs:
       - name: Upload Audify Binaries
         uses: actions/upload-artifact@v3
         with:
-          name: audify-${{ env.GITHUB_SHA }}-release
+          name: audify-${{ env.GITHUB_SHA }}-release-${{ matrix.os }}-${{ matrix.arch }}
           path: build/Release/
 
       # - name: Build Audify Prebuilt Binaries
