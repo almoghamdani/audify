@@ -8,8 +8,10 @@ jobs:
 
     strategy:
       matrix:
-        os: [windows-latest, ubuntu-latest, macos-latest]
-        arch: [x64, ia32, arm64, arm]
+        # os: [windows-latest, ubuntu-latest, macos-latest]
+        # arch: [x64, ia32, arm64, arm]
+        os: [ubuntu-latest]
+        arch: [x64]
         include:
           - os: ubuntu-latest
             arch: x64
@@ -80,7 +82,7 @@ jobs:
       - name: Upload Audify Binaries
         uses: actions/upload-artifact@v3
         with:
-          name: audify-${{ env.GITHUB_SHA }}-release-${{ matrix.os }}-${{ matrix.arch }}
+          name: audify-${{ github.sha }}-release-${{ matrix.os }}-${{ matrix.arch }}
           path: build/Release/
 
       # - name: Build Audify Prebuilt Binaries
