@@ -118,8 +118,8 @@ void RtAudioWrap::Destroy() {
   constructor.Reset();
 
   if (errorTsfn != nullptr) {
-	  errorTsfn.Release();
-	  errorTsfn = nullptr;
+    errorTsfn.Release();
+    errorTsfn = nullptr;
   }
 }
 

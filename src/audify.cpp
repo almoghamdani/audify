@@ -10,9 +10,9 @@ Napi::Object Init(Napi::Env env, Napi::Object exports) {
   RtAudioWrap::Init(env, exports);
   
   const napi_status add_cleanup_hook_status = napi_add_env_cleanup_hook(env, [](void*) {
-	  OpusEncoderWrap::Destroy();
-	  OpusDecoderWrap::Destroy();
-	  RtAudioWrap::Destroy();
+    OpusEncoderWrap::Destroy();
+    OpusDecoderWrap::Destroy();
+    RtAudioWrap::Destroy();
   }, nullptr);
   NAPI_THROW_IF_FAILED_VOID(env, add_cleanup_hook_status);
   
