@@ -6,7 +6,7 @@ on:
     - 'v*'
 
 jobs:
-  build:
+  deploy-build:
     uses: ./.github/workflows/build.yml
     with:
       deploy: true

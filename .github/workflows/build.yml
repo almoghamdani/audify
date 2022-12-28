@@ -44,7 +44,7 @@ jobs:
           - os: macos-latest
             arch: arm
 
-    name: ${{ runner.os }} - ${{ matrix.arch }}
+    name: ${{ matrix.os }}:${{ matrix.arch }}
 
     env:
       CC: "${{ matrix.toolchain-arch && format('{0}-linux-{1}-gcc', matrix.toolchain-arch, matrix.gnu-name || 'gnu') || '' }}"
