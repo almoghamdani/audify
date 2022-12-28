@@ -11,8 +11,9 @@ jobs:
         config:
           # - { name: "Windows", os: windows-latest, arch: "x64" }
           # - { name: "Ubuntu (x64)", os: ubuntu-latest, arch: "x64", apt-arch: "amd64" }
-          - { name: "Ubuntu (ARM64)", os: ubuntu-latest, arch: "arm64", toolchain-arch: "aarch64", apt-arch: "arm64" }
-          # - { name: "macOS", os: macos-latest, arch: "x64" }
+          # - { name: "Ubuntu (ARM64)", os: ubuntu-latest, arch: "arm64", toolchain-arch: "aarch64", apt-arch: "arm64" }
+          # - { name: "macOS (x64)", os: macos-latest, arch: "x64" }
+          - { name: "macOS (ARM64)", os: macos-latest, arch: "arm64" }
 
     env:
       CC: "${{ matrix.config.toolchain-arch && format('{0}-linux-gnu-gcc', matrix.config.toolchain-arch) || '' }}"
@@ -47,26 +48,8 @@ jobs:
           sudo apt-get update -yq
 
       - name: Install External Dependencies
-        uses: awalsh128/cache-apt-pkgs-action@v1.2.1
         if: runner.os == 'Linux'
-        with:
-          packages: libasound2:${{ matrix.config.apt-arch }}
-          version: 1.0
-          execute_install_scripts: true
-
-      - uses: awalsh128/cache-apt-pkgs-action@v1.2.1
-        if: runner.os == 'Linux'
-        with:
-          packages: libasound2-dev:${{ matrix.config.apt-arch }}
-          version: 1.0
-          execute_install_scripts: true
-
-      - uses: awalsh128/cache-apt-pkgs-action@v1.2.1
-        if: runner.os == 'Linux'
-        with:
-          packages: libpulse-dev:${{ matrix.config.apt-arch }}
-          version: 1.0
-          execute_install_scripts: true
+        run: sudo apt-get install libasound2:${{ matrix.config.apt-arch }} libasound2-dev:${{ matrix.config.apt-arch }} libpulse-dev:${{ matrix.config.apt-arch }}
 
       - name: Install Audify Dependencies
         run: npm ci --ignore-scripts
