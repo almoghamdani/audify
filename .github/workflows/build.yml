@@ -97,3 +97,5 @@ jobs:
       - name: Build + Deploy Audify Prebuilt Binaries
         if: ${{ inputs.deploy }}
         run: npm run build-binaries -- -- -- --arch ${{ matrix.arch }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
