@@ -1,9 +1,8 @@
 name: Build Prebuilt Binaries
 
 on:
-  push:
-    tags:
-      - "v*"
+  release:
+    types: [published]
 
 jobs:
   deploy-build:

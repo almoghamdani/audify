@@ -94,8 +94,14 @@ jobs:
           name: audify-${{ github.sha }}-release-${{ matrix.os }}-${{ matrix.arch }}
           path: build/Release/
 
-      - name: Build + Deploy Audify Prebuilt Binaries
+      - name: Build + Deploy Audify Prebuilt Binaries (Node.js)
         if: ${{ inputs.deploy }}
-        run: npm run build-binaries -- -- -- --arch ${{ matrix.arch }}
+        run: npm run build-binaries-node -- -- --arch ${{ matrix.arch }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build + Deploy Audify Prebuilt Binaries (Electron)
+        if: ${{ inputs.deploy }}
+        run: npm run build-binaries-electron -- -- --arch ${{ matrix.arch }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
