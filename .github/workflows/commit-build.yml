@@ -1,0 +1,21 @@
+name: Commit Build
+
+on:
+  pull_request:
+  push:
+    branches:
+      - master
+    paths:
+      - "src/**"
+      - "vendor/**"
+      - ".gitmodules"
+      - "CMake**"
+      - "**.js"
+      - "**.ts"
+      - "package-lock.json"
+      - "tsconfig.json"
+      - "!docs/**"
+
+jobs:
+  commit-build:
+    uses: ./.github/workflows/build.yml
