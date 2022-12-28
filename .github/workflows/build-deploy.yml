@@ -82,7 +82,7 @@ jobs:
         run: npm ci --ignore-scripts
 
       - name: Build Audify
-        run: npm run rebuild -- --arch ${{ matrix.arch }}
+        run: npm run rebuild -- -G Ninja --arch ${{ matrix.arch }}
 
       # - name: Build Audify Prebuilt Binaries
       #   run: npm run build-binaries -- -- -- --arch ${{ matrix.arch }}
