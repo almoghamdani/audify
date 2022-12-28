@@ -1,6 +1,16 @@
 name: Commit Build
 
-on: [push]
+on:
+  push:
+    paths:
+      - "src/**"
+      - "vendor/**"
+      - ".gitmodules"
+      - "CMake**"
+      - "**.js"
+      - "**.ts"
+      - "package-lock.json"
+      - "tsconfig.json"
 
 jobs:
   commit-build:

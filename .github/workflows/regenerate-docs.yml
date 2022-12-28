@@ -1,0 +1,31 @@
+name: Re-Generate Docs
+
+on:
+  push:
+    paths:
+      - "README.md"
+      - "**.d.ts"
+
+jobs:
+  regenerate-docs:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check-Out Code
+        uses: actions/checkout@v3
+        with:
+          submodules: true
+
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: lts/*
+
+      - name: Re-Generate Docs
+        run: npm run docs
+
+      - name: Commit Docs
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: "chore: regenerate docs"
+          file_pattern: "docs/**/*"
