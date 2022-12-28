@@ -10,6 +10,9 @@
 class RtAudioWrap : public Napi::ObjectWrap<RtAudioWrap> {
  public:
   static Napi::Object Init(Napi::Env env, Napi::Object exports);
+  static void Destroy();
+
+ public:
   RtAudioWrap(const Napi::CallbackInfo& info);
   ~RtAudioWrap();
 

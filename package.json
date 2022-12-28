@@ -29,6 +29,7 @@
 		"encode",
 		"decode",
 		"opus",
+		"rtaudio",
 		"alsa",
 		"jack",
 		"pulseaudio",

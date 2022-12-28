@@ -8,6 +8,9 @@
 class OpusEncoderWrap : public Napi::ObjectWrap<OpusEncoderWrap> {
  public:
   static Napi::Object Init(Napi::Env env, Napi::Object exports);
+  static void Destroy();
+
+ public:
   OpusEncoderWrap(const Napi::CallbackInfo &info);
   ~OpusEncoderWrap();
 

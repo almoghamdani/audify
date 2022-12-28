@@ -18,6 +18,10 @@ Napi::Object OpusEncoderWrap::Init(Napi::Env env, Napi::Object exports) {
   return exports;
 }
 
+void OpusEncoderWrap::Destroy() {
+  constructor.Reset();
+}
+
 OpusEncoderWrap::OpusEncoderWrap(const Napi::CallbackInfo &info)
     : Napi::ObjectWrap<OpusEncoderWrap>(info),
       _opusEncoder(nullptr),

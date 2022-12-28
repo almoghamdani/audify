@@ -16,6 +16,10 @@ Napi::Object OpusDecoderWrap::Init(Napi::Env env, Napi::Object exports) {
   return exports;
 }
 
+void OpusDecoderWrap::Destroy() {
+  constructor.Reset();
+}
+
 OpusDecoderWrap::OpusDecoderWrap(const Napi::CallbackInfo &info)
     : Napi::ObjectWrap<OpusDecoderWrap>(info),
       _opusDecoder(nullptr),

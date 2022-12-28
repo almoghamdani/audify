@@ -114,6 +114,15 @@ Napi::Object RtAudioWrap::Init(Napi::Env env, Napi::Object exports) {
   return exports;
 }
 
+void RtAudioWrap::Destroy() {
+  constructor.Reset();
+
+  if (errorTsfn != nullptr) {
+    errorTsfn.Release();
+    errorTsfn = nullptr;
+  }
+}
+
 RtAudioWrap::RtAudioWrap(const Napi::CallbackInfo &info)
     : Napi::ObjectWrap<RtAudioWrap>(info),
       _frameSize(0),
@@ -281,7 +290,7 @@ Napi::Value RtAudioWrap::openStream(const Napi::CallbackInfo &info) {
   // If the frame output callback isn't null and the output info isn't null
   if (!frameOutputCallback.IsEmpty() && !info[0].IsNull() &&
       !info[0].IsUndefined()) {
-    // Save the input callback as a thread safe function
+    // Save the output callback as a thread safe function
     _frameOutputTsfn = Napi::ThreadSafeFunction::New(
         info.Env(), frameOutputCallback, "frameOutputCallback", 0, 1,
         [this](Napi::Env) {});
@@ -505,7 +514,7 @@ void RtAudioWrap::setFrameOutputCallback(const Napi::CallbackInfo &info) {
 
   // If the frame output callback isn't null
   if (!frameOutputCallback.IsEmpty()) {
-    // Save the input callback as a thread safe function
+    // Save the output callback as a thread safe function
     _frameOutputTsfn = Napi::ThreadSafeFunction::New(
         info.Env(), frameOutputCallback, "frameOutputCallback", 0, 1,
         [this](Napi::Env) {});

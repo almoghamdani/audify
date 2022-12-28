@@ -6,6 +6,9 @@
 class OpusDecoderWrap : public Napi::ObjectWrap<OpusDecoderWrap> {
  public:
   static Napi::Object Init(Napi::Env env, Napi::Object exports);
+  static void Destroy();
+
+ public:
   OpusDecoderWrap(const Napi::CallbackInfo &info);
   ~OpusDecoderWrap();
 
