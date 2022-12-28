@@ -1,0 +1,20 @@
+name: Build
+
+on: [push]
+
+jobs:
+  build:
+    uses: ./.github/workflows/setup-build-environment.yml
+
+    steps:
+      - name: Build Audify
+        run: npm run rebuild -- --arch ${{ matrix.arch }}
+
+      - name: Upload Audify Binaries
+        uses: actions/upload-artifact@v3
+        with:
+          name: audify-${{ github.sha }}-release-${{ matrix.os }}-${{ matrix.arch }}
+          path: build/Release/
+
+      # - name: Build Audify Prebuilt Binaries
+      #   run: npm run build-binaries -- -- -- --arch ${{ matrix.arch }}
