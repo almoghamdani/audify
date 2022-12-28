@@ -15,23 +15,21 @@ jobs:
 
     strategy:
       matrix:
-        # os: [windows-latest, ubuntu-latest, macos-latest]
-        # arch: [x64, ia32, arm64, arm]
-        os: [ubuntu-latest]
-        arch: [x64]
+        os: [windows-latest, ubuntu-latest, macos-latest]
+        arch: [x64, ia32, arm64, arm]
         include:
           - os: ubuntu-latest
             arch: x64
             apt-arch: amd64
-          # - os: ubuntu-latest
-          #   arch: arm64
-          #   apt-arch: arm64
-          #   toolchain-arch: aarch64
-          # - os: ubuntu-latest
-          #   arch: arm
-          #   apt-arch: armhf
-          #   toolchain-arch: arm
-          #   gnu-name: gnueabihf
+          - os: ubuntu-latest
+            arch: arm64
+            apt-arch: arm64
+            toolchain-arch: aarch64
+          - os: ubuntu-latest
+            arch: arm
+            apt-arch: armhf
+            toolchain-arch: arm
+            gnu-name: gnueabihf
         exclude:
           - os: windows-latest
             arch: arm64
