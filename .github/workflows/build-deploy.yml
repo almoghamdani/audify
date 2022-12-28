@@ -8,9 +8,32 @@ jobs:
 
     strategy:
       matrix:
-        config:
-          - { name: "Windows (x64)", os: windows-latest, arch: "x64" }
-          - { name: "Windows (IA32)", os: windows-latest, arch: "ia32" }
+        os: [windows-latest, ubuntu-latest, macos-latest]
+        arch: [x64, ia32, arm64, arm]
+        include:
+          - os: ubuntu-latest
+            arch: x64
+            apt-arch: amd64
+          - os: ubuntu-latest
+            arch: arm64
+            apt-arch: arm64
+            toolchain-arch: aarch64
+          - os: ubuntu-latest
+            arch: arm
+            apt-arch: armhf
+            toolchain-arch: arm
+        exclude:
+          - os: windows-latest
+            arch: arm
+          - os: ubuntu-latest
+            arch: ia32
+          - os: macos-latest
+            arch: ia32
+          - os: macos-latest
+            arch: arm
+        # config:
+          # - { name: "Windows (x64)", os: windows-latest, arch: "x64" }
+          # - { name: "Windows (IA32)", os: windows-latest, arch: "ia32" }
           # - { name: "Ubuntu (x64)", os: ubuntu-latest, arch: "x64", apt-arch: "amd64" }
           # - { name: "Ubuntu (ARM64)", os: ubuntu-latest, arch: "arm64", toolchain-arch: "aarch64", apt-arch: "arm64" }
           # - { name: "macOS (x64)", os: macos-latest, arch: "x64" }
