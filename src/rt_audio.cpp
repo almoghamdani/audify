@@ -114,11 +114,12 @@ Napi::Object RtAudioWrap::Init(Napi::Env env, Napi::Object exports) {
   return exports;
 }
 
-void RtAudioWrap::destroy() {
+void RtAudioWrap::Destroy() {
   constructor.Reset();
+
   if (errorTsfn != nullptr) {
-	errorTsfn.Release();
-	errorTsfn = nullptr;
+	  errorTsfn.Release();
+	  errorTsfn = nullptr;
   }
 }
 
