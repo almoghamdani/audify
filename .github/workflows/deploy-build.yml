@@ -1,4 +1,4 @@
-name: Build
+name: Build Release's Prebuilt Binaries
 
 on:
   push:
