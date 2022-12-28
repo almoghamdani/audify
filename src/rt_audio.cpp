@@ -135,7 +135,17 @@ RtAudioWrap::RtAudioWrap(const Napi::CallbackInfo &info)
 
   try {
     // Init the RtAudio object with the wanted api
-    _rtAudio = std::make_shared<RtAudio>(api);
+    _rtAudio = std::make_shared<RtAudio>(
+      api, 
+      [](RtAudioErrorType type, const std::string &errorMsg) {
+        if (errorTsfn != nullptr) {
+          errorTsfn.NonBlockingCall(
+              [type, errorMsg](Napi::Env env, Napi::Function callback) {
+                callback.Call({Napi::Number::New(env, type),
+                                Napi::String::New(env, errorMsg)});
+              });
+        }
+      });
   } catch (std::exception &ex) {
     throw Napi::Error::New(info.Env(), ex.what());
   }
@@ -147,19 +157,9 @@ Napi::Value RtAudioWrap::getDevices(const Napi::CallbackInfo &info) {
   Napi::Array devicesArray;
   std::vector<RtAudio::DeviceInfo> devices;
 
-  // Determine the number of devices available
-  unsigned int deviceCount = _rtAudio->getDeviceCount();
-
-  // Scan through devices for various capabilities
-  RtAudio::DeviceInfo device;
-  for (unsigned int i = 0; i < deviceCount; i++) {
-    // Get the device's info
-    device = _rtAudio->getDeviceInfo(i);
-
-    // If the device is probed
-    if (device.probed) {
-      devices.push_back(device);
-    }
+  const std::vector<unsigned int> deviceIds = _rtAudio->getDeviceIds();
+  for (const auto& deviceId : deviceIds) {
+    devices.push_back(_rtAudio->getDeviceInfo(deviceId));
   }
 
   // Allocate the devices array
@@ -260,16 +260,7 @@ Napi::Value RtAudioWrap::openStream(const Napi::CallbackInfo &info) {
     _rtAudio->openStream(
         info[0].IsNull() || info[0].IsUndefined() ? nullptr : &outputParams,
         info[1].IsNull() || info[1].IsUndefined() ? nullptr : &inputParams,
-        format, sampleRate, &frameSize, rt_callback, this, &options,
-        [](RtAudioError::Type type, const std::string &errorMsg) {
-          if (errorTsfn != nullptr) {
-            errorTsfn.NonBlockingCall(
-                [type, errorMsg](Napi::Env env, Napi::Function callback) {
-                  callback.Call({Napi::Number::New(env, type),
-                                 Napi::String::New(env, errorMsg)});
-                });
-          }
-        });
+        format, sampleRate, &frameSize, rt_callback, this, &options);
   } catch (std::exception &ex) {
     throw Napi::Error::New(info.Env(), ex.what());
   }
