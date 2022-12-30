@@ -1,5 +1,6 @@
-[![npm version](https://badge.fury.io/js/audify.svg)](https://badge.fury.io/js/audify)
-[![Build Status](https://travis-ci.com/almoghamdani/audify.svg?branch=master)](https://travis-ci.com/almoghamdani/audify)
+[![npm version](https://badge.fury.io/js/audify.svg)](https://www.npmjs.com/package/audify)
+[![Master Build Status](https://github.com/almoghamdani/audify/actions/workflows/commit-build.yml/badge.svg?branch=master)](https://github.com/almoghamdani/audify/actions/workflows/commit-build.yml)
+[![Prebuilt Build Status](https://github.com/almoghamdani/audify/actions/workflows/deploy-build.yml/badge.svg)](https://github.com/almoghamdani/audify/actions/workflows/deploy-build.yml)
 
 # Audify.js
 
