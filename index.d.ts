@@ -158,7 +158,7 @@ declare interface RtAudioDeviceInfo {
 
 /** The structure for specifying input or ouput stream parameters. */
 declare interface RtAudioStreamParameters {
-  /** Device index. */
+  /** Device ID. */
   deviceId?: number;
 
   /** Number of channels. */
@@ -333,12 +333,12 @@ export declare class RtAudio {
   getDevices(): Array<RtAudioDeviceInfo>;
 
   /**
-   * Returns the index of the default input device.
+   * Returns the ID of the default input device.
    */
   getDefaultInputDevice(): number;
 
   /**
-   * Returns the index of the default output device.
+   * Returns the ID of the default output device.
    */
   getDefaultOutputDevice(): number;
 
