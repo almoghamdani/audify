@@ -17,8 +17,14 @@ declare const enum RtAudioApi {
   /** Search for a working compiled API. */
   UNSPECIFIED,
 
+  /** Macintosh OS-X Core Audio API. */
+  MACOSX_CORE,
+
   /** The Advanced Linux Sound Architecture API. */
   LINUX_ALSA,
+
+  /** The Jack Low-Latency Audio Server API. */
+  UNIX_JACK,
 
   /** The Linux PulseAudio API. */
   LINUX_PULSE,
@@ -26,17 +32,11 @@ declare const enum RtAudioApi {
   /** The Linux Open Sound System API. */
   LINUX_OSS,
 
-  /** The Jack Low-Latency Audio Server API. */
-  UNIX_JACK,
-
-  /** Macintosh OS-X Core Audio API. */
-  MACOSX_CORE,
+  /** The Steinberg Audio Stream I/O API. */
+  WINDOWS_ASIO,
 
   /** The Microsoft WASAPI API. */
   WINDOWS_WASAPI,
-
-  /** The Steinberg Audio Stream I/O API. */
-  WINDOWS_ASIO,
 
   /** The Microsoft DirectSound API. */
   WINDOWS_DS,
