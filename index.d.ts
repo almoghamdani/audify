@@ -128,6 +128,9 @@ declare interface RtAudioDeviceInfo {
   /** Character string device identifier. */
   name: string;
 
+  /** Unique numeric device identifier. */
+  ID: number;
+
   /** Maximum output channels supported by device. */
   outputChannels: number;
 
