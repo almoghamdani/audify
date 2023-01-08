@@ -6,6 +6,7 @@ Napi::Value RtAudioConverter::ConvertDeviceInfo(Napi::Env env,
 
   // Set all properties in the object
   devInfo.Set("name", dev.name);
+  devInfo.Set("id", dev.ID);
   devInfo.Set("outputChannels", dev.outputChannels);
   devInfo.Set("inputChannels", dev.inputChannels);
   devInfo.Set("duplexChannels", dev.duplexChannels);
