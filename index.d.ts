@@ -159,7 +159,7 @@ declare interface RtAudioDeviceInfo {
 /** The structure for specifying input or ouput stream parameters. */
 declare interface RtAudioStreamParameters {
   /** Device ID. */
-  deviceId?: number;
+  deviceId: number;
 
   /** Number of channels. */
   nChannels: number;
