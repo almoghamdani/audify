@@ -85,7 +85,7 @@ jobs:
 
       - name: Build Audify
         if: ${{ !inputs.deploy }}
-        run: npm run rebuild -- --arch ${{ matrix.arch }}
+        run: npm run rebuild -- --arch ${{ matrix.arch }} --cc "${{ env.CC }}" --cxx "${{ env.CXX }}"
 
       - name: Upload Audify Binaries
         if: ${{ !inputs.deploy }}
