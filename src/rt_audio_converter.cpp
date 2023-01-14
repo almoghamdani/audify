@@ -47,7 +47,7 @@ RtAudio::StreamParameters RtAudioConverter::ConvertStreamParameters(
         // Legacy: Older users of RtAudio/Audify were required to input the device index and not the device's unique ID.
         // In RtAudio 6.0.0 a unique device id is now exposed in the list of devices and should be used instead.
         // The unique device id minimum value is 129, so we use it to differentiate between old and new users.
-        static const UINT MIN_UNIQUE_DEVICE_ID = 129;
+        static const uint32_t MIN_UNIQUE_DEVICE_ID = 129;
         if (params.deviceId < MIN_UNIQUE_DEVICE_ID)
         {
             const auto devices = rt_audio.getDeviceIds();
