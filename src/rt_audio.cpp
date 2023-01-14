@@ -659,7 +659,7 @@ void RtAudioWrap::checkRtAudio(const RtAudioErrorType error,
     std::stringstream ss;
 
     ss << "RtAudio Error: Code: ";
-    ss << static_cast<UINT32>(error);
+    ss << static_cast<uint32_t>(error);
     ss << ", Message: '";
     ss << _rtAudio->getErrorText();
     ss << "'";
