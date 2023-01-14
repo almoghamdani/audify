@@ -1,7 +1,7 @@
 #include "rt_audio.h"
 
 #include <cmath>
-#include <format>
+#include <sstream>
 
 #include "rt_audio_converter.h"
 
@@ -656,9 +656,13 @@ void RtAudioWrap::checkRtAudio(const RtAudioErrorType error,
         return;
     }
 
-    throw Napi::Error::New(env,
-                           std::format(
-                               "RtAudio Error: Code: {}, Message: '{}'",
-                               static_cast<UINT32>(error),
-                               _rtAudio->getErrorText()));
+    std::stringstream ss;
+
+    ss << "RtAudio Error: Code: ";
+    ss << static_cast<UINT32>(error);
+    ss << ", Message: '";
+    ss << _rtAudio->getErrorText();
+    ss << "'";
+
+    throw Napi::Error::New(env, ss.str());
 }
