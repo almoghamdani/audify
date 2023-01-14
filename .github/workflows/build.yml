@@ -96,12 +96,12 @@ jobs:
 
       - name: Build + Deploy Audify Prebuilt Binaries (Node.js)
         if: ${{ inputs.deploy }}
-        run: npm run build-binaries-node -- -- --arch ${{ matrix.arch }}
+        run: npm run build-binaries-node -- -- --arch ${{ matrix.arch }} --cc "${{ env.CC }}" --cxx "${{ env.CXX }}"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Build + Deploy Audify Prebuilt Binaries (Electron)
         if: ${{ inputs.deploy }}
-        run: npm run build-binaries-electron -- -- --arch ${{ matrix.arch }}
+        run: npm run build-binaries-electron -- -- --arch ${{ matrix.arch }} --cc "${{ env.CC }}" --cxx "${{ env.CXX }}"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

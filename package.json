@@ -6,7 +6,7 @@
 	"types": "index.d.ts",
 	"scripts": {
 		"docs": "typedoc index.d.ts --hideGenerator --name Audify.js",
-		"rebuild": "cmake-js compile --log-level silly",
+		"rebuild": "cmake-js compile",
 		"install": "prebuild-install || npm run rebuild",
 		"deploy": "np --yolo",
 		"build-binaries-node": "run-script-os",
