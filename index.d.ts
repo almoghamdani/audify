@@ -17,8 +17,14 @@ declare const enum RtAudioApi {
   /** Search for a working compiled API. */
   UNSPECIFIED,
 
+  /** Macintosh OS-X Core Audio API. */
+  MACOSX_CORE,
+
   /** The Advanced Linux Sound Architecture API. */
   LINUX_ALSA,
+
+  /** The Jack Low-Latency Audio Server API. */
+  UNIX_JACK,
 
   /** The Linux PulseAudio API. */
   LINUX_PULSE,
@@ -26,17 +32,11 @@ declare const enum RtAudioApi {
   /** The Linux Open Sound System API. */
   LINUX_OSS,
 
-  /** The Jack Low-Latency Audio Server API. */
-  UNIX_JACK,
-
-  /** Macintosh OS-X Core Audio API. */
-  MACOSX_CORE,
+  /** The Steinberg Audio Stream I/O API. */
+  WINDOWS_ASIO,
 
   /** The Microsoft WASAPI API. */
   WINDOWS_WASAPI,
-
-  /** The Steinberg Audio Stream I/O API. */
-  WINDOWS_ASIO,
 
   /** The Microsoft DirectSound API. */
   WINDOWS_DS,
@@ -125,6 +125,9 @@ declare const enum RtAudioErrorType {
 
 /** The public device information structure for returning queried values. */
 declare interface RtAudioDeviceInfo {
+  /** Unique numeric device identifier. */
+  id: number;
+
   /** Character string device identifier. */
   name: string;
 
@@ -155,7 +158,11 @@ declare interface RtAudioDeviceInfo {
 
 /** The structure for specifying input or ouput stream parameters. */
 declare interface RtAudioStreamParameters {
-  /** Device index. */
+  /**
+   * Device id. Can be obtained using `getDefaultInputDevice`/`getDefaultOutputDevice` or using `getDevices` from the field `id`.
+   *
+   * NOTE: For legacy reasons, this field also accepts the index of the device in the array that is returned from `getDevices`. Please avoid using it.
+   */
   deviceId?: number;
 
   /** Number of channels. */
@@ -330,12 +337,12 @@ export declare class RtAudio {
   getDevices(): Array<RtAudioDeviceInfo>;
 
   /**
-   * Returns the index of the default input device.
+   * Returns the id of the default input device.
    */
   getDefaultInputDevice(): number;
 
   /**
-   * Returns the index of the default output device.
+   * Returns the id of the default output device.
    */
   getDefaultOutputDevice(): number;
 

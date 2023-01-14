@@ -52,8 +52,8 @@ set(RTAUDIO_BUILD_TESTING OFF)
 add_subdirectory(vendor/rtaudio rtaudio)
 include_directories(vendor/rtaudio)
 
-# Set C++17 standard
-set (CMAKE_CXX_STANDARD 17)
+# Set C++20 standard
+set (CMAKE_CXX_STANDARD 20)
 
 # Get all the cpp files for audify
 file(GLOB_RECURSE SOURCES "src/*.cpp" "src/*.h")
