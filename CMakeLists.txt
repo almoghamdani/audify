@@ -1,4 +1,8 @@
 cmake_minimum_required(VERSION 3.1)
+
+# We force clang to generate code that should be compatible with macOS 10.7+
+set(CMAKE_OSX_DEPLOYMENT_TARGET "10.7" CACHE STRING "Minimum OS X deployment version")
+
 project(audify)
 
 IF (WIN32)
