@@ -5,6 +5,10 @@ set(CMAKE_OSX_DEPLOYMENT_TARGET "10.9" CACHE STRING "Minimum OS X deployment ver
 
 project(audify)
 
+IF(DEFINED napi_build_version)
+    add_definitions(-DNAPI_VERSION=${napi_build_version})
+ENDIF()
+
 IF (WIN32)
     # Change runtime library to MD
     set(CMAKE_CXX_FLAGS_RELEASE "/MD")
@@ -83,3 +87,8 @@ target_include_directories(${PROJECT_NAME} PRIVATE ${NODE_ADDON_API_DIR})
 
 # Compile the library
 target_link_libraries(${PROJECT_NAME} ${OPENSSL_LIBS} ${CMAKE_JS_LIB} opus rtaudio)
+
+IF (MSVC AND CMAKE_JS_NODELIB_DEF AND CMAKE_JS_NODELIB_TARGET)
+  # Generate node.lib
+  execute_process(COMMAND ${CMAKE_AR} /def:${CMAKE_JS_NODELIB_DEF} /out:${CMAKE_JS_NODELIB_TARGET} ${CMAKE_STATIC_LINKER_FLAGS})
+ENDIF ()
