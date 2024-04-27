@@ -79,7 +79,8 @@ jobs:
           echo FILE 2 START
           cat /etc/apt/apt-mirrors.txt
           echo FILE 2 END
-          sudo sed -i 's#http://azure.archive.ubuntu.com/ubuntu#[arch=${{ matrix.apt-arch }}] http://ports.ubuntu.com/ubuntu-ports#g' /etc/apt/apt-mirrors.txt
+          sudo sed -i 's#deb mirror+file#[arch=${{ matrix.apt-arch }}] deb mirror+file#g' /etc/apt/sources.list
+          sudo sed -i 's#http://azure.archive.ubuntu.com/ubuntu#http://ports.ubuntu.com/ubuntu-ports#g' /etc/apt/apt-mirrors.txt
           echo FILE 1 START
           cat /etc/apt/sources.list
           echo FILE 1 END
