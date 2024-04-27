@@ -10,7 +10,7 @@
 		"install": "prebuild-install -r napi || npm run rebuild",
 		"deploy": "np --yolo",
 		"build-binaries": "run-script-os",
-		"build-binaries:win32": "prebuild --backend cmake-js --include-regex \"^.*\\.(node|dylib|dll|so(\\.[0-9])?)$\" -r napi --all --verbose -u $GITHUB_TOKEN",
+		"build-binaries:win32": "node --security-revert=CVE-2024-27980 ./node_modules/prebuild/bin.js --backend cmake-js --include-regex \"^.*\\.(node|dylib|dll|so(\\.[0-9])?)$\" -r napi --all --verbose",
 		"build-binaries:darwin:linux": "prebuild --backend cmake-js --include-regex \"^.*\\.(node|dylib|dll|so(\\.[0-9])?)$\" -r napi --all --verbose -u $GITHUB_TOKEN"
 	},
 	"repository": {
