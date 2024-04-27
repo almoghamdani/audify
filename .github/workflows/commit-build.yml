@@ -15,6 +15,7 @@ on:
       - "package-lock.json"
       - "tsconfig.json"
       - "!docs/**"
+      - ".github/workflows/*build.yml"
 
 jobs:
   commit-build:
