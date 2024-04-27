@@ -74,9 +74,7 @@ jobs:
         run: |
           sudo dpkg --add-architecture ${{ matrix.apt-arch }}
           sudo sed -i 's#http://azure.archive.ubuntu.com/ubuntu#[arch=${{ matrix.apt-arch }}] http://ports.ubuntu.com/ubuntu-ports#g' /etc/apt/apt-mirrors.txt
-          sudo sed -i -e 's/archive.ubuntu.com\|security.ubuntu.com/old-releases.ubuntu.com/g' /etc/apt/apt-mirrors.txt
-          cat /etc/apt/apt-mirrors.txt
-          sudo apt-get -oDebug::pkgAcquire::Worker=1 update -yq
+          sudo apt-get update -yq
 
       - name: Install External Dependencies
         if: runner.os == 'Linux'
