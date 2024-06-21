@@ -416,10 +416,10 @@ void RtAudioWrap::write(const Napi::CallbackInfo& info)
     std::unique_lock lk(_outputDataMutex, std::defer_lock);
 
     // Check for valid size of the pcm data
-    if (buf.Length() != _frameSize * _outputChannels * _sampleSize)
-    {
-        throw Napi::Error::New(info.Env(), "Invalid size of the PCM data!");
-    }
+    // if (buf.Length() != _frameSize * _outputChannels * _sampleSize)
+    // {
+    //     throw Napi::Error::New(info.Env(), "Invalid size of the PCM data!");
+    // }
 
     // Allocate buffer for the PCM data
     data = std::shared_ptr<int8_t>(

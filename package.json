@@ -1,5 +1,5 @@
 {
-	"name": "audify",
+	"name": "@szyrelle-tmQ/audify",
 	"version": "1.9.0",
 	"description": "Play/Stream/Record PCM audio data & Encode/Decode Opus to PCM audio data",
 	"main": "index.js",
