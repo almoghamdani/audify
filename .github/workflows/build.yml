@@ -74,14 +74,12 @@ jobs:
         run: |
           sudo dpkg --add-architecture ${{ matrix.apt-arch }}
           sudo sed -i 's#mirror+file#[arch=${{ matrix.apt-arch }}] mirror+file#g' /etc/apt/sources.list
-          sudo cat /etc/apt/apt-mirrors.txt
           sudo sed -i 's#http://azure.archive.ubuntu.com/ubuntu#http://ports.ubuntu.com/ubuntu-ports#g' /etc/apt/apt-mirrors.txt
-          sudo cat /etc/apt/apt-mirrors.txt
           sudo apt-get update -yq
 
       - name: Install External Dependencies
         if: runner.os == 'Linux'
-        run: sudo apt-get install libasound2t64:${{ matrix.apt-arch }} libasound2-dev:${{ matrix.apt-arch }} libpulse-dev:${{ matrix.apt-arch }}
+        run: sudo apt-get install libpulse-dev:${{ matrix.apt-arch }}
 
       - name: Install Audify Dependencies
         run: npm ci --ignore-scripts
