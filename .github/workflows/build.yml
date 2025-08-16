@@ -79,7 +79,9 @@ jobs:
 
       - name: Install External Dependencies
         if: runner.os == 'Linux'
-        run: sudo apt-get install libpulse-dev:${{ matrix.apt-arch }}
+        run: |
+          sudo apt-get install aptitude
+          sudo aptitude install libasound2t64:${{ matrix.apt-arch }} libasound2-dev:${{ matrix.apt-arch }} libpulse-dev:${{ matrix.apt-arch }}
 
       - name: Install Audify Dependencies
         run: npm ci --ignore-scripts
