@@ -50,18 +50,18 @@
 	"homepage": "https://github.com/almoghamdani/audify#readme",
 	"dependencies": {
 		"bindings": "^1.5.0",
-		"cmake-js": "^7.3.0",
-		"node-abi": "^3.62.0",
-		"node-addon-api": "^8.0.0",
-		"prebuild-install": "^7.1.2"
+		"cmake-js": "^7.3.1",
+		"node-abi": "^4.12.0",
+		"node-addon-api": "^8.5.0",
+		"prebuild-install": "^7.1.3"
 	},
 	"devDependencies": {
-		"@types/node": "^20.12.7",
-		"np": "^10.0.5",
-		"prebuild": "^13.0.0",
+		"@types/node": "^24.3.0",
+		"np": "^10.2.0",
+		"prebuild": "^13.0.1",
 		"run-script-os": "^1.1.6",
-		"typedoc": "^0.25.13",
-		"typescript": "^5.4.5"
+		"typedoc": "^0.28.10",
+		"typescript": "^5.9.2"
 	},
 	"binary": {
 		"napi_versions": [
@@ -69,7 +69,8 @@
 			6,
 			7,
 			8,
-			9
+			9,
+			10
 		]
 	}
 }
