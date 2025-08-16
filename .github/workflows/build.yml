@@ -20,16 +20,16 @@ jobs:
         include:
           - os: ubuntu-latest
             arch: x64
-            apt-arch: amd64
+            # apt-arch: amd64
           - os: ubuntu-latest
             arch: arm64
-            apt-arch: arm64
-            toolchain-arch: aarch64
+            # apt-arch: arm64
+            # toolchain-arch: aarch64
           - os: ubuntu-latest
             arch: arm
-            apt-arch: armhf
-            toolchain-arch: arm
-            gnu-name: gnueabihf
+            # apt-arch: armhf
+            # toolchain-arch: arm
+            # gnu-name: gnueabihf
         exclude:
           - os: windows-latest
             arch: arm64
@@ -62,24 +62,24 @@ jobs:
         with:
           node-version: lts/*
 
-      - name: Install Cross-Build Toolchain
-        uses: awalsh128/cache-apt-pkgs-action@latest
-        if: ${{ runner.os == 'Linux' && matrix.arch != 'x64' }}
-        with:
-          packages: crossbuild-essential-${{ matrix.apt-arch }}
-          version: 1.0
+      # - name: Install Cross-Build Toolchain
+      #   uses: awalsh128/cache-apt-pkgs-action@latest
+      #   if: ${{ runner.os == 'Linux' && matrix.arch != 'x64' }}
+      #   with:
+      #     packages: crossbuild-essential-${{ matrix.apt-arch }}
+      #     version: 1.0
 
-      - name: Prepare Machine For Cross-Build
-        if: ${{ runner.os == 'Linux' && matrix.arch != 'x64' }}
-        run: |
-          sudo dpkg --add-architecture ${{ matrix.apt-arch }}
-          sudo sed -i 's#mirror+file#[arch=${{ matrix.apt-arch }}] mirror+file#g' /etc/apt/sources.list
-          sudo sed -i 's#http://azure.archive.ubuntu.com/ubuntu#http://ports.ubuntu.com/ubuntu-ports#g' /etc/apt/apt-mirrors.txt
-          sudo apt-get update -yq
+      # - name: Prepare Machine For Cross-Build
+      #   if: ${{ runner.os == 'Linux' && matrix.arch != 'x64' }}
+      #   run: |
+      #     sudo dpkg --add-architecture ${{ matrix.apt-arch }}
+      #     sudo sed -i 's#mirror+file#[arch=${{ matrix.apt-arch }}] mirror+file#g' /etc/apt/sources.list
+      #     sudo sed -i 's#http://azure.archive.ubuntu.com/ubuntu#http://ports.ubuntu.com/ubuntu-ports#g' /etc/apt/apt-mirrors.txt
+      #     sudo apt-get update -yq
 
       - name: Install External Dependencies
         if: runner.os == 'Linux'
-        run: sudo apt-get install libasound2t64:${{ matrix.apt-arch }} libasound2-dev:${{ matrix.apt-arch }} libpulse-dev:${{ matrix.apt-arch }}
+        run: sudo apt-get install libasound2t64 libasound2-dev libpulse-dev
 
       - name: Install Audify Dependencies
         run: npm ci --ignore-scripts
